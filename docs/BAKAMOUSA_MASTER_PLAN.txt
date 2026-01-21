@@ -1,0 +1,139 @@
+BAKAMO USA — MASTER PLAN
+Date: 2026-01-21
+
+STATUS UPDATE (2026-01-21)
+- DNS: Added A record for `bakamousa.bakamosocial.com` and A/AAAA for `bakamousa.com` (points to 52.16.104.211 / 2a05:d018:432:1f00:5c6c:357a:ea64:17f4). ✅
+- CAA: Added `0 issue "letsencrypt.org"`. ✅
+- Subdomain: Kept `bakamousa.bakamosocial.com` active for validation & redirect testing (do not delete yet). ✅
+
+NEXT STEPS (Immediate)
+- Generate Nginx vhost files and Certbot script for `bakamousa.com` + redirect from `bakamousa.bakamosocial.com`. Then run on Lightsail to obtain certs and enable HTTPS. (Script added: `scripts/setup_nginx_certbot_bakamousa.sh`)
+- Configure Next.js environment variables (`NEXT_PUBLIC_SITE_URL=https://bakamousa.com`, `WORDPRESS_BASE_URL=https://bakamosocial.com`, `WP_PREVIEW_SECRET`, optional basic auth creds) and deploy/restart.
+
+INSTRUCTIONS TO RUN (on Lightsail)
+1. Copy the repository to the server or upload the script: `scp scripts/setup_nginx_certbot_bakamousa.sh user@52.16.104.211:~` (or use the Access console provided by Lightsail).
+2. Make it executable and run with sudo: `sudo bash setup_nginx_certbot_bakamousa.sh bakamousa.com bakamousa.bakamosocial.com`
+3. After script finishes, build & start Next.js (example using pm2):
+   - `npm ci` then `npm run build`
+   - `npm i -g pm2`
+   - `pm2 start npm --name bakamousa -- start`
+   - `pm2 save` and `pm2 startup`
+4. Verify HTTPS and preview flow as documented in `docs/preview.md`.
+
+If you want, I can SSH into the server to run these (you must provide access), or you can run the script and paste any errors back here so I can help troubleshoot.
+
+
+
+OBJECTIVE
+- Launch BakamoUSA.com as a headless content site served by a Next.js frontend on subdomain bakamousa.bakamosocial.com, sourcing content from the primary WordPress instance at bakamosocial.com.
+
+SCOPE
+- WordPress (Lightsail) setup, content model (Gutenberg + Posts + ACF), REST API + Application Passwords.
+- Next.js integration: fetching, sanitization, preview mode, templates, styling (Tailwind + prose).
+- Deployment options: Vercel (recommended) or Lightsail (PM2 + Nginx reverse-proxy).
+- Static host-based routing: bakamosocial.com (WP) and bakamousa.bakamosocial.com (Next.js).
+
+PRINCIPLES
+- Prefer Posts + ACF for blog-like content and Pages for marketing; Gutenberg as editor.
+- Keep content public where possible; use Application Passwords only for preview/draft access.
+- Prioritize secure defaults (HTTPS, Preview secrets, least-privilege app passwords).
+
+MILESTONES (HIGH LEVEL)
+1. Provision infrastructure (Lightsail instance + static IP + DNS). (Owner: Ops)
+2. Install WP, choose theme, add ACF, configure posts & pages. (Owner: Content)
+3. Configure REST API & Application Password(s). (Owner: Ops/Dev)
+4. Wire Next.js: env, pages fallback, featured-image, sanitizer, preview route. (Owner: Dev)
+5. Design templates & styles; iterate with content. (Owner: Design/Dev)
+6. Deploy Next.js (Vercel recommended). Configure Nginx & SSL if hosting on Lightsail. (Owner: Ops)
+7. Testing & verification: content, previews, SSL, performance, accessibility. (Owner: QA)
+8. Launch & monitor. (Owner: Ops)
+
+DETAILED TASKS & CHECKLISTS
+A. Lightsail & DNS
+- Create instance (Amazon Lightsail), assign static IP.
+- Add DNS A record: bakamosocial.com -> static IP; add A record: bakamousa.bakamosocial.com -> same static IP.
+- Open ports 80/443.
+- Install WordPress (Lightsail image or manual LAMP stack) and basic theme; install ACF if chosen.
+- SSL: Use Certbot/Let's Encrypt or Lightsail certificate.
+
+B. Content Model
+- Decide fields in ACF for Posts (hero image, summary, author, reading time, CTA).
+- Use Posts for news/blog content; use Pages for marketing pages edited with Gutenberg.
+
+C. REST API & Auth
+- Verify endpoints:
+  - GET /wp-json/wp/v2/posts
+  - GET /wp-json/wp/v2/pages
+- Create Application Password in WP Admin for preview user (copy immediately).
+- Add optional Basic Auth env vars on Next.js: WORDPRESS_BASIC_AUTH_USER / WORDPRESS_BASIC_AUTH_PASS
+
+D. Next.js Integration (DEV)
+- Set in .env.local:
+  - WORDPRESS_BASE_URL=https://bakamosocial.com
+  - WP_PREVIEW_SECRET=<long-secret>
+  - OPTIONAL: WORDPRESS_BASIC_AUTH_USER / PASS
+- Use existing helpers:
+  - pages fallback when posts empty
+  - getFeaturedImageUrl() to fetch featured media
+  - sanitizeWpHtml() (adjust allowed tags for Gutenberg/Elementor output)
+- Implement Preview Mode:
+  - /api/preview?secret=<secret>&slug=<slug>
+  - /api/exit-preview
+- Add preview banner when Preview Mode active.
+
+E. Templates & Styling
+- Modify /src/app/blog/page.tsx and /src/app/blog/[slug]/page.tsx to display:
+  - Featured image
+  - Author (fetch via WP users endpoint if needed)
+  - Published date
+  - Meta (reading time, tags)
+- Use Tailwind + @tailwindcss/typography for `prose` content.
+
+F. Subdomain routing (Static host-based)
+- Nginx server blocks:
+  - bakamosocial.com -> serve WP (Apache or Nginx root)
+  - bakamousa.bakamosocial.com -> proxy_pass to http://127.0.0.1:3000 (Next.js)
+- Certbot: issue certs for both hostnames: certbot --nginx -d bakamosocial.com -d www.bakamosocial.com -d bakamousa.bakamosocial.com
+
+G. Deployment Options
+- Option A: Vercel (recommended)
+  - Connect repository, set environment variables in Vercel, add subdomain CNAME to Vercel.
+- Option B: Lightsail
+  - Build: npm run build
+  - Run: pm2 start npm --name bakamousa -- start
+  - Nginx proxy and use Certbot for SSL
+
+H. Testing & Acceptance Criteria
+- Public posts/pages fetch successfully with GET requests.
+- Preview flow works for draft content using WP_PREVIEW_SECRET and Application Passwords.
+- Featured images and content render correctly and are sanitized safely.
+- HTTPS is active on both hostnames; certbot auto-renewal confirmed.
+- Performance: First Contentful Paint < 2s on representative page (production)
+
+ROLLBACK & MONITORING
+- Keep rollback plan: revert DNS/CNAME if needed, revert Next.js deployment in Vercel (previous deploy), or pm2 restart older version.
+- Monitor: uptime, error logs (Nginx, Node, WP), Google Lighthouse snapshots.
+
+TIMELINE (example)
+- Day 0-1: Create Lightsail instance, DNS, WP install, SSL
+- Day 2-4: Configure content model and add sample content
+- Day 4-7: Implement Next.js templates, preview mode, and local validation
+- Day 8: Deploy (Vercel recommended), test production preview, finalize styles
+
+DOCUMENTS & FILES CREATED
+- .env.local.example (updated)
+- src/pages/api/preview.ts and exit-preview.ts (added)
+- docs/preview.md (added)
+- src/lib/wordpress.ts (enhanced: pages fallback, media helper, sanitizer)
+- docs/BAKAMOUSA_MASTER_PLAN.txt (this file)
+
+NEXT ACTION (pick one)
+- I can generate: (A) Nginx configuration files + install/Certbot shell script, or (B) ACF field schema + example WP export, or (C) create the preview banner + admin preview button.
+
+CONTACT & OWNERSHIP
+- Dev: Implement Next.js changes, templates, and preview
+- Ops: Provision Lightsail, DNS, Nginx, SSL, and deployment orchestration
+- Content: Create/structure posts, pages, and ACF fields
+
+---
+Keep this document updated as tasks complete. Add timestamps and owners to each checklist item for auditability and tracking.
