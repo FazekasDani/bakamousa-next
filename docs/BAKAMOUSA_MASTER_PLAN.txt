@@ -21,7 +21,13 @@ NOTE: Completed steps above represent the current state; remaining operational i
 
 NEXT STEPS (Immediate)
 - Generate Nginx vhost files and Certbot script for `bakamousa.com` + redirect from `bakamousa.bakamosocial.com`. Then run on Lightsail to obtain certs and enable HTTPS. (Script added: `scripts/setup_nginx_certbot_bakamousa.sh`)
-- Configure Next.js environment variables (`NEXT_PUBLIC_SITE_URL=https://bakamousa.com`, `WORDPRESS_BASE_URL=https://bakamosocial.com`, `WP_PREVIEW_SECRET`, optional basic auth creds) and deploy/restart.
+- Configure Next.js environment variables:
+  - `NEXT_PUBLIC_SITE_URL=https://bakamousa.com`
+  - `WORDPRESS_BASE_URL=https://bakamosocial.com`
+  - `WP_PREVIEW_SECRET=<long-secret>`
+  - Optional: `WORDPRESS_BASIC_AUTH_USER` & `WORDPRESS_BASIC_AUTH_PASS` (for previewing drafts)
+  - Optional: `WORDPRESS_POST_CATEGORY_ID=<id>` — set this after creating the `Bakamo USA` category in WordPress to surface only brand-specific posts.
+  - Deploy / restart.
 
 INSTRUCTIONS TO RUN (on Lightsail)
 1. Copy the repository to the server or upload the script: `scp scripts/setup_nginx_certbot_bakamousa.sh user@52.16.104.211:~` (or use the Access console provided by Lightsail).
@@ -77,8 +83,29 @@ C. REST API & Auth
 - Verify endpoints:
   - GET /wp-json/wp/v2/posts
   - GET /wp-json/wp/v2/pages
+
 - Create Application Password in WP Admin for preview user (copy immediately).
-- Add optional Basic Auth env vars on Next.js: WORDPRESS_BASIC_AUTH_USER / WORDPRESS_BASIC_AUTH_PASS
+  - WP Admin: Users → Profile → Application Passwords → Add New (name: "BakamoUSA Preview"); copy the value immediately.
+  - WP-CLI (alternative): `wp user application-password create <user> "BakamoUSA Preview" --porcelain` (returns token).
+  - Ensure the preview user has the minimum role required to read drafts (Editor/Author depending on how drafts are managed).
+  - Add optional Basic Auth env vars on Next.js: `WORDPRESS_BASIC_AUTH_USER` / `WORDPRESS_BASIC_AUTH_PASS` (use Application Password as pass).
+
+- Brand-specific content & category filter (Bakamo USA)
+  - Purpose: Keep Bakamo USA content scoped and avoid surfacing unrelated posts from the primary site.
+  - Create a WP category for Bakamo USA (recommended: Name=`Bakamo USA`, Slug=`bakamousa`).
+    - WP Admin: Posts → Categories → Add New (Name: Bakamo USA, Slug: bakamousa). Note the category ID from the edit URL or use the REST API to inspect.
+    - WP-CLI: `wp term create category 'Bakamo USA' --slug=bakamousa` (returns term id).
+    - REST API (authenticated):
+      ```bash
+      curl -X POST 'https://bakamosocial.com/wp-json/wp/v2/categories' \
+        -H "Authorization: Basic $(echo -n 'user:APP_PASSWORD' | base64)" \
+        -d 'name=Bakamo USA&slug=bakamousa&description=Posts for Bakamo USA'
+      ```
+      - Find the category ID: `curl 'https://bakamosocial.com/wp-json/wp/v2/categories?slug=bakamousa' | jq '.[0].id'`
+  - Set `WORDPRESS_POST_CATEGORY_ID=<id>` in `.env.local` (for local dev) and in your production environment (Vercel/hosted env).
+  - When set, the Next.js frontend will request `/wp-json/wp/v2/posts?categories=<id>` to surface only Bakamo USA posts.
+  - Editorial guideline: When creating content for Bakamo USA, select the `Bakamo USA` category. Optionally add a `bakamousa` tag for cross-site filtering or future features.
+
 
 D. Next.js Integration (DEV)
 - Set in .env.local:
