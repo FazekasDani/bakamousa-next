@@ -1,10 +1,23 @@
+
 BAKAMO USA — MASTER PLAN
 Date: 2026-01-21
 
-STATUS UPDATE (2026-01-21)
-- DNS: Added A record for `bakamousa.bakamosocial.com` and A/AAAA for `bakamousa.com` (points to 52.16.104.211 / 2a05:d018:432:1f00:5c6c:357a:ea64:17f4). ✅
-- CAA: Added `0 issue "letsencrypt.org"`. ✅
-- Subdomain: Kept `bakamousa.bakamosocial.com` active for validation & redirect testing (do not delete yet). ✅
+STATUS UPDATE (2026-01-22)
+- DNS: A record for `bakamousa.bakamosocial.com` and A/AAAA for `bakamousa.com` were previously configured (Lightsail). Cutover DNS changes were applied to point `bakamousa.com` to Vercel during deployment. ✅
+- CAA: `0 issue "letsencrypt.org"` remains configured. ✅
+- Repository: GitHub repo created at https://github.com/FazekasDani/bakamousa-next and local project pushed to remote. ✅
+- CI: Basic GitHub Actions workflow added at `.github/workflows/ci.yml` to run build/lint on pushes/PRs. ✅
+- Infra scripts: `scripts/setup_nginx_certbot_bakamousa.sh` and `infra/nginx/bakamousa.conf.template` added for quick Nginx + Certbot setup. ✅
+- Remote safety: The original `origin/main` was backed up to `backup-remote-main` before force-push; local `main` was pushed with `--force-with-lease` to ensure repo state is as intended. ✅
+- Subdomain: Keeping `bakamousa.bakamosocial.com` active for cert validation and redirect testing (do not delete yet). ✅
+- Vercel: Project imported and initial deployment created (`bakamousa-next` project). Vercel domain added and the site is serving via Vercel (TLS provisioned by Vercel). ✅
+- Preview & API: Next.js preview API routes were added (`src/pages/api/preview.ts`, `src/pages/api/exit-preview.ts`) and preview documentation added (`docs/preview.md`). ✅
+- Cutover docs: `docs/CUTOVER_TO_VERCEL.md` was added with cutover and rollback instructions; committed to `main`. ✅
+
+NOTE: Completed steps above represent the current state; remaining operational items are captured in NEXT STEPS below.
+
+- Vercel deployment: `bakamousa.com` has been cut over to Vercel (project created and initial deployment successful). DNS updated to point apex to Vercel and `www` to Vercel CNAME; TLS is served by Vercel. A concise cutover/rollback doc was added at `docs/CUTOVER_TO_VERCEL.md`. ✅
+
 
 NEXT STEPS (Immediate)
 - Generate Nginx vhost files and Certbot script for `bakamousa.com` + redirect from `bakamousa.bakamosocial.com`. Then run on Lightsail to obtain certs and enable HTTPS. (Script added: `scripts/setup_nginx_certbot_bakamousa.sh`)

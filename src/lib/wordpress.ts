@@ -108,10 +108,19 @@ export async function getLatestPosts(params?: {
   revalidateSeconds?: number;
 }): Promise<WpPost[]> {
   const perPage = params?.perPage ?? 6;
-  return wpFetch<WpPost[]>(
-    `/wp-json/wp/v2/posts?per_page=${perPage}&_fields=id,slug,date,title,excerpt,content,link`,
+  // Optionally filter posts to a specific WordPress category (useful to separate Bakamo USA content)
+  const categoryFilter = process.env.WORDPRESS_POST_CATEGORY_ID ? `&categories=${process.env.WORDPRESS_POST_CATEGORY_ID}` : "";
+
+  const results = await wpFetch<WpPost[]>(
+    `/wp-json/wp/v2/posts?per_page=${perPage}${categoryFilter}&_fields=id,slug,date,title,excerpt,content,link`,
     { revalidateSeconds: params?.revalidateSeconds },
   );
+
+  // Some WP instances (private posts / permission plugins) may return empty
+  // placeholder objects. Filter out any items that don't include a usable title
+  // or id so the frontend can correctly fall back to pages when no public
+  // posts are available.
+  return results.filter((p) => Boolean(p && (p as any).id && p.title && p.title.rendered));
 }
 
 export async function getPostBySlug(

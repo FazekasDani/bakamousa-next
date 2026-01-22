@@ -33,6 +33,9 @@ export default function RootLayout({
               Bakamo USA
             </a>
             <nav className="flex items-center gap-5 text-sm text-zinc-700 dark:text-zinc-300">
+              <a href="/about" className="hover:text-black dark:hover:text-white">
+                About
+              </a>
               <a href="/blog" className="hover:text-black dark:hover:text-white">
                 Blog
               </a>
