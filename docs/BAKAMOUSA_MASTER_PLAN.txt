@@ -177,3 +177,11 @@ CONTACT & OWNERSHIP
 
 ---
 Keep this document updated as tasks complete. Add timestamps and owners to each checklist item for auditability and tracking.
+
+
+
+SECURITY NOTE: Credentials have been removed from this document for security reasons. Store application passwords and tokens in a secrets manager or Vercel environment variables.
+- To enable the workflow: create WP Application Passwords (Users → Profile → Application Passwords) and store them in your secrets manager.
+- Create a Personal Token in Vercel (Account → Tokens) only if needed and store it in your secrets manager or a secure vault.
+- If any secrets were previously committed, rotate them immediately and consider scrubbing the repository history.
+
