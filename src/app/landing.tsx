@@ -2,15 +2,39 @@ import React from "react";
 
 export default function LandingPage() {
   return (
-    <main className="min-h-screen bg-white text-gray-900 font-sans">
+    <main className="min-h-screen bg-gradient-to-b from-slate-900 via-neutral-900 to-black text-white font-sans">
       {/* HERO SECTION */}
-      <section className="relative flex flex-col items-center justify-center py-20 px-4 bg-gradient-to-r from-blue-50 via-white to-gray-100">
-        {/* Visual: Split screen idea placeholder */}
-        <div className="absolute inset-0 flex">
-          <div className="w-1/2 bg-blue-100 opacity-30" />
-          <div className="w-1/2 bg-gray-200 opacity-30" />
+      <section
+        className="relative flex flex-col items-center justify-center py-28 px-4 bg-cover bg-center"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1400&q=80')" }}
+      >
+        {/* subtle starfield / vignette overlays */}
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black" />
+        <div className="relative z-10 flex flex-col items-center max-w-3xl text-center px-4">
+          {/* Neon heading */}
+          <div className="mb-6 flex items-center gap-4">
+            <img src="/bakamo-logo.png" alt="Bakamo Logo" className="h-10 opacity-90" />
+            <span className="text-2xl font-semibold tracking-wide text-white/90">X</span>
+            <img src="/sandra-baumann-logo.png" alt="Sandra Baumann Logo" className="h-10 opacity-90" />
+          </div>
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-purple-400" style={{ textShadow: '0 2px 20px rgba(99,102,241,0.35)' }}>
+            Measure Reality. Not Assumptions.
+          </h1>
+          <h2 className="text-xl md:text-2xl font-semibold mb-4 text-cyan-200/80">The Truth, Quantified.</h2>
+          <p className="max-w-2xl text-sm md:text-lg mb-6 text-white/80">
+            We’ve solved the biggest problem in traditional market research: the bias of the question itself.
+            Bakamo Social’s unfiltered intelligence and Sandra Baumann’s nationwide quantification combine to give you board-ready, reality-rooted insight.
+          </p>
+          <div className="flex gap-4">
+            <a href="#contact" className="inline-flex items-center justify-center rounded-lg px-6 py-3 font-bold text-black bg-gradient-to-r from-cyan-400 to-purple-500 shadow-lg transform hover:scale-105 transition" style={{ boxShadow: '0 8px 40px rgba(99,102,241,0.25)' }}>
+              De-Risk Your Next Study
+            </a>
+            <a href="#how-it-works" className="inline-flex items-center justify-center rounded-lg px-5 py-3 font-semibold ring-1 ring-white/10 text-white/90 hover:underline transition">
+              How It Works
+            </a>
+          </div>
         </div>
-        <div className="relative z-10 flex flex-col items-center">
           {/* Logos */}
           <div className="flex items-center mb-6">
             <img src="/bakamo-logo.png" alt="Bakamo Logo" className="h-12 mr-4" />
