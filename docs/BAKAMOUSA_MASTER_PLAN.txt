@@ -15,6 +15,8 @@ STATUS UPDATE (2026-01-22)
 - Cutover docs: `docs/CUTOVER_TO_VERCEL.md` was added with cutover and rollback instructions; committed to `main`. ✅
 - WP Category: Created `Bakamo USA` category (slug: `bakamousa`) on bakamosocial.com. Category ID: **17**. ✅
 - Vercel env: Added `WORDPRESS_POST_CATEGORY_ID=17` to the `bakamousa-next` project (applied to Production / Preview / Development). ✅
+- Deploy Hook: Created a Vercel deploy hook (name: **WP Publish Hook**, branch: `main`) for automated deployments when new content is published. The hook URL is stored securely in Vercel (do not paste it into public docs). ✅
+- Webhook setup (editor instructions): Install the **WP Webhooks** plugin (or similar) and configure a POST webhook to the Vercel deploy hook URL on the `post/publish` event, or add a small snippet to trigger `wp_remote_post()` on `publish_post`. This will trigger a site redeploy when content is published. ✅
 - Secrets: Removed application passwords and tokens from this document and committed the removal. **Rotate any exposed credentials immediately.** ✅
 - UI change: Landing page updated to a sci‑fi hero (neon headline, glowing CTA) and deployed to Vercel. ✅
 
