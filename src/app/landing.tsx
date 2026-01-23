@@ -35,23 +35,6 @@ export default function LandingPage() {
             </a>
           </div>
         </div>
-          {/* Logos */}
-          <div className="flex items-center mb-6">
-            <img src="/bakamo-logo.png" alt="Bakamo Logo" className="h-12 mr-4" />
-            <span className="text-3xl font-bold">X</span>
-            <img src="/sandra-baumann-logo.png" alt="Sandra Baumann Logo" className="h-12 ml-4" />
-          </div>
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-center">Measure Reality. Not Assumptions.</h1>
-          <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-center">The Truth, Quantified.</h2>
-          <p className="max-w-2xl text-lg md:text-xl mb-6 text-center">
-            We’ve solved the biggest problem in traditional market research: The bias of the question itself.<br />
-            Introducing the partnership between Bakamo Social’s unfiltered intelligence and renowned US quantitative researcher Sandra Baumann. We don't start with a hypothesis. We start with reality, and then we measure it with nationwide rigor.
-          </p>
-          <div className="flex gap-4">
-            <a href="#contact" className="bg-blue-700 text-white px-6 py-3 rounded-lg font-bold shadow hover:bg-blue-800 transition">De-Risk Your Next Study</a>
-            <a href="#how-it-works" className="text-blue-700 underline font-semibold px-4 py-3">How It Works</a>
-          </div>
-        </div>
       </section>
 
       {/* PROBLEM SECTION */}
