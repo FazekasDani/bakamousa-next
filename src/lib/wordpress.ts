@@ -111,32 +111,48 @@ export async function getLatestPosts(params?: {
   // Optionally filter posts to a specific WordPress category (useful to separate Bakamo USA content)
   const categoryFilter = process.env.WORDPRESS_POST_CATEGORY_ID ? `&categories=${process.env.WORDPRESS_POST_CATEGORY_ID}` : "";
 
-  const results = await wpFetch<WpPost[]>(
-    `/wp-json/wp/v2/posts?per_page=${perPage}${categoryFilter}&_fields=id,slug,date,title,excerpt,content,link`,
-    { revalidateSeconds: params?.revalidateSeconds },
-  );
+  try {
+    const results = await wpFetch<WpPost[]>(
+      `/wp-json/wp/v2/posts?per_page=${perPage}${categoryFilter}&_fields=id,slug,date,title,excerpt,content,link`,
+      { revalidateSeconds: params?.revalidateSeconds },
+    );
 
-  // Some WP instances (private posts / permission plugins) may return empty
-  // placeholder objects. Filter out any items that don't include a usable title
-  // or id so the frontend can correctly fall back to pages when no public
-  // posts are available.
-  return results.filter((p) => Boolean(p && (p as any).id && p.title && p.title.rendered));
+    // Some WP instances (private posts / permission plugins) may return empty
+    // placeholder objects. Filter out any items that don't include a usable title
+    // or id so the frontend can correctly fall back to pages when no public
+    // posts are available.
+    return results.filter((p) => Boolean(p && (p as any).id && p.title && p.title.rendered));
+  } catch (e) {
+    // Network error or WP down; return empty list so build doesn't fail.
+    console.error("getLatestPosts: WP fetch failed", e);
+    return [];
+  }
 }
 
 export async function getPostBySlug(
   slug: string,
   params?: { revalidateSeconds?: number },
 ): Promise<WpPost | null> {
-  const results = await wpFetch<WpPost[]>(
-    `/wp-json/wp/v2/posts?slug=${encodeURIComponent(slug)}&_fields=id,slug,date,title,excerpt,content,link,featured_media`,
-    { revalidateSeconds: params?.revalidateSeconds },
-  );
+  try {
+    const results = await wpFetch<WpPost[]>(
+      `/wp-json/wp/v2/posts?slug=${encodeURIComponent(slug)}&_fields=id,slug,date,title,excerpt,content,link,featured_media`,
+      { revalidateSeconds: params?.revalidateSeconds },
+    );
 
-  if (results[0]) return results[0];
+    if (results[0]) return results[0];
+  } catch (e) {
+    console.error("getPostBySlug: WP fetch failed", e);
+    // continue to try pages as fallback
+  }
 
   // Fallback: some sites (especially Elementor-based ones) use Pages for content.
-  const pageResults = await getPageBySlug(slug, params);
-  return pageResults;
+  try {
+    const pageResults = await getPageBySlug(slug, params);
+    return pageResults;
+  } catch (e) {
+    console.error("getPostBySlug: Page fallback failed", e);
+    return null;
+  }
 }
 
 export async function getLatestPages(params?: {
@@ -144,10 +160,15 @@ export async function getLatestPages(params?: {
   revalidateSeconds?: number;
 }): Promise<WpPost[]> {
   const perPage = params?.perPage ?? 6;
-  return wpFetch<WpPost[]>(
-    `/wp-json/wp/v2/pages?per_page=${perPage}&_fields=id,slug,date,title,excerpt,content,link,featured_media`,
-    { revalidateSeconds: params?.revalidateSeconds },
-  );
+  try {
+    return await wpFetch<WpPost[]>(
+      `/wp-json/wp/v2/pages?per_page=${perPage}&_fields=id,slug,date,title,excerpt,content,link,featured_media`,
+      { revalidateSeconds: params?.revalidateSeconds },
+    );
+  } catch (e) {
+    console.error("getLatestPages: WP fetch failed", e);
+    return [];
+  }
 }
 
 export async function getPageBySlug(
