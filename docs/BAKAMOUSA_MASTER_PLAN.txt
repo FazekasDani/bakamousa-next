@@ -13,8 +13,12 @@ STATUS UPDATE (2026-01-22)
 - Vercel: Project imported and initial deployment created (`bakamousa-next` project). Vercel domain added and the site is serving via Vercel (TLS provisioned by Vercel). ✅
 - Preview & API: Next.js preview API routes were added (`src/pages/api/preview.ts`, `src/pages/api/exit-preview.ts`) and preview documentation added (`docs/preview.md`). ✅
 - Cutover docs: `docs/CUTOVER_TO_VERCEL.md` was added with cutover and rollback instructions; committed to `main`. ✅
+- WP Category: Created `Bakamo USA` category (slug: `bakamousa`) on bakamosocial.com. Category ID: **17**. ✅
+- Vercel env: Added `WORDPRESS_POST_CATEGORY_ID=17` to the `bakamousa-next` project (applied to Production / Preview / Development). ✅
+- Secrets: Removed application passwords and tokens from this document and committed the removal. **Rotate any exposed credentials immediately.** ✅
+- UI change: Landing page updated to a sci‑fi hero (neon headline, glowing CTA) and deployed to Vercel. ✅
 
-NOTE: Completed steps above represent the current state; remaining operational items are captured in NEXT STEPS below.
+NOTE: Completed steps above represent the current state (updated 2026-01-23); remaining operational items are captured in NEXT STEPS below.
 
 - Vercel deployment: `bakamousa.com` has been cut over to Vercel (project created and initial deployment successful). DNS updated to point apex to Vercel and `www` to Vercel CNAME; TLS is served by Vercel. A concise cutover/rollback doc was added at `docs/CUTOVER_TO_VERCEL.md`. ✅
 
