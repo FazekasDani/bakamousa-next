@@ -33,14 +33,16 @@ export default async function BlogPostPage({ params }: Props) {
         >
           ← Blog
         </Link>
-        <a
-          href={post.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sm text-zinc-600 hover:text-black dark:text-zinc-400 dark:hover:text-white"
-        >
-          View on WordPress ↗
-        </a>
+        {post?.raw?.data?.link ? (
+          <a
+            href={post.raw.data.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-zinc-600 hover:text-black dark:text-zinc-400 dark:hover:text-white"
+          >
+            View on WordPress ↗
+          </a>
+        ) : null}
       </div>
 
       <article className="mt-8">
