@@ -9,8 +9,9 @@ export const metadata = {
 export default async function BlogIndexPage() {
   const gitOk = isGitContentConfigured();
   let posts: any[] = [];
-  const cookies = (await import('next/headers')).cookies;
-  const isPreview = Boolean(cookies().get('git-preview'));
+  const { cookies: cookiesFn } = await import('next/headers');
+  const cookiesStore = await cookiesFn();
+  const isPreview = Boolean(cookiesStore.get?.('git-preview')?.value);
   if (gitOk) {
     posts = getAllPosts({ perPage: 12, preview: isPreview });
   }
