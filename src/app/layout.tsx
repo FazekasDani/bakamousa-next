@@ -2,54 +2,34 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "Bakamo USA",
-  description: "Bakamo Web USA (headless WordPress frontend)",
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[color:var(--background)] text-[color:var(--foreground)]`}
-      >
-        <header className="sticky top-0 z-50 border-b border-black/10 bg-white/80 backdrop-blur dark:border-white/10 dark:bg-black/40">
-          <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-            <a href="/" className="text-sm font-semibold tracking-tight">
-              Bakamo USA
+      <body className={`antialiased bg-bakamo-dark text-foreground`}>
+        
+        {/* Floating Header */}
+        <header className="fixed top-4 left-0 right-0 z-50 mx-auto max-w-2xl">
+          <div className="mx-4 flex items-center justify-between rounded-full border border-white/10 bg-black/60 px-6 py-3 backdrop-blur-md shadow-2xl">
+            <a href="/" className="flex items-center gap-2 text-lg font-bold tracking-tighter text-white">
+              <span className="text-bakamo-cyan">BAKAMO</span>USA
             </a>
-            <nav className="flex items-center gap-5 text-sm text-zinc-700 dark:text-zinc-300">
-              <a href="/about" className="hover:text-black dark:hover:text-white">
-                About
-              </a>
-              <a href="/blog" className="hover:text-black dark:hover:text-white">
-                Blog
+            <nav className="flex items-center gap-6 text-sm font-medium text-zinc-400">
+              <a href="/about" className="hover:text-white transition-colors">About</a>
+              <a href="/blog" className="hover:text-white transition-colors">Insights</a>
+              <a href="#contact" className="hidden sm:block rounded-full bg-white/10 px-4 py-1.5 text-xs text-white hover:bg-white/20 transition-colors">
+                Contact
               </a>
             </nav>
           </div>
         </header>
 
-        {children}
+        {/* Content with padding to account for fixed header */}
+        <div className="pt-24">
+          {children}
+        </div>
 
-        <footer className="mt-16 border-t border-black/10 py-10 text-sm text-zinc-600 dark:border-white/10 dark:text-zinc-400">
-          <div className="mx-auto flex max-w-5xl flex-col gap-2 px-6">
-            <p>© {new Date().getFullYear()} Bakamo USA</p>
-            <p className="text-xs">Powered by WordPress + Next.js</p>
-          </div>
+        <footer className="mt-20 border-t border-white/10 bg-black/40 py-12 text-center text-sm text-zinc-600">
+          <p>© {new Date().getFullYear()} Bakamo USA. Measuring Reality.</p>
         </footer>
       </body>
     </html>
