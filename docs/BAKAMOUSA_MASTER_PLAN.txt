@@ -191,3 +191,16 @@ SECURITY NOTE: Credentials have been removed from this document for security rea
 - Create a Personal Token in Vercel (Account → Tokens) only if needed and store it in your secrets manager or a secure vault.
 - If any secrets were previously committed, rotate them immediately and consider scrubbing the repository history.
 
+PIVOT: Git-sourced content (optional)
+-----------------------------------
+The project can optionally pivot from sourcing content from WordPress to serving content authored and stored in Git. This approach simplifies hosting, avoids runtime WP dependencies, allows content to be edited in Git (or a headless CMS that writes to Git), and fits Vercel's static-generation workflow.
+
+High-level changes when pivoting to Git-sourced content:
+- Content format: Markdown files with YAML frontmatter (GFM accepted). Store under `content/posts/` and `content/pages/`.
+- Images: Place media in `public/media/` or store externally and reference absolute URLs in frontmatter.
+- Preview/drafts: Use a `draft: true` frontmatter flag and leverage Next.js preview mode with `WP_PREVIEW_SECRET` (reused as `PREVIEW_SECRET`) or a new `GIT_PREVIEW_SECRET`.
+- Build/runtime: Implement `src/lib/content.ts` to load Markdown at build time (`getStaticProps`/`generateStaticParams`) or fetch raw files from a remote Git repo at runtime and cache them.
+- Sync: Optionally add a `scripts/sync_content_from_git.sh` or a GitHub Action that updates the `content/` folder and triggers a Vercel redeploy via the existing deploy hook.
+
+See `docs/CONTENT_FROM_GIT.md` for a step-by-step migration and recommended file layouts, frontmatter schema, environment variables, and preview workflow.
+

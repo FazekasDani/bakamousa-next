@@ -4,7 +4,26 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const secret = req.query.secret as string | undefined;
   const slug = req.query.slug as string | undefined;
 
-  if (!secret || secret !== process.env.WP_PREVIEW_SECRET) {
+  if (!secret) {
+    return res.status(401).json({ message: 'Missing preview secret' });
+  }
+
+  // Support both WordPress preview secret (legacy) and GIT_PREVIEW_SECRET for Git-backed content
+  if (secret === process.env.GIT_PREVIEW_SECRET) {
+    if (!slug) {
+      return res.status(400).json({ message: 'Missing slug query param' });
+    }
+    // Enable Next.js Preview Mode and mark as git preview
+    res.setPreviewData({ source: 'git', slug }, { maxAge: 60 * 60 });
+    // also set a simple cookie so server components can detect git preview easily
+    res.setHeader('Set-Cookie', `git-preview=1; Path=/; HttpOnly; SameSite=Lax`);
+    const redirectUrl = `/blog/${encodeURIComponent(slug)}`;
+    res.writeHead(307, { Location: redirectUrl });
+    res.end();
+    return;
+  }
+
+  if (secret !== process.env.WP_PREVIEW_SECRET) {
     return res.status(401).json({ message: 'Invalid preview secret' });
   }
 

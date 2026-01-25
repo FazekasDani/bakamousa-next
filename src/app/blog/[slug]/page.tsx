@@ -1,24 +1,27 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getPostBySlug, getFeaturedImageUrl, isWpConfigured, sanitizeWpHtml } from "@/lib/wordpress";
+import { getPostBySlug, getFeaturedImageUrl, isGitContentConfigured } from "@/lib/content";
+import sanitizeHtml from "sanitize-html";
+import { cookies } from 'next/headers';
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
 export default async function BlogPostPage({ params }: Props) {
-  if (!isWpConfigured()) {
+  if (!isGitContentConfigured()) {
     notFound();
   }
 
   const { slug } = await params;
-  const post = await getPostBySlug(slug, { revalidateSeconds: 60 });
+  const isPreview = Boolean(cookies().get('git-preview'));
+  const post = await getPostBySlug(slug, { preview: isPreview });
 
   if (!post) {
     notFound();
   }
 
-  const featuredImage = await getFeaturedImageUrl(post);
+  const featuredImage = getFeaturedImageUrl(post);
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-12">
@@ -46,22 +49,16 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         ) : null}
 
-        <h1
-          className="text-3xl font-semibold tracking-tight"
-          dangerouslySetInnerHTML={{ __html: sanitizeWpHtml(post.title.rendered) }}
-        />
+        <h1 className="text-3xl font-semibold tracking-tight">{sanitizeHtml(String(post.title))}</h1>
         <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
-          {new Date(post.date).toLocaleDateString("en-US", {
+          {post.date ? new Date(post.date).toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",
             day: "numeric",
-          })}
+          }) : null}
         </p>
 
-        <div
-          className="prose prose-zinc mt-8 max-w-none dark:prose-invert"
-          dangerouslySetInnerHTML={{ __html: sanitizeWpHtml(post.content.rendered) }}
-        />
+        <div className="prose prose-zinc mt-8 max-w-none dark:prose-invert" dangerouslySetInnerHTML={{ __html: sanitizeHtml(String(post.content)) }} />
       </article>
     </main>
   );
