@@ -1,4 +1,5 @@
 import { GlassCard } from "@/components/GlassCard";
+import { ProcessVisualizer } from "@/components/ProcessVisualizer";
 
 export default function Home() {
   return (
@@ -108,40 +109,79 @@ export default function Home() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="how-it-works" className="bg-bakamo-panel/50 py-24">
+      <section id="how-it-works" className="bg-bakamo-panel/50 py-24 overflow-hidden">
         <div className="mx-auto max-w-6xl px-6">
           <div className="text-center mb-16">
             <p className="text-sm uppercase tracking-widest text-bakamo-cyan mb-4">How It Works</p>
             <h2 className="text-3xl md:text-5xl font-bold text-white">
-              A two-stage intelligence system
+              From Chaos to Clarity
             </h2>
-            <p className="text-zinc-400 mt-4">
-              Traditional research combines methods. We sequence them correctly.
+            <p className="text-zinc-400 mt-4 max-w-2xl mx-auto">
+              We don&apos;t force reality into a survey. We discover it first, then measure it with precision.
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2">
-            <GlassCard>
+          <div className="grid gap-8 lg:gap-12 lg:grid-cols-3 items-center">
+            
+            {/* Stage 1 Text */}
+            <GlassCard className="text-left relative z-10 lg:order-1">
+              <div className="mb-4 inline-flex items-center justify-center h-10 w-10 rounded-full bg-bakamo-cyan/20 text-bakamo-cyan font-bold">1</div>
               <h3 className="text-2xl font-bold text-white mb-2">THE RADAR</h3>
               <p className="text-bakamo-cyan font-medium mb-4">Unfiltered Reality</p>
-              <p className="text-zinc-400">
-                We capture natural conversations at scale. No surveys. No moderators. No framing.
+              <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+                We capture millions of organic conversations at scale. No surveys. No moderators. No framing biasing the results.
               </p>
-              <p className="text-bakamo-cyan font-semibold mt-4">
+              <ul className="space-y-2 text-sm text-zinc-300">
+                <li className="flex items-start gap-2">
+                  <span className="text-bakamo-cyan mt-0.5">→</span>
+                  <span>Ground-truth needs and tensions</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-bakamo-cyan mt-0.5">→</span>
+                  <span>Authentic consumer language</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-bakamo-cyan mt-0.5">→</span>
+                  <span>Unknown unknowns</span>
+                </li>
+              </ul>
+              <p className="text-bakamo-cyan font-semibold mt-4 text-sm">
                 Insights without asking.
               </p>
             </GlassCard>
 
-            <GlassCard>
+            {/* THE ANIMATION CENTERPIECE */}
+            <div className="lg:order-2 flex justify-center py-8 lg:py-0">
+              <ProcessVisualizer />
+            </div>
+
+            {/* Stage 2 Text */}
+            <GlassCard className="text-left relative z-10 lg:order-3">
+              <div className="mb-4 inline-flex items-center justify-center h-10 w-10 rounded-full bg-bakamo-indigo/20 text-bakamo-indigo font-bold">2</div>
               <h3 className="text-2xl font-bold text-white mb-2">THE ENGINE</h3>
               <p className="text-bakamo-indigo font-medium mb-4">Reality Measured</p>
-              <p className="text-zinc-400">
-                Once reality is established, we measure it with representative samples and statistical rigor.
+              <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+                Once reality is understood, we measure it. Quantitative instruments grounded in lived culture — not hypotheses.
               </p>
-              <p className="text-bakamo-indigo font-semibold mt-4">
+              <ul className="space-y-2 text-sm text-zinc-300">
+                <li className="flex items-start gap-2">
+                  <span className="text-bakamo-indigo mt-0.5">→</span>
+                  <span>Representative U.S. samples</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-bakamo-indigo mt-0.5">→</span>
+                  <span>Statistical rigor</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-bakamo-indigo mt-0.5">→</span>
+                  <span>Board-ready confidence</span>
+                </li>
+              </ul>
+              <p className="text-bakamo-indigo font-semibold mt-4 text-sm">
                 Reality, validated.
               </p>
             </GlassCard>
+
           </div>
         </div>
       </section>
