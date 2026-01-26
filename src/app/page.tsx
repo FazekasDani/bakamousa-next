@@ -22,9 +22,8 @@ export default function Home() {
         <div className="relative z-10 max-w-4xl space-y-8">
           {/* Logo placement indicator */}
           <div className="flex items-center justify-center gap-4 mb-6">
-            <span className="text-xl font-bold tracking-tight text-white">BAKAMO</span>
-            <span className="text-zinc-500">×</span>
-            <span className="text-xl font-medium tracking-tight text-zinc-300">Sandra Baumann</span>
+            <span className="text-xl font-bold tracking-tight text-white">BAKAMO USA</span>
+  
           </div>
 
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium text-bakamo-cyan backdrop-blur-sm">
@@ -36,7 +35,7 @@ export default function Home() {
           </div>
 
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-bakamo-cyan to-bakamo-indigo">Reality</span>,
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-bakamo-cyan to-bakamo-indigo">Reality </span>,
             <br />
             Measured.
           </h1>
@@ -76,14 +75,14 @@ export default function Home() {
 
         <div className="max-w-3xl mx-auto space-y-6 text-center">
           <p className="text-lg text-zinc-400 leading-relaxed">
-            Traditional quantitative research has a fatal flaw. It begins in a boardroom, defining what you want to learn. You write surveys based on internal assumptions, creating an echo chamber where consumers can only answer what you decide to ask.
+            Traditional research has a fatal flaw. It begins in ameeting room, defining what you want to learn. You write surveys based on internal assumptions, creating a framework where consumers can only answer what you decide to ask.
           </p>
           <p className="text-xl font-semibold text-white">
             You get statistically significant answers to culturally insignificant questions.
           </p>
           <div className="pt-4">
             <p className="text-bakamo-cyan font-medium text-lg">
-              We flipped the model. We don&apos;t ask. We listen first.
+              We flipped the model. We don&apos;t ask. We listen first. This is the New Standard.
             </p>
           </div>
         </div>
@@ -106,16 +105,16 @@ export default function Home() {
           </div>
 
           <div className="grid gap-8 md:grid-cols-2">
-            {/* Column 1: Bakamo Social */}
+            {/* Column 1: Listening */}
             <GlassCard>
               <div className="space-y-6">
                 <div>
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-bakamo-cyan/20 text-bakamo-cyan mb-4">BAKAMO SOCIAL</span>
+                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-bakamo-cyan/20 text-bakamo-cyan mb-4">Social Intelligence</span>
                   <h3 className="text-2xl font-bold text-white mb-2">THE RADAR</h3>
                   <p className="text-bakamo-cyan font-medium">Discovering Unfiltered Reality</p>
                 </div>
                 <p className="text-zinc-400 leading-relaxed">
-                  <em>&quot;Insights Without Asking&quot;</em> — Bakamo analyzes millions of organic, unprompted conversations across the digital ecosystem. We identify the language consumers actually use, the needs they express when no brand is watching, and the &quot;unknown unknowns&quot; that traditional surveys miss.
+                  <em>&quot;Insights Without Asking&quot;</em> — We analyze millions of organic, unprompted conversations across the digital ecosystem. We identify the language consumers actually use, the needs they express when no brand is watching, and the &quot;unknown unknowns&quot; that traditional surveys miss.
                 </p>
                 <ul className="space-y-3 text-zinc-300">
                   <li className="flex items-start gap-3">
@@ -128,22 +127,22 @@ export default function Home() {
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-bakamo-cyan mt-1">→</span>
-                    <span>Define the right inputs for Quant.</span>
+                    <span>Define the questions that matter.</span>
                   </li>
                 </ul>
               </div>
             </GlassCard>
 
-            {/* Column 2: Sandra Baumann */}
+            {/* Column 2: Asking */}
             <GlassCard>
               <div className="space-y-6">
                 <div>
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-bakamo-indigo/20 text-bakamo-indigo mb-4">SANDRA BAUMANN</span>
+                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-bakamo-indigo/20 text-bakamo-indigo mb-4">Scientific Rigour</span>
                   <h3 className="text-2xl font-bold text-white mb-2">THE ENGINE</h3>
                   <p className="text-bakamo-indigo font-medium">Nationwide Quantification</p>
                 </div>
                 <p className="text-zinc-400 leading-relaxed">
-                  <em>&quot;Statistical Rigor &amp; Scale&quot;</em> — Sandra Baumann, one of America&apos;s most trusted names in quantitative research, takes Bakamo&apos;s organic insights and subjects them to rigorous statistical validation. We design survey instruments based on reality, not guesswork, scaled to representative US samples.
+                  <em>&quot;Statistical Rigor &amp; Scale&quot;</em> — We take the organic insights and subject them to rigorous statistical validation. We design survey instruments based on reality, not guesswork, scaled to representative US samples. 
                 </p>
                 <ul className="space-y-3 text-zinc-300">
                   <li className="flex items-start gap-3">
@@ -156,7 +155,7 @@ export default function Home() {
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-bakamo-indigo mt-1">→</span>
-                    <span>Measure prevalence across demographics.</span>
+                    <span>Powering Business Strategy.</span>
                   </li>
                 </ul>
               </div>
@@ -214,7 +213,7 @@ export default function Home() {
           <div className="text-center mb-16">
             <p className="text-sm uppercase tracking-widest text-bakamo-cyan mb-4">Leadership</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white">
-              Proven Innovation Meets US Credibility
+              Proven Innovation Meets Credibility
             </h2>
           </div>
 
@@ -241,7 +240,7 @@ export default function Home() {
                   Entering the US market with Sandra Baumann is a game-changer. Her reputation for statistical rigor combined with our ability to surface authentic cultural narratives creates something the industry has never seen: research that starts with reality.
                 </p>
                 <footer className="text-white font-semibold">
-                  — Bakamo Leadership
+                  — Bakamo Dan
                   <span className="block text-sm text-zinc-500 font-normal mt-1">Bakamo Social</span>
                 </footer>
               </blockquote>
@@ -269,7 +268,7 @@ export default function Home() {
             href="mailto:hello@bakamousa.com" 
             className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-bakamo-cyan to-bakamo-indigo px-10 py-4 text-lg font-semibold text-white hover:opacity-90 transition shadow-xl shadow-bakamo-cyan/20"
           >
-            Schedule an Introduction with Sandra &amp; Bakamo
+            Schedule an Introduction with us!
           </a>
         </div>
       </section>
