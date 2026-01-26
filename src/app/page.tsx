@@ -17,7 +17,7 @@ export default function Home() {
         <div className="relative z-10 max-w-4xl space-y-8">
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-bakamo-cyan to-bakamo-indigo">
-              Reality.
+              Reality. 
             </span>{" "}
             Measured.
           </h1>
