@@ -36,16 +36,16 @@ export default function Home() {
           </div>
 
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
-            The <span className="text-transparent bg-clip-text bg-gradient-to-r from-bakamo-cyan to-bakamo-indigo">Reality</span>,
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-bakamo-cyan to-bakamo-indigo">Reality</span>,
             <br />
-            Quantified.
+            Measured.
           </h1>
 
           <p className="mx-auto max-w-2xl text-lg text-zinc-400 leading-relaxed">
             We&apos;ve solved the biggest problem in traditional market research: <strong className="text-white">the bias of the question itself.</strong>
           </p>
           <p className="mx-auto max-w-2xl text-base text-zinc-500">
-            Introducing the partnership between Bakamo Social&apos;s unfiltered intelligence and renowned US quantitative researcher Sandra Baumann. We don&apos;t start with a hypothesis. We start with reality, and then we measure it with nationwide rigor.
+            Introducing a new standard between unfiltered intelligence and rigorous quantitative research. We don&apos;t start with a hypothesis. We start with reality, and then we measure it with nationwide rigor.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
