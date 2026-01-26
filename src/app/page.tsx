@@ -4,45 +4,46 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       
-      {/* ═══════════════════════════════════════════════════════════════════
-          HERO SECTION
-          ═══════════════════════════════════════════════════════════════════ */}
+      {/* HERO */}
       <section className="relative flex flex-col items-center justify-center pt-24 pb-32 px-6 text-center overflow-hidden">
-        {/* Split-screen inspired background */}
         <div className="absolute inset-0 z-0">
-          {/* Left side: chaotic word cloud / network vibe */}
           <div className="absolute left-0 top-0 w-1/2 h-full bg-gradient-to-br from-bakamo-indigo/10 via-transparent to-transparent" />
-          {/* Right side: structured data grid vibe */}
           <div className="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-bl from-bakamo-cyan/10 via-transparent to-transparent" />
-          {/* Center merge glow */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-bakamo-indigo/20 rounded-full blur-[140px]" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] bg-bakamo-cyan/25 rounded-full blur-[80px]" />
         </div>
 
         <div className="relative z-10 max-w-4xl space-y-8">
-          {/* Logo placement indicator */}
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <span className="text-xl font-bold tracking-tight text-white"></span>
-  
-          </div>
-
-        
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-bakamo-cyan to-bakamo-indigo">Reality </span>,
-            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-bakamo-cyan to-bakamo-indigo">
+              Reality.
+            </span>{" "}
             Measured.
           </h1>
 
-          <p className="mx-auto max-w-2xl text-lg text-zinc-400 leading-relaxed">
-            We&apos;ve solved the biggest problem in traditional market research: <strong className="text-white">the bias of the question itself.</strong>
+          <p className="mx-auto max-w-2xl text-lg text-zinc-400">
+            Most strategic failures don’t come from bad execution.
           </p>
+          <p className="mx-auto max-w-2xl text-xl font-semibold text-white">
+            They come from misunderstanding reality.
+          </p>
+
           <p className="mx-auto max-w-2xl text-base text-zinc-500">
-            Introducing a new standard between unfiltered intelligence and rigorous quantitative research. We don&apos;t start with a hypothesis. We start with reality, and then we measure it with nationwide rigor.
+            Bakamo USA establishes unfiltered consumer reality — what people say, believe, and argue about when no research is watching.
+            Only then do we measure it, rigorously and nationally.
+          </p>
+
+          <p className="mx-auto max-w-2xl text-lg text-bakamo-cyan font-semibold">
+            Ground truth before strategy.
+          </p>
+
+          <p className="mx-auto max-w-2xl text-sm text-zinc-500">
+            Consultancies model reality. We establish it.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
             <a href="#contact" className="rounded-lg bg-gradient-to-r from-bakamo-cyan to-bakamo-indigo px-8 py-3.5 font-semibold text-white hover:opacity-90 transition shadow-lg shadow-bakamo-cyan/20">
-              De-Risk Your Next Study
+              Talk to Us
             </a>
             <a href="#how-it-works" className="rounded-lg border border-white/20 bg-transparent px-8 py-3.5 font-semibold text-white hover:bg-white/10 transition">
               How It Works
@@ -51,219 +52,127 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════════════
-          THE PROBLEM SECTION: "THE ECHO CHAMBER"
-          ═══════════════════════════════════════════════════════════════════ */}
+      {/* PROBLEM */}
       <section className="mx-auto max-w-5xl px-6 py-24">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full border border-white/10 bg-white/5 mb-6">
-            <span className="text-4xl">🫧</span>
-          </div>
-          <p className="text-sm uppercase tracking-widest text-bakamo-cyan mb-4">The Echo Chamber</p>
-          <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
-            Your biggest risk isn&apos;t bad data.<br />
-            <span className="text-zinc-400">It&apos;s irrelevant questions.</span>
+          <p className="text-sm uppercase tracking-widest text-bakamo-cyan mb-4">The Problem</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-white">
+            The hidden risk in modern research
           </h2>
         </div>
 
         <div className="max-w-3xl mx-auto space-y-6 text-center">
-          <p className="text-lg text-zinc-400 leading-relaxed">
-            Traditional research has a fatal flaw. It begins in ameeting room, defining what you want to learn. You write surveys based on internal assumptions, creating a framework where consumers can only answer what you decide to ask.
+          <p className="text-lg text-zinc-400">
+            Most research doesn’t fail because of bad data.
           </p>
           <p className="text-xl font-semibold text-white">
-            You get statistically significant answers to culturally insignificant questions.
+            It fails because the questions were wrong.
           </p>
-          <div className="pt-4">
-            <p className="text-bakamo-cyan font-medium text-lg">
-              We flipped the model. We don&apos;t ask. We listen first. This is the New Standard.
-            </p>
-          </div>
+          <p className="text-lg text-zinc-400">
+            Internal assumptions shape surveys, interviews, and workshops —
+            forcing consumers to respond inside predefined frames.
+          </p>
+          <p className="text-xl font-semibold text-bakamo-cyan">
+            Statistically robust answers to culturally irrelevant questions.
+          </p>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════════════
-          THE SOLUTION: THE HYBRID ENGINE
-          ═══════════════════════════════════════════════════════════════════ */}
+      {/* SHIFT */}
+      <section className="bg-bakamo-panel/30 py-24">
+        <div className="mx-auto max-w-5xl px-6 text-center space-y-6">
+          <p className="text-sm uppercase tracking-widest text-bakamo-indigo">The Shift</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-white">
+            From asking better questions<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-bakamo-cyan to-bakamo-indigo">
+              to knowing what matters
+            </span>
+          </h2>
+
+          <p className="text-xl font-semibold text-white pt-6">
+            Bakamo reverses the research sequence.
+          </p>
+          <p className="text-2xl font-bold text-bakamo-cyan">
+            We listen first.
+          </p>
+
+          <p className="text-lg text-zinc-400 max-w-3xl mx-auto">
+            We analyze millions of organic, unprompted conversations —
+            before research design interferes.
+          </p>
+
+          <p className="text-xl font-semibold text-white">
+            This is unfiltered reality.
+          </p>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
       <section id="how-it-works" className="bg-bakamo-panel/50 py-24">
         <div className="mx-auto max-w-6xl px-6">
           <div className="text-center mb-16">
-            <p className="text-sm uppercase tracking-widest text-bakamo-cyan mb-4">The Hybrid Engine</p>
+            <p className="text-sm uppercase tracking-widest text-bakamo-cyan mb-4">How It Works</p>
             <h2 className="text-3xl md:text-5xl font-bold text-white">
-              Unfiltered Reality Meets<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-bakamo-cyan to-bakamo-indigo">Rigorous Validation</span>
+              A two-stage intelligence system
             </h2>
-            <p className="mt-6 text-lg text-zinc-400 max-w-2xl mx-auto">
-              We have combined two distinct disciplines to ensure your data is both authentic and scalable.
+            <p className="text-zinc-400 mt-4">
+              Traditional research combines methods. We sequence them correctly.
             </p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-2">
-            {/* Column 1: Listening */}
             <GlassCard>
-              <div className="space-y-6">
-                <div>
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-bakamo-cyan/20 text-bakamo-cyan mb-4">Social Intelligence</span>
-                  <h3 className="text-2xl font-bold text-white mb-2">THE RADAR</h3>
-                  <p className="text-bakamo-cyan font-medium">Discovering Unfiltered Reality</p>
-                </div>
-                <p className="text-zinc-400 leading-relaxed">
-                  <em>&quot;Insights Without Asking&quot;</em> — We analyze millions of organic, unprompted conversations across the digital ecosystem. We identify the language consumers actually use, the needs they express when no brand is watching, and the &quot;unknown unknowns&quot; that traditional surveys miss.
-                </p>
-                <ul className="space-y-3 text-zinc-300">
-                  <li className="flex items-start gap-3">
-                    <span className="text-bakamo-cyan mt-1">→</span>
-                    <span>Discover emerging narratives.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-bakamo-cyan mt-1">→</span>
-                    <span>Identify authentic consumer language.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-bakamo-cyan mt-1">→</span>
-                    <span>Define the questions that matter.</span>
-                  </li>
-                </ul>
-              </div>
+              <h3 className="text-2xl font-bold text-white mb-2">THE RADAR</h3>
+              <p className="text-bakamo-cyan font-medium mb-4">Unfiltered Reality</p>
+              <p className="text-zinc-400">
+                We capture natural conversations at scale. No surveys. No moderators. No framing.
+              </p>
+              <p className="text-bakamo-cyan font-semibold mt-4">
+                Insights without asking.
+              </p>
             </GlassCard>
 
-            {/* Column 2: Asking */}
             <GlassCard>
-              <div className="space-y-6">
-                <div>
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-bakamo-indigo/20 text-bakamo-indigo mb-4">Scientific Rigour</span>
-                  <h3 className="text-2xl font-bold text-white mb-2">THE ENGINE</h3>
-                  <p className="text-bakamo-indigo font-medium">Nationwide Quantification</p>
-                </div>
-                <p className="text-zinc-400 leading-relaxed">
-                  <em>&quot;Statistical Rigor &amp; Scale&quot;</em> — We take the organic insights and subject them to rigorous statistical validation. We design survey instruments based on reality, not guesswork, scaled to representative US samples. 
-                </p>
-                <ul className="space-y-3 text-zinc-300">
-                  <li className="flex items-start gap-3">
-                    <span className="text-bakamo-indigo mt-1">→</span>
-                    <span>Validate the size of the opportunity.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-bakamo-indigo mt-1">→</span>
-                    <span>Board-ready statistical confidence.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-bakamo-indigo mt-1">→</span>
-                    <span>Powering Business Strategy.</span>
-                  </li>
-                </ul>
-              </div>
+              <h3 className="text-2xl font-bold text-white mb-2">THE ENGINE</h3>
+              <p className="text-bakamo-indigo font-medium mb-4">Reality Measured</p>
+              <p className="text-zinc-400">
+                Once reality is established, we measure it with representative samples and statistical rigor.
+              </p>
+              <p className="text-bakamo-indigo font-semibold mt-4">
+                Reality, validated.
+              </p>
             </GlassCard>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════════════
-          THE VALUE PROPOSITION
-          ═══════════════════════════════════════════════════════════════════ */}
-      <section className="mx-auto max-w-6xl px-6 py-24">
-        <div className="text-center mb-16">
-          <p className="text-sm uppercase tracking-widest text-bakamo-cyan mb-4">Why This Matters</p>
-          <h2 className="text-3xl md:text-5xl font-bold text-white">
-            Why This Matters for the US Market
+      {/* LEADERSHIP */}
+      <section className="py-24">
+        <div className="mx-auto max-w-4xl px-6 text-center space-y-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-white">
+            Proven at the highest stakes
           </h2>
-          <p className="mt-6 text-xl text-zinc-400">
-            We are introducing a new standard: <strong className="text-white">Grounded Quantification.</strong>
+          <p className="text-lg text-zinc-400">
+            Bakamo has delivered ground-truth intelligence across 45+ countries —
+            supporting Fortune 100 companies, governments, NGOs, and high-risk strategic decisions.
           </p>
-        </div>
-
-        <div className="grid gap-8 md:grid-cols-3">
-          <GlassCard>
-            <div className="text-5xl font-bold text-bakamo-cyan/30 mb-4">01</div>
-            <h3 className="text-xl font-bold text-white mb-3">De-Risk Your Research Budget</h3>
-            <p className="text-zinc-400 leading-relaxed">
-              Stop spending six figures validating internal assumptions. We ensure you are measuring concepts that actually exist in the minds of consumers before you deploy a nationwide survey.
-            </p>
-          </GlassCard>
-
-          <GlassCard>
-            <div className="text-5xl font-bold text-bakamo-cyan/30 mb-4">02</div>
-            <h3 className="text-xl font-bold text-white mb-3">Speed to Culture</h3>
-            <p className="text-zinc-400 leading-relaxed">
-              Traditional survey design takes weeks of internal alignment. Bakamo accelerates the front-end by harvesting real-time cultural topics, allowing Baumann to get into the field faster with relevant questions.
-            </p>
-          </GlassCard>
-
-          <GlassCard>
-            <div className="text-5xl font-bold text-bakamo-cyan/30 mb-4">03</div>
-            <h3 className="text-xl font-bold text-white mb-3">The End of the &quot;Say-Do&quot; Gap</h3>
-            <p className="text-zinc-400 leading-relaxed">
-              By grounding our quant in unprompted social behavior, we bridge the gap between what people say in surveys and what they actually care about in real life.
-            </p>
-          </GlassCard>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════════════
-          THE AUTHORITY / TRUST SECTION
-          ═══════════════════════════════════════════════════════════════════ */}
-      <section className="bg-bakamo-panel/30 py-24">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="text-center mb-16">
-            <p className="text-sm uppercase tracking-widest text-bakamo-cyan mb-4">Leadership</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white">
-              Proven Innovation Meets Credibility
-            </h2>
-          </div>
-
-          <div className="grid gap-12 md:grid-cols-2">
-            {/* Sandra Baumann Quote */}
-            <div className="relative">
-              <div className="absolute -top-4 -left-2 text-6xl text-bakamo-cyan/20 font-serif">&quot;</div>
-              <blockquote className="relative z-10 pl-6 border-l-2 border-bakamo-cyan/40">
-                <p className="text-lg text-zinc-300 leading-relaxed italic mb-6">
-                  I&apos;ve spent my career ensuring data is statistically sound. But my biggest concern has always been the inputs—are we asking the right questions? Partnering with Bakamo solves the input problem. They provide the raw, unfiltered truth of what&apos;s happening in culture, allowing me to design quantitative studies that are wildly more accurate to reality.
-                </p>
-                <footer className="text-white font-semibold">
-                  — Sandra Baumann
-                  <span className="block text-sm text-zinc-500 font-normal mt-1">Quantitative Research Expert</span>
-                </footer>
-              </blockquote>
-            </div>
-
-            {/* Bakamo Leadership Quote */}
-            <div className="relative">
-              <div className="absolute -top-4 -left-2 text-6xl text-bakamo-indigo/20 font-serif">&quot;</div>
-              <blockquote className="relative z-10 pl-6 border-l-2 border-bakamo-indigo/40">
-                <p className="text-lg text-zinc-300 leading-relaxed italic mb-6">
-                  Entering the US market with Sandra Baumann is a game-changer. Her reputation for statistical rigor combined with our ability to surface authentic cultural narratives creates something the industry has never seen: research that starts with reality.
-                </p>
-                <footer className="text-white font-semibold">
-                  — Bakamo Dan
-                  <span className="block text-sm text-zinc-500 font-normal mt-1">Bakamo Social</span>
-                </footer>
-              </blockquote>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════════════
-          FOOTER / FINAL CTA
-          ═══════════════════════════════════════════════════════════════════ */}
-      <section id="contact" className="relative py-32 overflow-hidden">
-        {/* Background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-bakamo-cyan/10 rounded-full blur-[120px]" />
-        
-        <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-            Are you ready to measure<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-bakamo-cyan to-bakamo-indigo">what actually matters?</span>
-          </h2>
-          <p className="text-lg text-zinc-400 mb-10 max-w-xl mx-auto">
-            Let&apos;s discuss how Grounded Quantification can calibrate your upcoming segmentation, tracker, or innovation pipeline.
-          </p>
-          <a 
-            href="mailto:hello@bakamousa.com" 
-            className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-bakamo-cyan to-bakamo-indigo px-10 py-4 text-lg font-semibold text-white hover:opacity-90 transition shadow-xl shadow-bakamo-cyan/20"
-          >
-            Schedule an Introduction with us!
-          </a>
-        </div>
+      {/* CTA */}
+      <section id="contact" className="relative py-32 text-center">
+        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+          Measure what actually matters
+        </h2>
+        <p className="text-lg text-zinc-400 mb-10">
+          If your next decision carries real risk, start with ground truth.
+        </p>
+        <a
+          href="mailto:hello@bakamousa.com"
+          className="inline-flex rounded-lg bg-gradient-to-r from-bakamo-cyan to-bakamo-indigo px-10 py-4 text-lg font-semibold text-white"
+        >
+          Schedule a Conversation
+        </a>
       </section>
 
     </main>
