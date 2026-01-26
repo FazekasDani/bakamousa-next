@@ -22,18 +22,11 @@ export default function Home() {
         <div className="relative z-10 max-w-4xl space-y-8">
           {/* Logo placement indicator */}
           <div className="flex items-center justify-center gap-4 mb-6">
-            <span className="text-xl font-bold tracking-tight text-white">BAKAMO USA</span>
+            <span className="text-xl font-bold tracking-tight text-white"></span>
   
           </div>
 
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium text-bakamo-cyan backdrop-blur-sm">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
-            </span>
-            Grounded Quantification
-          </div>
-
+        
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-bakamo-cyan to-bakamo-indigo">Reality </span>,
             <br />
