@@ -1,5 +1,5 @@
 import { GlassCard } from "@/components/GlassCard";
-import { ProcessVisualizer } from "@/components/ProcessVisualizer";
+import { ProcessBackground } from "@/components/ProcessBackground";
 
 export default function Home() {
   return (
@@ -109,8 +109,11 @@ export default function Home() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="how-it-works" className="bg-bakamo-panel/50 py-24 overflow-hidden">
-        <div className="mx-auto max-w-6xl px-6">
+      <section id="how-it-works" className="relative bg-bakamo-panel/50 py-24 overflow-hidden">
+        {/* Animated Background */}
+        <ProcessBackground />
+        
+        <div className="relative z-10 mx-auto max-w-6xl px-6">
           <div className="text-center mb-16">
             <p className="text-sm uppercase tracking-widest text-bakamo-cyan mb-4">How It Works</p>
             <h2 className="text-3xl md:text-5xl font-bold text-white">
@@ -121,10 +124,10 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid gap-8 lg:gap-12 lg:grid-cols-3 items-center">
+          <div className="grid gap-8 md:grid-cols-2">
             
-            {/* Stage 1 Text */}
-            <GlassCard className="text-left relative z-10 lg:order-1">
+            {/* Stage 1: The Radar */}
+            <GlassCard className="text-left">
               <div className="mb-4 inline-flex items-center justify-center h-10 w-10 rounded-full bg-bakamo-cyan/20 text-bakamo-cyan font-bold">1</div>
               <h3 className="text-2xl font-bold text-white mb-2">THE RADAR</h3>
               <p className="text-bakamo-cyan font-medium mb-4">Unfiltered Reality</p>
@@ -150,13 +153,8 @@ export default function Home() {
               </p>
             </GlassCard>
 
-            {/* THE ANIMATION CENTERPIECE */}
-            <div className="lg:order-2 flex justify-center py-8 lg:py-0">
-              <ProcessVisualizer />
-            </div>
-
-            {/* Stage 2 Text */}
-            <GlassCard className="text-left relative z-10 lg:order-3">
+            {/* Stage 2: The Engine */}
+            <GlassCard className="text-left">
               <div className="mb-4 inline-flex items-center justify-center h-10 w-10 rounded-full bg-bakamo-indigo/20 text-bakamo-indigo font-bold">2</div>
               <h3 className="text-2xl font-bold text-white mb-2">THE ENGINE</h3>
               <p className="text-bakamo-indigo font-medium mb-4">Reality Measured</p>
