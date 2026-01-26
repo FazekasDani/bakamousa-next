@@ -2,26 +2,48 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Palette */
+  --bakamo-dark: #050505;
+  --bakamo-panel: #121212;
+  --bakamo-cyan: #06b6d4; /* Cyan-500 */
+  --bakamo-indigo: #6366f1; /* Indigo-500 */
+  --bakamo-text-main: #f8fafc;
+  --bakamo-text-muted: #94a3b8;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-bakamo-dark: var(--bakamo-dark);
+  --color-bakamo-panel: var(--bakamo-panel);
+  --color-bakamo-cyan: var(--bakamo-cyan);
+  --color-bakamo-indigo: var(--bakamo-indigo);
+  --color-background: var(--bakamo-dark);
+  --color-foreground: var(--bakamo-text-main);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  
+  /* Custom Animations */
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bakamo-dark);
+  color: var(--bakamo-text-main);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* A subtle grid background to imply "data" */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -1;
+  pointer-events: none;
 }
