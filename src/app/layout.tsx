@@ -1,36 +1,48 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+export const metadata: Metadata = {
+  title: "Bakamo — Build on Reality",
+  description:
+    "We inspect the cultural ground before you build. Unfiltered consumer intelligence for leaders who need to get the foundation right.",
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={`antialiased bg-bakamo-dark text-foreground`}>
-        
-        {/* Floating Header */}
-        <header className="fixed top-4 left-0 right-0 z-50 mx-auto max-w-2xl">
-          <div className="mx-4 flex items-center justify-between rounded-full border border-white/10 bg-black/60 px-6 py-3 backdrop-blur-md shadow-2xl">
-            <a href="/" className="flex items-center gap-2 text-lg font-bold tracking-tighter text-white">
-              <span className="text-bakamo-cyan">BAKAMO</span>USA
+    <html lang="en" className={inter.variable}>
+      <body className={`${inter.className} antialiased`}>
+
+        {/* Minimal fixed header */}
+        <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-stone/30">
+          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+            <a href="/" className="text-lg font-bold tracking-tight text-ink">
+              BAKAMO<span className="font-light text-earth">.</span>
             </a>
-            <nav className="flex items-center gap-6 text-sm font-medium text-zinc-400">
-              <a href="/about" className="hover:text-white transition-colors">About</a>
-              <a href="/blog" className="hover:text-white transition-colors">Insights</a>
-              <a href="#contact" className="hidden sm:block rounded-full bg-white/10 px-4 py-1.5 text-xs text-white hover:bg-white/20 transition-colors">
-                Contact
+            <nav className="flex items-center gap-8 text-sm font-medium text-charcoal">
+              <a href="/about" className="hover:text-ink transition-colors">About</a>
+              <a href="/blog" className="hover:text-ink transition-colors">Insights</a>
+              <a
+                href="#contact"
+                className="cta-button !py-2 !px-5 !text-xs tracking-widest uppercase"
+              >
+                Start the Inspection
               </a>
             </nav>
           </div>
         </header>
 
-        {/* Content with padding to account for fixed header */}
-        <div className="pt-24">
+        {/* Content */}
+        <div className="pt-[72px]">
           {children}
         </div>
 
-        <footer className="mt-20 border-t border-white/10 bg-black/40 py-12 text-center text-sm text-zinc-600">
-          <p>© {new Date().getFullYear()} Bakamo USA. Measuring Reality.</p>
-        </footer>
       </body>
     </html>
   );

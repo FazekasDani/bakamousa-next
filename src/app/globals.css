@@ -1,135 +1,173 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* ─── Nordic / Ground Inspector Palette ─── */
 :root {
-  /* Brand Palette */
-  --bakamo-dark: #050505;
-  --bakamo-panel: #0a0a0a;
-  --bakamo-cyan: #06b6d4; /* Cyan-500 */
-  --bakamo-indigo: #6366f1; /* Indigo-500 */
-  --bakamo-text-main: #f8fafc;
-  --bakamo-text-muted: #94a3b8;
+  --white: #ffffff;
+  --off-white: #fafaf9;
+  --warm-grey: #f0ece6;
+  --stone: #d6d0c4;
+  --earth: #a39e93;
+  --charcoal: #2c2c2c;
+  --ink: #111111;
+  --accent: #3d3429;
+  --highlight: #c9a96e;
 }
 
 @theme inline {
-  --color-bakamo-dark: var(--bakamo-dark);
-  --color-bakamo-panel: var(--bakamo-panel);
-  --color-bakamo-cyan: var(--bakamo-cyan);
-  --color-bakamo-indigo: var(--bakamo-indigo);
-  --color-background: var(--bakamo-dark);
-  --color-foreground: var(--bakamo-text-main);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  
-  /* Custom Animations */
-  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --color-white: var(--white);
+  --color-off-white: var(--off-white);
+  --color-warm-grey: var(--warm-grey);
+  --color-stone: var(--stone);
+  --color-earth: var(--earth);
+  --color-charcoal: var(--charcoal);
+  --color-ink: var(--ink);
+  --color-accent: var(--accent);
+  --color-highlight: var(--highlight);
+  --color-background: var(--white);
+  --color-foreground: var(--ink);
 }
 
-body {
-  background-color: var(--bakamo-dark);
-  color: var(--bakamo-text-main);
-  font-family: var(--font-sans);
-  overflow-x: hidden;
-}
-
-/* Enhanced grid background */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; 
-  left: 0;
-  width: 100%; 
-  height: 100%;
-  background-image: 
-    radial-gradient(ellipse at top, rgba(6, 182, 212, 0.03) 0%, transparent 50%),
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 100% 100%, 60px 60px, 60px 60px;
-  z-index: -1;
-  pointer-events: none;
-}
-
-/* Smooth scroll */
+/* ─── Base ─── */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+body {
+  background-color: var(--white);
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--bakamo-dark);
+::selection {
+  background-color: var(--ink);
+  color: var(--white);
 }
 
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-}
+/* ─── Scrollbar (subtle) ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--stone); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--earth); }
 
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* Gradient text helper */
-.gradient-text {
-  background: linear-gradient(to right, var(--bakamo-cyan), var(--bakamo-indigo));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Glow effects */
-.glow-cyan {
-  box-shadow: 0 0 40px rgba(6, 182, 212, 0.3);
-}
-
-.glow-indigo {
-  box-shadow: 0 0 40px rgba(99, 102, 241, 0.3);
-}
-
-/* Animated gradient border */
-@keyframes gradient-shift {
-  0%, 100% {
-    background-position: 0% 50%;
+/* ─── Floating smoke / answer animation ─── */
+@keyframes smoke-rise {
+  0% {
+    opacity: 0.9;
+    transform: translateY(0) scale(1);
   }
-  50% {
-    background-position: 100% 50%;
+  60% {
+    opacity: 0.4;
   }
-}
-
-.animated-border {
-  background: linear-gradient(90deg, var(--bakamo-cyan), var(--bakamo-indigo), var(--bakamo-cyan));
-  background-size: 200% 100%;
-  animation: gradient-shift 3s ease infinite;
-}
-
-/* Fade in animation */
-@keyframes fade-in-up {
-  from {
+  100% {
     opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+    transform: translateY(-260px) scale(0.92);
   }
 }
 
-.animate-fade-in-up {
-  animation: fade-in-up 0.6s ease-out forwards;
+.smoke-answer {
+  position: absolute;
+  animation: smoke-rise 8s ease-out forwards;
+  pointer-events: none;
+  white-space: nowrap;
 }
 
-/* Staggered children animation */
-.stagger-children > * {
+/* ─── Soil strata ─── */
+@keyframes strata-reveal {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.strata-layer {
+  animation: strata-reveal 0.8s ease-out forwards;
   opacity: 0;
-  animation: fade-in-up 0.5s ease-out forwards;
 }
 
-.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
-.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
-.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
-.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
-.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
-.stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+.strata-layer:nth-child(1) { animation-delay: 0.3s; }
+.strata-layer:nth-child(2) { animation-delay: 0.6s; }
+.strata-layer:nth-child(3) { animation-delay: 0.9s; }
+
+/* ─── Fade-in on scroll (used via IntersectionObserver) ─── */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Editorial pull-quote ─── */
+.pull-quote {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ink);
+  border-left: 3px solid var(--ink);
+  padding-left: 1.5rem;
+  margin: 2.5rem 0;
+}
+
+/* ─── Architectural line-drawing crack ─── */
+@keyframes draw-line {
+  to { stroke-dashoffset: 0; }
+}
+
+.line-draw path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-line 2.5s ease-out forwards;
+}
+
+/* ─── CTA button ─── */
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  background-color: var(--ink);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+  background-color: var(--charcoal);
+  transform: translateY(-1px);
+}
+
+/* ─── Section utility ─── */
+.section-editorial {
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* ─── Split screen ─── */
+.split-screen {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 480px;
+}
+
+@media (max-width: 768px) {
+  .split-screen {
+    grid-template-columns: 1fr;
+  }
+}

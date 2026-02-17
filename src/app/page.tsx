@@ -1,395 +1,330 @@
-import { GlassCard } from "@/components/GlassCard";
-import { ProcessBackground } from "@/components/ProcessBackground";
-import { RotatingTaglines } from "@/components/RotatingTaglines";
+import HeroSection from "@/components/HeroSection";
+import ScrollReveal from "@/components/ScrollReveal";
+import ArchitecturalDiagram from "@/components/ArchitecturalDiagram";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      
-      {/* HERO */}
-      <section className="relative flex flex-col items-center justify-center pt-24 pb-32 px-6 text-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute left-0 top-0 w-1/2 h-full bg-gradient-to-br from-bakamo-indigo/10 via-transparent to-transparent" />
-          <div className="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-bl from-bakamo-cyan/10 via-transparent to-transparent" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-bakamo-indigo/20 rounded-full blur-[140px]" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] bg-bakamo-cyan/25 rounded-full blur-[80px]" />
-        </div>
+    <main>
 
-        <div className="relative z-10 max-w-4xl space-y-8">
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-bakamo-cyan to-bakamo-indigo pr-2">
-              Reality.
-            </span>{" "}
-            Measured.
-          </h1>
+      {/* ═══════════════════════════════════════════
+          HERO — "The Pulse"
+          Interactive input + floating smoke answers
+          + soil strata data viz
+      ═══════════════════════════════════════════ */}
+      <HeroSection />
 
-          <p className="mx-auto max-w-2xl text-lg text-zinc-400">
-            The biggest risk in strategic decision-making isn&apos;t execution.
-          </p>
-          <p className="mx-auto max-w-2xl text-xl font-semibold text-white">
-            It&apos;s acting on a false understanding of reality.
-          </p>
-          <p className="mx-auto max-w-2xl text-lg text-bakamo-cyan font-semibold">
-            Bakamo USA exists to remove that risk.
-          </p>
 
-          <p className="mx-auto max-w-2xl text-base text-zinc-500">
-            We establish unfiltered consumer reality — what people say, believe, and argue about when no research is watching. Only then do we measure it, rigorously and nationally.
-          </p>
+      {/* ═══════════════════════════════════════════
+          SECTION 1 — "The Shift"
+          Warm earthy greyscale · left-aligned editorial
+      ═══════════════════════════════════════════ */}
+      <section className="bg-off-white py-28 md:py-36">
+        <div className="section-editorial">
+          <ScrollReveal>
+            <p className="text-xs uppercase tracking-[0.2em] text-earth mb-8">The Shift</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-ink leading-[1.15] mb-10">
+              The ground moved.<br />We just kept building.
+            </h2>
+          </ScrollReveal>
 
-          <div className="pt-4 space-y-2">
-            <p className="mx-auto max-w-2xl text-base text-zinc-400">
-              This is not faster research.
+          <ScrollReveal delay={100}>
+            <p className="text-lg text-charcoal leading-relaxed mb-8">
+              We call it the &ldquo;new normal,&rdquo; but that implies stability.
+              It wasn&apos;t a return to normal; it was a change in the{" "}
+              <em>soil composition</em> of society.
             </p>
-            <p className="mx-auto max-w-2xl text-lg font-semibold text-white">
-              It is truer research.
-            </p>
-          </div>
+          </ScrollReveal>
 
-          <p className="mx-auto max-w-2xl text-xl text-transparent bg-clip-text bg-gradient-to-r from-bakamo-cyan to-bakamo-indigo font-bold pt-2">
-            Ground truth before strategy.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-            <a href="#contact" className="rounded-lg bg-gradient-to-r from-bakamo-cyan to-bakamo-indigo px-8 py-3.5 font-semibold text-white hover:opacity-90 transition shadow-lg shadow-bakamo-cyan/20">
-              Talk to Us
-            </a>
-            <a href="#how-it-works" className="rounded-lg border border-white/20 bg-transparent px-8 py-3.5 font-semibold text-white hover:bg-white/10 transition">
-              How It Works
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* PROBLEM */}
-      <section className="mx-auto max-w-5xl px-6 py-24">
-        <div className="text-center mb-12">
-          <p className="text-sm uppercase tracking-widest text-bakamo-cyan mb-4">The Problem</p>
-          <h2 className="text-3xl md:text-5xl font-bold text-white">
-            Why good teams still make the wrong calls
-          </h2>
-        </div>
-
-        <div className="max-w-3xl mx-auto space-y-6 text-center">
-          <p className="text-lg text-zinc-400">
-            Most research doesn&apos;t fail because of bad data.
-          </p>
-          <p className="text-xl font-semibold text-white">
-            It fails because the questions were wrong from the start.
-          </p>
-          <p className="text-lg text-zinc-400">
-            Surveys, interviews, and workshops begin with internal assumptions about what matters. Consumers are then asked to respond inside those frames.
-          </p>
-          <p className="text-base text-zinc-500">
-            The result is familiar to every senior leader:
-          </p>
-          <p className="text-xl font-semibold text-bakamo-cyan">
-            Statistically robust answers to culturally irrelevant questions.
-          </p>
-          <p className="text-lg text-zinc-400 pt-4">
-            Decisions feel informed — but quietly drift away from reality.
-          </p>
-        </div>
-      </section>
-
-      {/* SHIFT */}
-      <section className="bg-bakamo-panel/30 py-24">
-        <div className="mx-auto max-w-5xl px-6 text-center space-y-6">
-          <p className="text-sm uppercase tracking-widest text-bakamo-indigo">The Shift</p>
-          <h2 className="text-3xl md:text-5xl font-bold text-white">
-            From asking better questions<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-bakamo-cyan to-bakamo-indigo">
-              to knowing what matters
-            </span>
-          </h2>
-
-          <p className="text-xl font-semibold text-white pt-6">
-            Bakamo reverses the research sequence.
-          </p>
-          <p className="text-2xl font-bold text-bakamo-cyan">
-            We listen first.
-          </p>
-
-          <p className="text-lg text-zinc-400 max-w-3xl mx-auto">
-            We analyze millions of organic, unprompted conversations across the digital public sphere — before research design interferes.
-          </p>
-
-          <div className="pt-6">
-            <p className="text-lg text-zinc-300 mb-4">This reveals:</p>
-            <ul className="space-y-3 text-lg text-zinc-300 max-w-xl mx-auto">
-              <li className="flex items-center justify-center gap-3">
-                <span className="text-bakamo-cyan">→</span>
-                <span>What actually matters to people</span>
+          <ScrollReveal delay={200}>
+            <ul className="space-y-4 text-lg text-charcoal mb-10">
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 block h-1.5 w-1.5 rounded-full bg-ink shrink-0" />
+                2008 fractured economic trust.
               </li>
-              <li className="flex items-center justify-center gap-3">
-                <span className="text-bakamo-cyan">→</span>
-                <span>How they naturally frame problems and trade-offs</span>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 block h-1.5 w-1.5 rounded-full bg-ink shrink-0" />
+                Algorithms fragmented our reality.
               </li>
-              <li className="flex items-center justify-center gap-3">
-                <span className="text-bakamo-cyan">→</span>
-                <span>Which narratives are emerging, declining, or contested</span>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 block h-1.5 w-1.5 rounded-full bg-ink shrink-0" />
+                Affordability reshaped aspiration.
               </li>
             </ul>
-          </div>
+          </ScrollReveal>
 
-          <p className="text-xl font-semibold text-white pt-6">
-            This is unfiltered reality.
-          </p>
-          <p className="text-base text-zinc-500">
-            Not opinion. Not recall. Not post-rationalization.
-          </p>
+          <ScrollReveal delay={300}>
+            <p className="text-lg text-charcoal leading-relaxed mb-4">
+              The mainstream didn&apos;t just shift; it dissolved into parallel realities.
+            </p>
+            <p className="pull-quote">
+              Yet, most strategies are still built for a world that no longer exists.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* HOW IT WORKS */}
-      <section id="how-it-works" className="relative bg-bakamo-panel/50 py-24 overflow-hidden">
-        {/* Animated Background */}
-        <ProcessBackground />
-        
-        <div className="relative z-10 mx-auto max-w-6xl px-6">
-          <div className="text-center mb-16">
-            <p className="text-sm uppercase tracking-widest text-bakamo-cyan mb-4">How It Works</p>
-            <h2 className="text-3xl md:text-5xl font-bold text-white">
-              A two-stage intelligence system
-            </h2>
-            <p className="text-zinc-400 mt-4 max-w-2xl mx-auto">
-              Traditional research combines methods. We sequence them correctly.
-            </p>
-          </div>
 
-          <div className="grid gap-8 md:grid-cols-2">
-            
-            {/* Stage 1: The Radar */}
-            <GlassCard className="text-left">
-              <div className="mb-4 inline-flex items-center justify-center h-10 w-10 rounded-full bg-bakamo-cyan/20 text-bakamo-cyan font-bold">1</div>
-              <h3 className="text-2xl font-bold text-white mb-2">THE RADAR</h3>
-              <p className="text-bakamo-cyan font-medium mb-4">Unfiltered Reality</p>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-4">
-                We capture and analyze natural conversations at scale. No surveys. No moderators. No framing.
+      {/* ═══════════════════════════════════════════
+          SECTION 2 — "The Metaphor"
+          Architectural line-drawing + geological survey
+      ═══════════════════════════════════════════ */}
+      <section className="bg-white py-28 md:py-36">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            {/* Illustration */}
+            <ScrollReveal>
+              <ArchitecturalDiagram />
+            </ScrollReveal>
+
+            {/* Copy */}
+            <ScrollReveal delay={150}>
+              <p className="text-xs uppercase tracking-[0.2em] text-earth mb-6">The Metaphor</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-ink leading-[1.15] mb-8">
+                Would you build a high-rise without a geological survey?
+              </h2>
+              <p className="text-lg text-charcoal leading-relaxed mb-6">
+                In construction, before a single beam is laid, engineers test the ground.
+                They look for load-bearing capacity, hidden water tables, and fault lines.
               </p>
-              <p className="text-zinc-300 text-sm mb-2">This surfaces:</p>
-              <ul className="space-y-2 text-sm text-zinc-300">
-                <li className="flex items-start gap-2">
-                  <span className="text-bakamo-cyan mt-0.5">→</span>
-                  <span>Ground-truth needs and tensions</span>
+              <p className="text-lg font-semibold text-ink mb-6">
+                The Business Reality:
+              </p>
+              <p className="text-lg text-charcoal leading-relaxed mb-6">
+                In business, organisations routinely pour strategic foundations
+                without testing the cultural soil.
+              </p>
+              <ul className="space-y-3 text-base text-charcoal mb-8">
+                <li className="flex items-start gap-3">
+                  <span className="mt-1.5 block h-1.5 w-1.5 rounded-full bg-highlight shrink-0" />
+                  They run surveys that validate internal assumptions.
                 </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-bakamo-cyan mt-0.5">→</span>
-                  <span>Authentic consumer language</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-bakamo-cyan mt-0.5">→</span>
-                  <span>Blind spots and unknown unknowns</span>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1.5 block h-1.5 w-1.5 rounded-full bg-highlight shrink-0" />
+                  They test language that was written inside a boardroom.
                 </li>
               </ul>
-              <p className="text-bakamo-cyan font-semibold mt-4 text-sm">
-                Insights without asking.
+              <p className="text-base text-earth italic">
+                This isn&apos;t ground inspection. It&apos;s blueprint confirmation.
+                And in unstable terrain, blueprint confirmation is a liability.
               </p>
-            </GlassCard>
-
-            {/* Stage 2: The Engine */}
-            <GlassCard className="text-left">
-              <div className="mb-4 inline-flex items-center justify-center h-10 w-10 rounded-full bg-bakamo-indigo/20 text-bakamo-indigo font-bold">2</div>
-              <h3 className="text-2xl font-bold text-white mb-2">THE ENGINE</h3>
-              <p className="text-bakamo-indigo font-medium mb-4">Reality Measured</p>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-4">
-                Once reality is established, we measure it. We design quantitative instruments grounded in lived culture — not hypotheses.
-              </p>
-              <p className="text-zinc-300 text-sm mb-2">This delivers:</p>
-              <ul className="space-y-2 text-sm text-zinc-300">
-                <li className="flex items-start gap-2">
-                  <span className="text-bakamo-indigo mt-0.5">→</span>
-                  <span>Representative U.S. samples</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-bakamo-indigo mt-0.5">→</span>
-                  <span>Statistical rigor</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-bakamo-indigo mt-0.5">→</span>
-                  <span>Board-ready confidence</span>
-                </li>
-              </ul>
-              <p className="text-bakamo-indigo font-semibold mt-4 text-sm">
-                Reality, validated.
-              </p>
-            </GlassCard>
-
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* WHAT REALITY UNLOCKS */}
-      <section className="py-24">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="text-center mb-16">
-            <p className="text-sm uppercase tracking-widest text-bakamo-cyan mb-4">What Reality Unlocks</p>
-            <h2 className="text-3xl md:text-5xl font-bold text-white">
-              For Decision-Makers
+
+      {/* ═══════════════════════════════════════════
+          SECTION 3 — "The Bakamo Method"
+          Split screen: old way vs. Bakamo way + process
+      ═══════════════════════════════════════════ */}
+      <section className="bg-off-white py-28 md:py-36">
+        <div className="mx-auto max-w-5xl px-6">
+          <ScrollReveal>
+            <p className="text-xs uppercase tracking-[0.2em] text-earth mb-6 text-center">The Bakamo Method</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-ink leading-[1.15] mb-6 text-center">
+              We inspect the ground first.
             </h2>
-            <p className="text-zinc-400 mt-4 max-w-2xl mx-auto">
-              This is what Bakamo&apos;s reality changes for you.
+            <p className="text-lg text-charcoal max-w-2xl mx-auto text-center mb-16">
+              At Bakamo, we don&apos;t ask people to explain themselves.
+              We observe them being themselves.
             </p>
-          </div>
+          </ScrollReveal>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <GlassCard>
-              <div className="text-3xl font-bold text-bakamo-cyan/30 mb-3">01</div>
-              <h3 className="text-lg font-bold text-white mb-2">Fewer blind spots</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed">
-                You stop investing in questions, segments, and strategies that don&apos;t exist outside the building.
-              </p>
-            </GlassCard>
+          {/* Split comparison */}
+          <ScrollReveal delay={100}>
+            <div className="grid md:grid-cols-2 gap-0 rounded-lg overflow-hidden border border-stone/40 mb-20">
+              {/* Old Way */}
+              <div className="bg-warm-grey p-10 md:p-12">
+                <p className="text-xs uppercase tracking-[0.2em] text-earth mb-4">The Old Way</p>
+                <ul className="space-y-4 text-base text-charcoal">
+                  <li className="flex items-start gap-3">
+                    <span className="text-earth mt-0.5">&#x2717;</span>
+                    Start with internal hypotheses
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-earth mt-0.5">&#x2717;</span>
+                    Ask questions that frame the answer
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-earth mt-0.5">&#x2717;</span>
+                    Validate what you already assumed
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-earth mt-0.5">&#x2717;</span>
+                    Static surveys &amp; charts
+                  </li>
+                </ul>
+              </div>
+              {/* Bakamo Way */}
+              <div className="bg-ink p-10 md:p-12 text-white">
+                <p className="text-xs uppercase tracking-[0.2em] text-highlight mb-4">The Bakamo Way</p>
+                <ul className="space-y-4 text-base text-white/90">
+                  <li className="flex items-start gap-3">
+                    <span className="text-highlight mt-0.5">&#x2713;</span>
+                    Start with unfiltered reality
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-highlight mt-0.5">&#x2713;</span>
+                    Observe organic conversation at scale
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-highlight mt-0.5">&#x2713;</span>
+                    Discover what you didn&apos;t know to ask
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-highlight mt-0.5">&#x2713;</span>
+                    Dynamic, living narrative networks
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </ScrollReveal>
 
-            <GlassCard>
-              <div className="text-3xl font-bold text-bakamo-cyan/30 mb-3">02</div>
-              <h3 className="text-lg font-bold text-white mb-2">Stronger strategic conviction</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed">
-                Decisions are grounded in how people actually think and behave — not how teams assume they do.
-              </p>
-            </GlassCard>
-
-            <GlassCard>
-              <div className="text-3xl font-bold text-bakamo-cyan/30 mb-3">03</div>
-              <h3 className="text-lg font-bold text-white mb-2">Earlier signals</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed">
-                You see cultural and consumer shifts before they show up in KPIs, trackers, or quarterly reports.
-              </p>
-            </GlassCard>
-
-            <GlassCard>
-              <div className="text-3xl font-bold text-bakamo-cyan/30 mb-3">04</div>
-              <h3 className="text-lg font-bold text-white mb-2">Faster internal alignment</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed">
-                Ground truth cuts through opinion, hierarchy, and internal politics.
-              </p>
-            </GlassCard>
-
-            <GlassCard>
-              <div className="text-3xl font-bold text-bakamo-cyan/30 mb-3">05</div>
-              <h3 className="text-lg font-bold text-white mb-2">Less wasted research spend</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed">
-                Every study is anchored in something real — before it is scaled, segmented, or modeled.
-              </p>
-            </GlassCard>
-
-            <GlassCard className="bg-gradient-to-br from-bakamo-cyan/10 to-bakamo-indigo/10">
-              <div className="h-full flex flex-col justify-center">
-                <p className="text-lg font-semibold text-white leading-relaxed">
-                  Bakamo doesn&apos;t just show you reality.
-                </p>
-                <p className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-bakamo-cyan to-bakamo-indigo mt-2">
-                  It removes the risk of acting on the wrong one.
+          {/* Process steps */}
+          <ScrollReveal delay={200}>
+            <div className="grid md:grid-cols-3 gap-10 text-center">
+              <div>
+                <div className="inline-flex items-center justify-center h-14 w-14 rounded-full border-2 border-ink text-ink text-xl font-bold mb-5">
+                  1
+                </div>
+                <h3 className="text-lg font-bold text-ink mb-2">Listen</h3>
+                <p className="text-base text-charcoal">
+                  We map the &ldquo;underground&rdquo; drivers of culture —
+                  the anxieties, identities, and signals that shape decisions.
                 </p>
               </div>
-            </GlassCard>
-          </div>
+              <div>
+                <div className="inline-flex items-center justify-center h-14 w-14 rounded-full border-2 border-ink text-ink text-xl font-bold mb-5">
+                  2
+                </div>
+                <h3 className="text-lg font-bold text-ink mb-2">Measure</h3>
+                <p className="text-base text-charcoal">
+                  We quantify the weight each narrative can carry —
+                  statistically, demographically, nationally.
+                </p>
+              </div>
+              <div>
+                <div className="inline-flex items-center justify-center h-14 w-14 rounded-full border-2 border-ink text-ink text-xl font-bold mb-5">
+                  3
+                </div>
+                <h3 className="text-lg font-bold text-ink mb-2">Stress-Test</h3>
+                <p className="text-base text-charcoal">
+                  We calculate if your strategy can survive on this terrain —
+                  before you break ground.
+                </p>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* WHY BAKAMO IS DIFFERENT */}
-      <section className="bg-bakamo-panel/30 py-24">
-        <div className="mx-auto max-w-4xl px-6 text-center space-y-8">
-          <p className="text-sm uppercase tracking-widest text-bakamo-indigo mb-4">Why Bakamo Is Different</p>
-          
-          <div className="space-y-6">
-            <div>
-              <p className="text-lg text-zinc-400">Consultancies model reality.</p>
-              <p className="text-xl font-bold text-white">Bakamo establishes it.</p>
-            </div>
-            
-            <div>
-              <p className="text-lg text-zinc-400">Market research firms ask better questions.</p>
-              <p className="text-xl font-bold text-white">Bakamo ensures the questions matter at all.</p>
-            </div>
-          </div>
 
-          <p className="text-lg text-bakamo-cyan font-semibold pt-4">
-            We sit upstream of strategy — where the cost of being wrong is highest.
-          </p>
-        </div>
-      </section>
-
-      {/* PROVEN AT HIGHEST STAKES */}
-      <section className="py-24">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Proven at the Highest Stakes
+      {/* ═══════════════════════════════════════════
+          SECTION 4 — "The Deliverable"
+          Foundation before Facade
+      ═══════════════════════════════════════════ */}
+      <section className="bg-white py-28 md:py-36">
+        <div className="section-editorial">
+          <ScrollReveal>
+            <p className="text-xs uppercase tracking-[0.2em] text-earth mb-6">The Deliverable</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-ink leading-[1.15] mb-10">
+              Foundation before Facade.
             </h2>
-            <p className="text-lg text-zinc-400 max-w-3xl mx-auto">
-              Bakamo has delivered ground-truth intelligence across 45+ countries, supporting:
+          </ScrollReveal>
+
+          <ScrollReveal delay={100}>
+            <p className="text-lg text-charcoal leading-relaxed mb-4">
+              Branding is the facade. Strategy is the structure.{" "}
+              <span className="font-semibold text-ink">Insight is the foundation.</span>
             </p>
+            <p className="text-lg text-charcoal leading-relaxed mb-8">
+              If your foundation is weak, the cracks won&apos;t appear on day one.
+              They will appear as:
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={200}>
+            <ul className="space-y-4 text-lg text-charcoal mb-12">
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 block h-1.5 w-1.5 rounded-full bg-highlight shrink-0" />
+                Failed repositioning.
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 block h-1.5 w-1.5 rounded-full bg-highlight shrink-0" />
+                Cultural backlash.
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 block h-1.5 w-1.5 rounded-full bg-highlight shrink-0" />
+                Mysterious declines in trust.
+              </li>
+            </ul>
+          </ScrollReveal>
+
+          <ScrollReveal delay={300}>
+            <div className="pull-quote !text-xl md:!text-2xl">
+              Most business failures are not creative failures.<br />
+              They are foundation failures.
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={400}>
+            <p className="text-lg font-semibold text-ink mb-8 mt-12">
+              We provide the insurance policy for your reality:
+            </p>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              <div className="rounded-lg border border-stone/40 p-6">
+                <p className="text-sm font-bold text-ink mb-2 uppercase tracking-wider">01</p>
+                <p className="text-base text-charcoal">Discovery before validation.</p>
+              </div>
+              <div className="rounded-lg border border-stone/40 p-6">
+                <p className="text-sm font-bold text-ink mb-2 uppercase tracking-wider">02</p>
+                <p className="text-base text-charcoal">Early detection of cultural fault lines.</p>
+              </div>
+              <div className="rounded-lg border border-stone/40 p-6">
+                <p className="text-sm font-bold text-ink mb-2 uppercase tracking-wider">03</p>
+                <p className="text-base text-charcoal">Confidence to build for the long term.</p>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+
+      {/* ═══════════════════════════════════════════
+          FOOTER / CTA
+          Stark minimalism, center-aligned
+      ═══════════════════════════════════════════ */}
+      <section id="contact" className="bg-white py-32 md:py-44 text-center">
+        <ScrollReveal>
+          <div className="mx-auto max-w-2xl px-6 space-y-8">
+            <h2 className="text-3xl md:text-5xl font-bold text-ink leading-[1.15]">
+              Stop building on sand.
+            </h2>
+            <p className="text-lg md:text-xl text-charcoal">
+              Let&apos;s inspect the ground your customers are standing on.
+            </p>
+            <div className="pt-4">
+              <a
+                href="mailto:hello@bakamousa.com"
+                className="cta-button text-base tracking-widest uppercase"
+              >
+                Start the Inspection
+              </a>
+            </div>
           </div>
-
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 max-w-4xl mx-auto">
-            <div className="text-center p-6 rounded-xl border border-white/5 bg-white/5">
-              <p className="text-white font-medium">Fortune 100 companies</p>
-            </div>
-            <div className="text-center p-6 rounded-xl border border-white/5 bg-white/5">
-              <p className="text-white font-medium">Governments and regulators</p>
-            </div>
-            <div className="text-center p-6 rounded-xl border border-white/5 bg-white/5">
-              <p className="text-white font-medium">NGOs and civil society</p>
-            </div>
-            <div className="text-center p-6 rounded-xl border border-white/5 bg-white/5">
-              <p className="text-white font-medium">High-visibility decisions</p>
-            </div>
-          </div>
-
-          <p className="text-center text-zinc-500 mt-8">
-            Our work is trusted where misunderstanding reality has real consequences.
-          </p>
-        </div>
+        </ScrollReveal>
       </section>
 
-      {/* WHO WE WORK WITH */}
-      <section className="bg-bakamo-panel/30 py-24">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <p className="text-sm uppercase tracking-widest text-bakamo-cyan mb-4">Who We Work With</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Leaders responsible for decisions that cannot be undone
-          </h2>
-          
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <span className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-zinc-300">CEOs and executive teams</span>
-            <span className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-zinc-300">CMOs and brand leaders</span>
-            <span className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-zinc-300">Heads of insight and strategy</span>
-            <span className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-zinc-300">Boards navigating uncertainty</span>
-          </div>
-
-          <p className="text-lg text-bakamo-cyan font-semibold mt-10">
-            When the decision matters, reality comes first.
-          </p>
-        </div>
-      </section>
-
-      {/* ROTATING TAGLINES */}
-      <section className="py-16 px-6">
-        <div className="mx-auto max-w-xl">
-          <RotatingTaglines />
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section id="contact" className="relative py-32 text-center overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-bakamo-cyan/10 rounded-full blur-[120px]" />
-        
-        <div className="relative z-10 px-6">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-            Measure what actually matters
-          </h2>
-          <p className="text-lg text-zinc-400 mb-10 max-w-xl mx-auto">
-            If your next decision carries real financial, reputational, or strategic risk, start with ground truth.
-          </p>
-          <a
-            href="mailto:hello@bakamousa.com"
-            className="inline-flex rounded-lg bg-gradient-to-r from-bakamo-cyan to-bakamo-indigo px-10 py-4 text-lg font-semibold text-white hover:opacity-90 transition shadow-xl shadow-bakamo-cyan/20"
-          >
-            Schedule a Conversation
-          </a>
-        </div>
-      </section>
+      {/* Micro footer */}
+      <footer className="border-t border-stone/30 bg-white py-10 text-center">
+        <p className="text-sm font-semibold tracking-[0.15em] text-earth uppercase">
+          Bakamo. Build on Reality.
+        </p>
+        <p className="mt-3 text-xs text-stone">
+          &copy; {new Date().getFullYear()} Bakamo USA
+        </p>
+      </footer>
 
     </main>
   );
