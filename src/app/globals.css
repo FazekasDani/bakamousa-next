@@ -74,6 +74,12 @@ body {
   white-space: nowrap;
 }
 
+/* ─── Float animation (hero background blobs) ─── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
 /* ─── Soil strata ─── */
 @keyframes strata-reveal {
   from { opacity: 0; transform: translateY(16px); }

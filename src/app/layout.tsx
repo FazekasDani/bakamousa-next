@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
+import KimiNavigation from "@/components/KimiNavigation";
 import "./globals.css";
 
 const inter = Inter({
@@ -39,29 +40,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
 
-        {/* Minimal fixed header */}
-        <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-stone/30">
-          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-            <a href="/" className="text-lg font-bold tracking-tight text-ink">
-              BAKAMO<span className="font-light text-earth">.</span>
-            </a>
-            <nav className="flex items-center gap-8 text-sm font-medium text-charcoal">
-              <a href="/about" className="hover:text-ink transition-colors">About</a>
-              <a href="/blog" className="hover:text-ink transition-colors">Insights</a>
-              <a
-                href="#contact"
-                className="cta-button !py-2 !px-5 !text-xs tracking-widest uppercase"
-              >
-                Start the Inspection
-              </a>
-            </nav>
-          </div>
-        </header>
+        {/* Kimi-style auto-hiding glassmorphic nav */}
+        <KimiNavigation />
 
-        {/* Content */}
-        <div className="pt-[72px]">
-          {children}
-        </div>
+        {/* Content — no top padding, hero is full-screen */}
+        {children}
 
       </body>
     </html>
