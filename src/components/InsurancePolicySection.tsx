@@ -7,13 +7,16 @@ import { ArrowRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const promises = [
-  { number: "01", text: "Discovery before validation." },
-  { number: "02", text: "Early detection of cultural fault lines." },
-  { number: "03", text: "Confidence to build for the long term." },
-];
+export type InsuranceContent = {
+  heading: string;
+  promises: { number: string; text: string }[];
+  ctaHeading: string;
+  ctaSubtext: string;
+  ctaButtonText: string;
+  ctaEmail: string;
+};
 
-export default function InsurancePolicySection() {
+export default function InsurancePolicySection({ content }: { content: InsuranceContent }) {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
@@ -108,12 +111,12 @@ export default function InsurancePolicySection() {
             ref={headingRef}
             className="text-3xl lg:text-4xl font-bold mb-16 opacity-0 text-center lg:text-left text-ink"
           >
-            We provide the insurance policy for your reality:
+            {content.heading}
           </h2>
 
           {/* Cards container */}
           <div ref={cardsRef} className="grid md:grid-cols-3 gap-8 mb-12" style={{ perspective: "1000px" }}>
-            {promises.map((promise, index) => (
+            {content.promises.map((promise, index) => (
               <div
                 key={index}
                 className="promise-card group relative p-8 bg-white rounded-2xl border border-stone/20 hover:-translate-y-2 transition-all duration-300 opacity-0"
@@ -156,18 +159,18 @@ export default function InsurancePolicySection() {
           {/* CTA */}
           <div ref={ctaRef} className="text-center opacity-0">
             <p className="text-xl lg:text-2xl font-medium mb-8 text-ink">
-              Stop building on sand.
+              {content.ctaHeading}
               <br />
               <span className="text-charcoal">
-                Let&apos;s inspect the ground your customers are standing on.
+                {content.ctaSubtext}
               </span>
             </p>
 
             <a
-              href="mailto:hello@bakamousa.com"
+              href={`mailto:${content.ctaEmail}`}
               className="group inline-flex items-center gap-3 px-8 py-4 bg-ink text-white text-lg font-medium rounded-full hover:bg-charcoal transition-all duration-300"
             >
-              <span>Start the Inspection</span>
+              <span>{content.ctaButtonText}</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </a>
           </div>

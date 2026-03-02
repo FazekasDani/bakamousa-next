@@ -6,7 +6,17 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function BusinessRealitySection() {
+export type BusinessRealityContent = {
+  label: string;
+  heading: string;
+  bodyParagraph1: string;
+  bodyParagraph2: string;
+  overlapParagraph1: string;
+  overlapParagraph2: string;
+  overlapConclusion: string;
+};
+
+export default function BusinessRealitySection({ content }: { content: BusinessRealityContent }) {
   const sectionRef = useRef<HTMLElement>(null);
   const mainCardRef = useRef<HTMLDivElement>(null);
   const overlapCardRef = useRef<HTMLDivElement>(null);
@@ -100,19 +110,18 @@ export default function BusinessRealitySection() {
                 boxShadow: "0 25px 50px -12px rgba(0,0,0,0.08), 0 12px 24px -8px rgba(0,0,0,0.04)",
               }}
             >
-              <p className="text-xs uppercase tracking-[0.2em] text-highlight mb-6">The Business Reality</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-highlight mb-6">{content.label}</p>
 
               <h3 className="text-2xl lg:text-3xl font-bold mb-6 leading-tight text-ink">
-                Would you build a high-rise without a geological survey?
+                {content.heading}
               </h3>
 
               <p className="text-lg leading-relaxed text-charcoal mb-6">
-                In construction, before a single beam is laid, engineers test the ground. They look for load-bearing
-                capacity, hidden water tables, and fault lines.
+                {content.bodyParagraph1}
               </p>
 
               <p className="text-lg leading-relaxed text-charcoal">
-                In business, organisations routinely pour strategic foundations without testing the cultural soil.
+                {content.bodyParagraph2}
               </p>
             </div>
 
@@ -124,15 +133,14 @@ export default function BusinessRealitySection() {
             >
               <div className="space-y-4">
                 <p className="text-base leading-relaxed text-charcoal">
-                  They run surveys that validate internal assumptions.
+                  {content.overlapParagraph1}
                 </p>
                 <p className="text-base leading-relaxed text-charcoal">
-                  They test language that was written inside a boardroom.
+                  {content.overlapParagraph2}
                 </p>
                 <div className="pt-4 border-t border-stone/40">
                   <p className="text-base leading-relaxed font-medium text-ink">
-                    This isn&apos;t ground inspection. It&apos;s blueprint confirmation. And in unstable terrain,
-                    blueprint confirmation is a liability.
+                    {content.overlapConclusion}
                   </p>
                 </div>
               </div>

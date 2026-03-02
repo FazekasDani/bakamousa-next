@@ -7,22 +7,17 @@ import { Send, ChevronDown } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const statements = [
-  "When I couldn't afford rent anymore",
-  "September 11, 2001",
-  "When the algorithm chose my news",
-  "After COVID, nothing felt the same",
-  "The 2008 crash — everything after was pretend",
-  "When my kids stopped trusting institutions",
-  "Brexit. It broke something.",
-  "When facts became opinions",
-  "Climate anxiety hit me all at once",
-  "The day I deleted social media",
-  "When groceries doubled in price",
-  "AI started writing the news",
-];
+export type KimiHeroContent = {
+  title: string;
+  highlightWord: string;
+  titleSuffix: string;
+  inputPlaceholder: string;
+  thankYouMessage: string;
+  scrollLabel: string;
+  statements: string[];
+};
 
-export default function KimiHero() {
+export default function KimiHero({ content }: { content: KimiHeroContent }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [inputValue, setInputValue] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -32,13 +27,15 @@ export default function KimiHero() {
   const scrollIndicatorRef = useRef<HTMLDivElement>(null);
   const localTriggers = useRef<ScrollTrigger[]>([]);
 
+  const statements = content.statements;
+
   // Auto-rotate carousel
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % statements.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, []);
+  }, [statements.length]);
 
   // Entrance animations
   useEffect(() => {
@@ -155,9 +152,8 @@ export default function KimiHero() {
                 return (
                   <div
                     key={index}
-                    className={`statement-card absolute w-full max-w-lg px-8 py-6 transition-all duration-700 ${
-                      isActive ? "z-30" : absOffset === 1 ? "z-20" : "z-10"
-                    }`}
+                    className={`statement-card absolute w-full max-w-lg px-8 py-6 transition-all duration-700 ${isActive ? "z-30" : absOffset === 1 ? "z-20" : "z-10"
+                      }`}
                     style={{
                       transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
                       transform: `
@@ -170,9 +166,8 @@ export default function KimiHero() {
                     }}
                   >
                     <p
-                      className={`text-2xl lg:text-3xl font-medium leading-snug transition-colors duration-500 ${
-                        isActive ? "text-ink" : "text-stone"
-                      }`}
+                      className={`text-2xl lg:text-3xl font-medium leading-snug transition-colors duration-500 ${isActive ? "text-ink" : "text-stone"
+                        }`}
                     >
                       {statement}
                     </p>
@@ -187,11 +182,10 @@ export default function KimiHero() {
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    index === currentIndex
+                  className={`h-1.5 rounded-full transition-all duration-300 ${index === currentIndex
                       ? "bg-ink w-6"
                       : "bg-stone hover:bg-earth w-1.5"
-                  }`}
+                    }`}
                 />
               ))}
             </div>
@@ -200,9 +194,9 @@ export default function KimiHero() {
           {/* Right side - Input prompt */}
           <div ref={promptRef} className="flex flex-col items-start lg:items-end text-left lg:text-right">
             <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight mb-8 text-ink">
-              When did the world
+              {content.title}
               <br />
-              <span className="text-highlight">start changing</span> for you?
+              <span className="text-highlight">{content.highlightWord}</span> {content.titleSuffix}
             </h1>
 
             <form onSubmit={handleSubmit} className="w-full max-w-md">
@@ -211,18 +205,17 @@ export default function KimiHero() {
                   type="text"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Share your moment..."
+                  placeholder={content.inputPlaceholder}
                   disabled={isSubmitted}
                   className="w-full px-6 py-4 pr-14 bg-white border border-stone rounded-full text-base text-ink placeholder:text-earth focus:outline-none focus:border-ink focus:ring-2 focus:ring-ink/10 transition-all duration-300 disabled:opacity-50"
                 />
                 <button
                   type="submit"
                   disabled={isSubmitted || !inputValue.trim()}
-                  className={`absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 ${
-                    isSubmitted
+                  className={`absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 ${isSubmitted
                       ? "bg-green-600 text-white"
                       : "bg-ink text-white hover:bg-charcoal disabled:opacity-30 disabled:cursor-not-allowed"
-                  }`}
+                    }`}
                 >
                   {isSubmitted ? (
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -235,7 +228,7 @@ export default function KimiHero() {
               </div>
               {isSubmitted && (
                 <p className="mt-3 text-sm text-green-700 animate-[fade-in-up_0.5s_ease-out_forwards]">
-                  Thank you for sharing your moment.
+                  {content.thankYouMessage}
                 </p>
               )}
             </form>
@@ -248,7 +241,7 @@ export default function KimiHero() {
         ref={scrollIndicatorRef}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-earth"
       >
-        <span className="text-xs uppercase tracking-[0.2em]">Scroll</span>
+        <span className="text-xs uppercase tracking-[0.2em]">{content.scrollLabel}</span>
         <ChevronDown className="w-5 h-5 animate-bounce" />
       </div>
     </section>

@@ -6,7 +6,18 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function MetaphorSection() {
+export type MetaphorContent = {
+  heading: string;
+  paragraph1: string;
+  highlightWord: string;
+  timeline: { year: string; text: string }[];
+  paragraph2: string;
+  paragraph3: string;
+  sideLabel: string;
+  sideQuote: string;
+};
+
+export default function MetaphorSection({ content }: { content: MetaphorContent }) {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const paragraphsRef = useRef<HTMLDivElement>(null);
@@ -112,7 +123,7 @@ export default function MetaphorSection() {
         <div className="max-w-6xl mx-auto">
           {/* Section heading */}
           <h2 ref={headingRef} className="text-4xl lg:text-6xl font-bold mb-16 opacity-0 text-ink">
-            The Shift
+            {content.heading}
           </h2>
 
           {/* Content grid */}
@@ -120,35 +131,28 @@ export default function MetaphorSection() {
             {/* Main content */}
             <div ref={paragraphsRef} className="lg:col-span-7 space-y-6">
               <p className="text-lg lg:text-xl leading-relaxed text-charcoal opacity-0">
-                We call it the &ldquo;new normal,&rdquo; but that implies stability.
-                It wasn&apos;t a return to normal; it was a change in the{" "}
+                {content.paragraph1}{" "}
                 <span ref={highlightRef} className="inline-block font-semibold text-2xl lg:text-3xl opacity-0">
-                  soil composition
+                  {content.highlightWord}
                 </span>{" "}
                 of society.
               </p>
 
               <div className="space-y-2 py-4 stagger-item opacity-0">
-                <p className="text-lg lg:text-xl leading-relaxed">
-                  <span className="font-semibold text-ink">2008</span>{" "}
-                  <span className="text-charcoal">fractured economic trust.</span>
-                </p>
-                <p className="text-lg lg:text-xl leading-relaxed">
-                  <span className="font-semibold text-ink">Algorithms</span>{" "}
-                  <span className="text-charcoal">fragmented our reality.</span>
-                </p>
-                <p className="text-lg lg:text-xl leading-relaxed">
-                  <span className="font-semibold text-ink">Affordability</span>{" "}
-                  <span className="text-charcoal">reshaped aspiration.</span>
-                </p>
+                {content.timeline.map((item, index) => (
+                  <p key={index} className="text-lg lg:text-xl leading-relaxed">
+                    <span className="font-semibold text-ink">{item.year}</span>{" "}
+                    <span className="text-charcoal">{item.text}</span>
+                  </p>
+                ))}
               </div>
 
               <p className="text-lg lg:text-xl leading-relaxed text-charcoal opacity-0">
-                The mainstream didn&apos;t just shift; it dissolved into parallel realities.
+                {content.paragraph2}
               </p>
 
               <p className="text-lg lg:text-xl leading-relaxed font-medium text-ink opacity-0">
-                Yet, most strategies are still built for a world that no longer exists.
+                {content.paragraph3}
               </p>
             </div>
 
@@ -160,9 +164,9 @@ export default function MetaphorSection() {
 
               <div className="relative z-10 lg:pt-24">
                 <div className="p-8 bg-white rounded-2xl shadow-sm border border-stone/20">
-                  <p className="text-xs uppercase tracking-[0.2em] text-earth mb-4">The Reality</p>
+                  <p className="text-xs uppercase tracking-[0.2em] text-earth mb-4">{content.sideLabel}</p>
                   <p className="text-2xl lg:text-3xl font-bold leading-tight text-ink">
-                    Culture shifts like tectonic plates — slowly, then all at once.
+                    {content.sideQuote}
                   </p>
                 </div>
               </div>

@@ -6,19 +6,25 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const layers = [
-  { name: "Branding", description: "is the facade.", width: "60%", dark: false },
-  { name: "Strategy", description: "is the structure.", width: "80%", dark: false },
-  { name: "Insight", description: "is the foundation.", width: "100%", dark: true },
-];
+export type DeliverableContent = {
+  label: string;
+  heading: string;
+  layers: { name: string; description: string }[];
+  bodyText: string;
+  cracksList: string[];
+  conclusion: string;
+  conclusionHighlight: string;
+};
 
-export default function DeliverableSection() {
+export default function DeliverableSection({ content }: { content: DeliverableContent }) {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const layersRef = useRef<HTMLDivElement>(null);
   const bodyTextRef = useRef<HTMLDivElement>(null);
   const conclusionRef = useRef<HTMLParagraphElement>(null);
   const localTriggers = useRef<ScrollTrigger[]>([]);
+
+  const layers = content.layers;
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -105,71 +111,75 @@ export default function DeliverableSection() {
     };
   }, []);
 
+  // Compute layer widths based on index (same as original)
+  const layerWidths = ["60%", "80%", "100%"];
+
   return (
     <section ref={sectionRef} className="relative w-full py-28 md:py-36 bg-white overflow-hidden">
       <div className="w-full px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
           {/* Heading */}
-          <p className="text-xs uppercase tracking-[0.2em] text-earth mb-6">The Deliverable</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-earth mb-6">{content.label}</p>
           <h2 ref={headingRef} className="text-4xl lg:text-6xl font-bold mb-16 opacity-0 text-ink">
-            Foundation before Facade.
+            {content.heading}
           </h2>
 
           {/* Layers visual */}
           <div ref={layersRef} className="relative mb-16">
             <div className="space-y-4">
-              {layers.map((layer, index) => (
-                <div key={index} className="layer-item relative opacity-0" style={{ width: layer.width }}>
-                  <div
-                    className={`h-20 lg:h-24 rounded-xl flex items-center px-6 lg:px-8 transition-all duration-300 hover:scale-[1.02] cursor-pointer group ${
-                      layer.dark
-                        ? "bg-gradient-to-r from-charcoal to-ink"
-                        : index === 0
-                        ? "bg-gradient-to-r from-warm-grey to-stone/50"
-                        : "bg-gradient-to-r from-stone/60 to-earth/40"
-                    }`}
-                    style={{
-                      boxShadow: layer.dark
-                        ? "0 25px 50px -12px rgba(0,0,0,0.15)"
-                        : "0 10px 30px -10px rgba(0,0,0,0.06)",
-                    }}
-                  >
-                    <div className="flex items-baseline gap-2">
-                      <span className={`text-xl lg:text-2xl font-bold ${layer.dark ? "text-white" : "text-ink"}`}>
-                        {layer.name}
-                      </span>
-                      <span
-                        className={`text-base lg:text-lg group-hover:opacity-100 opacity-70 transition-opacity ${
-                          layer.dark ? "text-stone" : "text-charcoal"
+              {layers.map((layer, index) => {
+                const isDark = index === layers.length - 1;
+                return (
+                  <div key={index} className="layer-item relative opacity-0" style={{ width: layerWidths[index] || "100%" }}>
+                    <div
+                      className={`h-20 lg:h-24 rounded-xl flex items-center px-6 lg:px-8 transition-all duration-300 hover:scale-[1.02] cursor-pointer group ${isDark
+                          ? "bg-gradient-to-r from-charcoal to-ink"
+                          : index === 0
+                            ? "bg-gradient-to-r from-warm-grey to-stone/50"
+                            : "bg-gradient-to-r from-stone/60 to-earth/40"
                         }`}
-                      >
-                        {layer.description}
-                      </span>
+                      style={{
+                        boxShadow: isDark
+                          ? "0 25px 50px -12px rgba(0,0,0,0.15)"
+                          : "0 10px 30px -10px rgba(0,0,0,0.06)",
+                      }}
+                    >
+                      <div className="flex items-baseline gap-2">
+                        <span className={`text-xl lg:text-2xl font-bold ${isDark ? "text-white" : "text-ink"}`}>
+                          {layer.name}
+                        </span>
+                        <span
+                          className={`text-base lg:text-lg group-hover:opacity-100 opacity-70 transition-opacity ${isDark ? "text-stone" : "text-charcoal"
+                            }`}
+                        >
+                          {layer.description}
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 
           {/* Body text */}
           <div ref={bodyTextRef} className="max-w-2xl mb-12">
             <p className="text-lg lg:text-xl leading-relaxed text-charcoal mb-6 opacity-0">
-              If your foundation is weak, the cracks won&apos;t appear on day one. They will appear as:
+              {content.bodyText}
             </p>
 
             <div className="space-y-3 pl-6 border-l-2 border-stone/40">
-              <p className="text-lg font-medium text-ink opacity-0">Failed repositioning.</p>
-              <p className="text-lg font-medium text-ink opacity-0">Cultural backlash.</p>
-              <p className="text-lg font-medium text-ink opacity-0">Mysterious declines in trust.</p>
+              {content.cracksList.map((crack, index) => (
+                <p key={index} className="text-lg font-medium text-ink opacity-0">{crack}</p>
+              ))}
             </div>
           </div>
 
           {/* Conclusion */}
           <p ref={conclusionRef} className="text-2xl lg:text-3xl font-bold opacity-0 text-ink">
-            Most business failures are not creative failures.
+            {content.conclusion}
             <br />
-            <span className="text-highlight">They are foundation failures.</span>
+            <span className="text-highlight">{content.conclusionHighlight}</span>
           </p>
         </div>
       </div>

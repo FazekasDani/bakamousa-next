@@ -1,0 +1,146 @@
+{
+    "hero": {
+        "title": "When did the world",
+        "highlightWord": "start changing",
+        "titleSuffix": "for you?",
+        "inputPlaceholder": "Share your moment...",
+        "thankYouMessage": "Thank you for sharing your moment.",
+        "scrollLabel": "Scroll",
+        "statements": [
+            "When I couldn't afford rent anymore",
+            "September 11, 2001",
+            "When the algorithm chose my news",
+            "After COVID, nothing felt the same",
+            "The 2008 crash — everything after was pretend",
+            "When my kids stopped trusting institutions",
+            "Brexit. It broke something.",
+            "When facts became opinions",
+            "Climate anxiety hit me all at once",
+            "The day I deleted social media",
+            "When groceries doubled in price",
+            "AI started writing the news"
+        ]
+    },
+    "metaphor": {
+        "heading": "The Shift",
+        "paragraph1": "We call it the \"new normal,\" but that implies stability. It wasn't a return to normal; it was a change in the",
+        "highlightWord": "soil composition",
+        "timeline": [
+            {
+                "year": "2008",
+                "text": "fractured economic trust."
+            },
+            {
+                "year": "Algorithms",
+                "text": "fragmented our reality."
+            },
+            {
+                "year": "Affordability",
+                "text": "reshaped aspiration."
+            }
+        ],
+        "paragraph2": "The mainstream didn't just shift; it dissolved into parallel realities.",
+        "paragraph3": "Yet, most strategies are still built for a world that no longer exists.",
+        "sideLabel": "The Reality",
+        "sideQuote": "Culture shifts like tectonic plates — slowly, then all at once."
+    },
+    "businessReality": {
+        "label": "The Business Reality",
+        "heading": "Would you build a high-rise without a geological survey?",
+        "bodyParagraph1": "In construction, before a single beam is laid, engineers test the ground. They look for load-bearing capacity, hidden water tables, and fault lines.",
+        "bodyParagraph2": "In business, organisations routinely pour strategic foundations without testing the cultural soil.",
+        "overlapParagraph1": "They run surveys that validate internal assumptions.",
+        "overlapParagraph2": "They test language that was written inside a boardroom.",
+        "overlapConclusion": "This isn't ground inspection. It's blueprint confirmation. And in unstable terrain, blueprint confirmation is a liability."
+    },
+    "process": {
+        "label": "The Bakamo Method",
+        "steps": [
+            {
+                "number": "01",
+                "title": "Listen",
+                "description": "We map the \"underground\" drivers of culture — the anxieties, identities, and signals that shape decisions."
+            },
+            {
+                "number": "02",
+                "title": "Measure",
+                "description": "We quantify the weight each narrative can carry — statistically, demographically, nationally."
+            },
+            {
+                "number": "03",
+                "title": "Stress-Test",
+                "description": "We calculate if your strategy can survive on this terrain — before you break ground."
+            }
+        ],
+        "comparisonLabel": "Our Approach",
+        "comparisonOld": "Static surveys & charts",
+        "comparisonNew": "Dynamic, living narrative networks"
+    },
+    "deliverable": {
+        "label": "The Deliverable",
+        "heading": "Foundation before Facade.",
+        "layers": [
+            {
+                "name": "Branding",
+                "description": "is the facade."
+            },
+            {
+                "name": "Strategy",
+                "description": "is the structure."
+            },
+            {
+                "name": "Insight",
+                "description": "is the foundation."
+            }
+        ],
+        "bodyText": "If your foundation is weak, the cracks won't appear on day one. They will appear as:",
+        "cracksList": [
+            "Failed repositioning.",
+            "Cultural backlash.",
+            "Mysterious declines in trust."
+        ],
+        "conclusion": "Most business failures are not creative failures.",
+        "conclusionHighlight": "They are foundation failures."
+    },
+    "insurance": {
+        "heading": "We provide the insurance policy for your reality:",
+        "promises": [
+            {
+                "number": "01",
+                "text": "Discovery before validation."
+            },
+            {
+                "number": "02",
+                "text": "Early detection of cultural fault lines."
+            },
+            {
+                "number": "03",
+                "text": "Confidence to build for the long term."
+            }
+        ],
+        "ctaHeading": "Stop building on sand.",
+        "ctaSubtext": "Let's inspect the ground your customers are standing on.",
+        "ctaButtonText": "Start the Inspection",
+        "ctaEmail": "hello@bakamousa.com"
+    },
+    "footer": {
+        "logoText": "Bakamo",
+        "tagline": "Build on Reality.",
+        "copyrightText": "Bakamo USA. All rights reserved."
+    },
+    "navigation": {
+        "logoText": "BAKAMO",
+        "navLinks": [
+            {
+                "label": "About",
+                "href": "/about"
+            },
+            {
+                "label": "Insights",
+                "href": "/blog"
+            }
+        ],
+        "ctaText": "Start the Inspection",
+        "ctaHref": "#contact"
+    }
+}

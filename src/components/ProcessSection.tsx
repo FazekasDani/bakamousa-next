@@ -7,37 +7,21 @@ import { X, Check } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const steps = [
-  {
-    number: "01",
-    title: "Listen",
-    description:
-      'We map the "underground" drivers of culture — the anxieties, identities, and signals that shape decisions.',
-  },
-  {
-    number: "02",
-    title: "Measure",
-    description:
-      "We quantify the weight each narrative can carry — statistically, demographically, nationally.",
-  },
-  {
-    number: "03",
-    title: "Stress-Test",
-    description:
-      "We calculate if your strategy can survive on this terrain — before you break ground.",
-  },
-];
-
-const comparison = {
-  old: "Static surveys & charts",
-  new: "Dynamic, living narrative networks",
+export type ProcessContent = {
+  label: string;
+  steps: { number: string; title: string; description: string }[];
+  comparisonLabel: string;
+  comparisonOld: string;
+  comparisonNew: string;
 };
 
-export default function ProcessSection() {
+export default function ProcessSection({ content }: { content: ProcessContent }) {
   const sectionRef = useRef<HTMLElement>(null);
   const [activeStep, setActiveStep] = useState(0);
   const progressRef = useRef<HTMLDivElement>(null);
   const localTriggers = useRef<ScrollTrigger[]>([]);
+
+  const steps = content.steps;
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -95,7 +79,7 @@ export default function ProcessSection() {
       <div className="w-full h-screen px-6 lg:px-12 flex items-center">
         <div className="max-w-6xl mx-auto w-full">
           {/* Section label */}
-          <p className="text-xs uppercase tracking-[0.2em] text-earth mb-10">The Bakamo Method</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-earth mb-10">{content.label}</p>
 
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             {/* Progress indicator */}
@@ -115,20 +99,18 @@ export default function ProcessSection() {
                 {steps.map((step, index) => (
                   <div
                     key={index}
-                    className={`absolute inset-0 transition-all duration-700 ${
-                      index === activeStep
+                    className={`absolute inset-0 transition-all duration-700 ${index === activeStep
                         ? "opacity-100 translate-x-0"
                         : index < activeStep
-                        ? "opacity-0 -translate-x-12"
-                        : "opacity-0 translate-x-12"
-                    }`}
+                          ? "opacity-0 -translate-x-12"
+                          : "opacity-0 translate-x-12"
+                      }`}
                     style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
                   >
                     <div className="flex items-start gap-6">
                       <span
-                        className={`text-7xl lg:text-8xl font-bold transition-all duration-500 ${
-                          index === activeStep ? "text-ink" : "text-stone"
-                        }`}
+                        className={`text-7xl lg:text-8xl font-bold transition-all duration-500 ${index === activeStep ? "text-ink" : "text-stone"
+                          }`}
                         style={{
                           WebkitTextStroke: index === activeStep ? "0" : "2px var(--ink)",
                           color: index === activeStep ? "var(--ink)" : "transparent",
@@ -151,16 +133,16 @@ export default function ProcessSection() {
             {/* Comparison section */}
             <div className="lg:col-span-4 comparison-section opacity-0">
               <div className="p-8 bg-white rounded-2xl border border-stone/20">
-                <p className="text-xs uppercase tracking-[0.2em] text-earth mb-6">Our Approach</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-earth mb-6">{content.comparisonLabel}</p>
 
                 <div className="space-y-4">
                   <div className="flex items-center gap-3 text-earth">
                     <X className="w-5 h-5 flex-shrink-0" />
-                    <span className="line-through">{comparison.old}</span>
+                    <span className="line-through">{content.comparisonOld}</span>
                   </div>
                   <div className="flex items-center gap-3 text-ink font-medium">
                     <Check className="w-5 h-5 flex-shrink-0 text-highlight" />
-                    <span>{comparison.new}</span>
+                    <span>{content.comparisonNew}</span>
                   </div>
                 </div>
               </div>
@@ -170,9 +152,8 @@ export default function ProcessSection() {
                 {steps.map((_, index) => (
                   <div
                     key={index}
-                    className={`w-12 h-1 rounded-full transition-all duration-500 ${
-                      index === activeStep ? "bg-ink" : "bg-stone/30"
-                    }`}
+                    className={`w-12 h-1 rounded-full transition-all duration-500 ${index === activeStep ? "bg-ink" : "bg-stone/30"
+                      }`}
                   />
                 ))}
               </div>

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { readFileSync } from "fs";
+import { join } from "path";
 import KimiNavigation from "@/components/KimiNavigation";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "./globals.css";
@@ -16,7 +18,16 @@ export const metadata: Metadata = {
     "We inspect the cultural ground before you build. Unfiltered consumer intelligence for leaders who need to get the foundation right.",
 };
 
+function getNavigationContent() {
+  const filePath = join(process.cwd(), "content", "homepage.json");
+  const raw = readFileSync(filePath, "utf8");
+  const content = JSON.parse(raw);
+  return content.navigation;
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const navContent = getNavigationContent();
+
   return (
     <html lang="en" className={inter.variable}>
       <head>
@@ -46,7 +57,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <GoogleAnalytics />
 
         {/* Kimi-style auto-hiding glassmorphic nav */}
-        <KimiNavigation />
+        <KimiNavigation content={navContent} />
 
         {/* Content — no top padding, hero is full-screen */}
         {children}

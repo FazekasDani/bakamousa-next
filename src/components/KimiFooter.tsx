@@ -6,7 +6,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function KimiFooter() {
+export type FooterContent = {
+  logoText: string;
+  tagline: string;
+  copyrightText: string;
+};
+
+export default function KimiFooter({ content }: { content: FooterContent }) {
   const sectionRef = useRef<HTMLElement>(null);
   const borderRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
@@ -88,18 +94,18 @@ export default function KimiFooter() {
           {/* Logo */}
           <div ref={logoRef} className="mb-4 opacity-0">
             <span className="text-4xl lg:text-5xl font-bold tracking-tight text-ink">
-              Bakamo<span className="font-light text-earth">.</span>
+              {content.logoText}<span className="font-light text-earth">.</span>
             </span>
           </div>
 
           {/* Tagline */}
           <p ref={taglineRef} className="text-xl lg:text-2xl text-charcoal mb-8 opacity-0">
-            Build on Reality.
+            {content.tagline}
           </p>
 
           {/* Copyright */}
           <p ref={copyrightRef} className="text-sm text-earth opacity-0">
-            &copy; {new Date().getFullYear()} Bakamo USA. All rights reserved.
+            &copy; {new Date().getFullYear()} {content.copyrightText}
           </p>
         </div>
       </div>

@@ -5,7 +5,14 @@ import { gsap } from "gsap";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-export default function KimiNavigation() {
+export type NavigationContent = {
+  logoText: string;
+  navLinks: { label: string; href: string }[];
+  ctaText: string;
+  ctaHref: string;
+};
+
+export default function KimiNavigation({ content }: { content: NavigationContent }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const lastScrollY = useRef(0);
@@ -63,11 +70,10 @@ export default function KimiNavigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
           ? "bg-white/80 backdrop-blur-md shadow-[0_1px_0_rgba(0,0,0,0.06)]"
           : "bg-transparent"
-      } ${isHidden ? "-translate-y-full" : "translate-y-0"}`}
+        } ${isHidden ? "-translate-y-full" : "translate-y-0"}`}
       style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
     >
       <div className="w-full px-6 lg:px-12">
@@ -78,32 +84,29 @@ export default function KimiNavigation() {
             href="/"
             className="text-xl font-bold tracking-tight text-ink hover:tracking-wider transition-all duration-300"
           >
-            BAKAMO<span className="font-light text-earth">.</span>
+            {content.logoText}<span className="font-light text-earth">.</span>
           </Link>
 
           {/* Navigation Links */}
           <div ref={linksRef} className="hidden md:flex items-center gap-8">
-            <Link
-              href="/about"
-              className="relative text-sm font-medium text-charcoal opacity-80 hover:opacity-100 transition-opacity after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-ink hover:after:w-full after:transition-all after:duration-300"
-            >
-              About
-            </Link>
-            <Link
-              href="/blog"
-              className="relative text-sm font-medium text-charcoal opacity-80 hover:opacity-100 transition-opacity after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-ink hover:after:w-full after:transition-all after:duration-300"
-            >
-              Insights
-            </Link>
+            {content.navLinks.map((link, index) => (
+              <Link
+                key={index}
+                href={link.href}
+                className="relative text-sm font-medium text-charcoal opacity-80 hover:opacity-100 transition-opacity after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-ink hover:after:w-full after:transition-all after:duration-300"
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
 
           {/* CTA Button */}
           <a
             ref={ctaRef}
-            href="#contact"
+            href={content.ctaHref}
             className="group flex items-center gap-2 px-5 py-2.5 bg-ink text-white text-sm font-medium rounded-full hover:bg-charcoal transition-colors duration-300"
           >
-            <span>Start the Inspection</span>
+            <span>{content.ctaText}</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
           </a>
         </div>
