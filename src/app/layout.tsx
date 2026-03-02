@@ -12,10 +12,34 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const SITE_URL = "https://bakamousa.com";
+
 export const metadata: Metadata = {
-  title: "Bakamo — Build on Reality",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Bakamo — Build on Reality",
+    template: "%s | Bakamo",
+  },
   description:
     "We inspect the cultural ground before you build. Unfiltered consumer intelligence for leaders who need to get the foundation right.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: SITE_URL,
+    siteName: "Bakamo",
+    title: "Bakamo — Build on Reality",
+    description:
+      "We inspect the cultural ground before you build. Unfiltered consumer intelligence for leaders who need to get the foundation right.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bakamo — Build on Reality",
+    description:
+      "Unfiltered consumer intelligence for leaders who need to get the foundation right.",
+  },
 };
 
 function getNavigationContent() {
@@ -58,6 +82,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         {/* Kimi-style auto-hiding glassmorphic nav */}
         <KimiNavigation content={navContent} />
+
+        {/* Organization JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Bakamo",
+              url: "https://bakamousa.com",
+              description:
+                "Unfiltered consumer intelligence — we inspect the cultural ground before you build.",
+              foundingDate: "2015",
+              founder: {
+                "@type": "Person",
+                name: "Daniel Fazekas",
+                jobTitle: "Founder & CEO",
+              },
+              sameAs: [],
+            }),
+          }}
+        />
 
         {/* Content — no top padding, hero is full-screen */}
         {children}

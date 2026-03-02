@@ -1,5 +1,17 @@
-export const metadata = {
-  title: "About | Bakamo",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Bakamo was founded on a radical conviction: research must begin with reality. We bridge cultural intelligence with statistical precision.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About Bakamo",
+    description:
+      "Bakamo was founded on a radical conviction: research must begin with reality. We bridge cultural intelligence with statistical precision.",
+  },
 };
 
 export default function AboutPage() {

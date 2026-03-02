@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPostBySlug, getFeaturedImageUrl, isGitContentConfigured } from "@/lib/content";
@@ -7,6 +8,27 @@ import { cookies } from 'next/headers';
 type Props = {
   params: Promise<{ slug: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
+  if (!post) return {};
+  return {
+    title: post.title,
+    description: post.excerpt,
+    alternates: {
+      canonical: `/blog/${slug}`,
+    },
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description: typeof post.excerpt === "string" ? post.excerpt : undefined,
+      url: `https://bakamousa.com/blog/${slug}`,
+      publishedTime: post.date || undefined,
+      ...(post.featuredImage ? { images: [post.featuredImage] } : {}),
+    },
+  };
+}
 
 export default async function BlogPostPage({ params }: Props) {
   if (!isGitContentConfigured()) {
@@ -45,10 +67,36 @@ export default async function BlogPostPage({ params }: Props) {
         ) : null}
       </div>
 
+      {/* Article JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: post.title,
+            description: post.excerpt,
+            datePublished: post.date || undefined,
+            url: `https://bakamousa.com/blog/${(await params).slug}`,
+            author: {
+              "@type": "Organization",
+              name: "Bakamo",
+              url: "https://bakamousa.com",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Bakamo",
+              url: "https://bakamousa.com",
+            },
+            ...(featuredImage ? { image: `https://bakamousa.com${featuredImage}` } : {}),
+          }),
+        }}
+      />
+
       <article className="mt-8">
         {featuredImage ? (
           <div className="mb-6">
-            <img src={featuredImage} alt="" className="w-full rounded-lg object-cover max-h-96" />
+            <img src={featuredImage} alt={sanitizeHtml(String(post.title))} className="w-full rounded-lg object-cover max-h-96" />
           </div>
         ) : null}
 

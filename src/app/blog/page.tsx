@@ -2,8 +2,20 @@ import Link from "next/link";
 import { getAllPosts, isGitContentConfigured } from "@/lib/content";
 import sanitizeHtml from "sanitize-html";
 
-export const metadata = {
-  title: "Blog | Bakamo USA",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Insights",
+  description:
+    "Consumer intelligence insights, methodology deep-dives, and cultural analysis from the Bakamo team.",
+  alternates: {
+    canonical: "/blog",
+  },
+  openGraph: {
+    title: "Insights | Bakamo",
+    description:
+      "Consumer intelligence insights, methodology deep-dives, and cultural analysis from the Bakamo team.",
+  },
 };
 
 export default async function BlogIndexPage() {
