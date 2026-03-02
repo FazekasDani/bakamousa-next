@@ -1,50 +1,117 @@
-import Link from "next/link";
-
 export const metadata = {
-  title: "About | Bakamo USA",
+  title: "About | Bakamo",
 };
 
 export default function AboutPage() {
   return (
-    <main className="mx-auto max-w-4xl px-6 py-12">
-      <div className="mb-8">
-        <h1 className="text-3xl font-semibold tracking-tight">About Bakamo USA</h1>
-        <p className="mt-2 text-zinc-600">Partnering unfiltered cultural intelligence with nationwide statistical rigor to measure what actually matters to people in the U.S.</p>
-      </div>
+    <main className="relative w-full min-h-screen bg-white text-gray-900 overflow-x-hidden pb-24">
+      <div className="max-w-4xl mx-auto px-6 md:px-12 pt-20 md:pt-32 space-y-24">
+        
+        {/* About Section */}
+        <section className="space-y-6">
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-black">
+            About Bakamo
+          </h1>
+          <div className="space-y-5 text-lg md:text-xl text-gray-700 leading-relaxed">
+            <p>
+              Bakamo was founded on a simple but radical conviction: research must begin with reality — not with assumptions.
+            </p>
+            <p>
+              For too long, the industry has relied on pre-structured questionnaires, predefined hypotheses, and artificial settings that distance us from how people actually think, speak, and live. The outcome is often elegant data resting on fragile premises.
+            </p>
+            <p>
+              We believe the standard must change.
+            </p>
+            <p>
+              We came together to build that new standard by combining old and new — listening with asking. We unite unfiltered cultural intelligence with nationwide statistical rigour to measure what truly matters to people, not what organisations presume matters. We uncover how people naturally articulate their needs, tensions, values, and decisions in the wild — and translate those lived narratives into representative, decision-ready measurement frameworks.
+            </p>
+            <p className="font-bold text-2xl text-black mt-8">
+              Build on reality.
+            </p>
+          </div>
+        </section>
 
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold mb-3">Our Mission</h2>
-        <p className="mb-3">Traditional quantitative research starts with a hypothesis and a questionnaire. We start with reality. Bakamo’s social listening discovers the language, needs, and narratives people use in the wild; Sandra Baumann’s team then translates that reality into representative, board-ready quantitative instruments.</p>
-        <p>We help brands and researchers reduce the risk of wasted budgets by ensuring you’re measuring genuine cultural signals, not internal assumptions.</p>
-      </section>
+        {/* Divider */}
+        <hr className="border-gray-200" />
 
-      <section className="mb-10 bg-gray-50 rounded-lg p-6">
-        <h3 className="text-xl font-semibold mb-3">How We Work</h3>
-        <ol className="list-decimal ml-6 space-y-2">
-          <li><b>Listen:</b> Harvest millions of unprompted conversations to surface real consumer language and emergent themes.</li>
-          <li><b>Translate:</b> Convert authentic narratives into clear, testable constructs and measures.</li>
-          <li><b>Validate:</b> Field representative surveys to quantify prevalence, size, and demographic patterns.</li>
-          <li><b>Advise:</b> Deliver board-ready recommendations and measurement frameworks that scale.</li>
-        </ol>
-      </section>
+        {/* Mission Section */}
+        <section className="space-y-6">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black">
+            Our Mission
+          </h2>
+          <div className="space-y-5 text-lg text-gray-700 leading-relaxed">
+            <p>
+              We believe the world works better when we listen — properly, patiently, and without interruption.
+            </p>
+            <p>
+              Real understanding never begins with our own categories. As Hans-Georg Gadamer taught, insight only emerges when we let others invite us into their world. The difference between the old world and the new is the difference between kicking a soccer ball and kicking a dog: reality is complex, unpredictable, and far messier than any model.
+            </p>
+            <p className="font-medium text-black">
+              Bakamo was built on that truth: understand first, model second, never pretend the universe is simpler than it is.
+            </p>
+            <p>
+              We bridge quantitative and qualitative traditions to solve the industry&apos;s oldest tension — how to combine the raw depth of unfiltered cultural listening with the power of statistical representation. Traditional research starts with a hypothesis and a questionnaire. We start with reality.
+            </p>
+            <p>
+              Our anthropological approach captures the language, narratives, emotional tensions, and unmet needs that surface in natural conversations. From there, we translate those grounded truths into representative qualitative and quantitative instruments that measure what actually exists in culture — not what we assumed.
+            </p>
+            <p>
+              The result is more than insight. It is risk reduction.
+            </p>
+            <p>
+              We help brands, institutions, and researchers avoid costly misalignment by anchoring decisions in real cultural signals instead of internal projections.
+            </p>
+            <p className="font-bold text-xl text-black pt-2">
+              Because better listening doesn&apos;t just feel right. It leads to better decisions.
+            </p>
+          </div>
+        </section>
 
-      <section className="mb-10">
-        <h3 className="text-xl font-semibold mb-3">Who This Is For</h3>
-        <ul className="list-disc ml-6 space-y-2">
-          <li>CMOs and insights leaders who need fast, defensible answers about cultural opportunity.</li>
-          <li>Product and innovation teams looking to validate new concepts before large-scale investment.</li>
-          <li>Research teams seeking to eliminate bias from study design and improve the actionability of results.</li>
-        </ul>
-      </section>
+        {/* Divider */}
+        <hr className="border-gray-200" />
 
-      <section className="mb-12">
-        <h3 className="text-xl font-semibold mb-3">Ready to Ground Your Next Study?</h3>
-        <p className="mb-4">Get in touch to discuss how we can de-risk your segmentation, tracker, or innovation pipeline with grounded quantification.</p>
-        <a href="mailto:info@bakamousa.com" className="bg-blue-700 text-white px-6 py-3 rounded-lg font-bold shadow hover:bg-blue-800 transition">Schedule an Introduction</a>
-      </section>
+        {/* Leadership Section */}
+        <section className="space-y-10">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black">
+            Leadership
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            {/* Leader 1 */}
+            <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-sm transition-shadow">
+              <h3 className="text-xl font-bold text-gray-900">Phd. Sandra Baumann</h3>
+              <p className="mt-3 text-gray-600 leading-relaxed">
+                Bridging cultural intelligence with statistical precision.
+              </p>
+            </div>
 
-      <div className="text-sm text-zinc-600">
-        <Link href="/">← Home</Link>
+            {/* Leader 2 */}
+            <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-sm transition-shadow">
+              <h3 className="text-xl font-bold text-gray-900">Miki Varadi</h3>
+              <p className="mt-3 text-gray-600 leading-relaxed">
+                Driving anthropological depth and narrative clarity.
+              </p>
+            </div>
+
+            {/* Leader 3 */}
+            <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-sm transition-shadow">
+              <h3 className="text-xl font-bold text-gray-900">Daniel Fazekas</h3>
+              <p className="mt-3 text-gray-600 leading-relaxed">
+                <span className="font-semibold text-gray-800">Founder &amp; CEO</span> — pioneering &quot;insights without asking&quot; and global social intelligence innovation.
+              </p>
+            </div>
+
+            {/* Leader 4 */}
+            <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-sm transition-shadow">
+              <h3 className="text-xl font-bold text-gray-900">Dan Foreman</h3>
+              <p className="mt-3 text-gray-600 leading-relaxed">
+                Strategic integration and market-facing execution.
+              </p>
+            </div>
+
+          </div>
+        </section>
+
       </div>
     </main>
   );
