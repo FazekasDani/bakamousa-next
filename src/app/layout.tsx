@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import KimiNavigation from "@/components/KimiNavigation";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "./globals.css";
 
 const inter = Inter({
@@ -40,6 +41,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
+
+        {/* GA4 direct tracking (SPA-aware) */}
+        <GoogleAnalytics />
 
         {/* Kimi-style auto-hiding glassmorphic nav */}
         <KimiNavigation />
