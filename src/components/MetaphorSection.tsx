@@ -158,7 +158,7 @@ export default function MetaphorSection() {
                 <line ref={lineRef} x1="100" y1="0" x2="50" y2="400" stroke="var(--stone)" strokeWidth="1" />
               </svg>
 
-              <div className="relative z-10 lg:pl-12 lg:pt-24">
+              <div className="relative z-10 lg:pt-24">
                 <div className="p-8 bg-white rounded-2xl shadow-sm border border-stone/20">
                   <p className="text-xs uppercase tracking-[0.2em] text-earth mb-4">The Reality</p>
                   <p className="text-2xl lg:text-3xl font-bold leading-tight text-ink">

@@ -94,7 +94,7 @@ export default function BusinessRealitySection() {
             {/* Main card */}
             <div
               ref={mainCardRef}
-              className="relative z-10 w-full lg:w-[70%] p-8 lg:p-12 bg-white rounded-3xl opacity-0"
+              className="relative z-10 w-full lg:w-[70%] p-8 lg:p-12 bg-white rounded-3xl opacity-0 lg:mb-32"
               style={{
                 transformStyle: "preserve-3d",
                 boxShadow: "0 25px 50px -12px rgba(0,0,0,0.08), 0 12px 24px -8px rgba(0,0,0,0.04)",
@@ -119,7 +119,7 @@ export default function BusinessRealitySection() {
             {/* Overlap card */}
             <div
               ref={overlapCardRef}
-              className="relative lg:absolute lg:top-1/2 lg:right-0 lg:-translate-y-1/3 w-full lg:w-[45%] mt-6 lg:mt-0 p-8 lg:p-10 bg-off-white rounded-3xl opacity-0"
+              className="relative lg:absolute lg:top-1/2 lg:right-0 lg:-translate-y-1/3 w-full lg:w-[35%] mt-6 lg:mt-0 p-8 lg:p-10 bg-off-white rounded-3xl opacity-0"
               style={{ boxShadow: "0 10px 40px -10px rgba(0,0,0,0.06)" }}
             >
               <div className="space-y-4">
