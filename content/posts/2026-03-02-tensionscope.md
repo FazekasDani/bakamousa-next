@@ -1,12 +1,11 @@
 ---
-title: "TensionScope: Decoding the Human "Why" Behind the Data"
+title: 'TensionScope: Decoding the Human "Why" Behind the Data'
 slug: "tensionscope-decoding-the-human-why"
 date: "2026-03-02T09:00:00Z"
 author: "Team Bakamo"
 tags: ["tensionscope", "methodology", "consumer-intelligence"]
 category: "Insights"
-featuredImage: "/media/tensionscope.jpg"
-summary: "TensionScope identifies the deep psychological frictions — the Tensions — that actually drive consumer decision-making."
+summary: 'TensionScope identifies the deep psychological frictions — the Tensions — that actually drive consumer decision-making.'
 draft: false
 ---
 
