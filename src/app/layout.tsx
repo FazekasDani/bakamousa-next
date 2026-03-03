@@ -4,6 +4,7 @@ import { readFileSync } from "fs";
 import { join } from "path";
 import KimiNavigation from "@/components/KimiNavigation";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import { getSiteUrlSync } from "@/lib/site-url";
 import "./globals.css";
 
 const inter = Inter({
@@ -12,7 +13,7 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const SITE_URL = "https://bakamousa.com";
+const SITE_URL = getSiteUrlSync();
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -47,6 +48,32 @@ function getNavigationContent() {
   const raw = readFileSync(filePath, "utf8");
   const content = JSON.parse(raw);
   return content.navigation;
+}
+
+async function OrganizationJsonLd() {
+  const { getSiteUrl } = await import("@/lib/site-url");
+  const siteUrl = await getSiteUrl();
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Bakamo",
+    url: siteUrl,
+    description:
+      "Unfiltered consumer intelligence — we inspect the cultural ground before you build.",
+    foundingDate: "2015",
+    founder: {
+      "@type": "Person",
+      name: "Daniel Fazekas",
+      jobTitle: "Founder & CEO",
+    },
+    sameAs: [],
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -84,26 +111,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <KimiNavigation content={navContent} />
 
         {/* Organization JSON-LD */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Bakamo",
-              url: "https://bakamousa.com",
-              description:
-                "Unfiltered consumer intelligence — we inspect the cultural ground before you build.",
-              foundingDate: "2015",
-              founder: {
-                "@type": "Person",
-                name: "Daniel Fazekas",
-                jobTitle: "Founder & CEO",
-              },
-              sameAs: [],
-            }),
-          }}
-        />
+        <OrganizationJsonLd />
 
         {/* Content — no top padding, hero is full-screen */}
         {children}

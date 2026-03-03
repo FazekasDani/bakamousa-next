@@ -7,6 +7,7 @@ import ProcessSection from "@/components/ProcessSection";
 import DeliverableSection from "@/components/DeliverableSection";
 import InsurancePolicySection from "@/components/InsurancePolicySection";
 import KimiFooter from "@/components/KimiFooter";
+import { getSiteUrl } from "@/lib/site-url";
 
 function getHomepageContent() {
   const filePath = join(process.cwd(), "content", "homepage.json");
@@ -14,11 +15,12 @@ function getHomepageContent() {
   return JSON.parse(raw);
 }
 
-const SERVICE_SCHEMA = {
+function buildServiceSchema(siteUrl: string) {
+  return {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "Bakamo",
-  url: "https://bakamousa.com",
+  url: siteUrl,
   description:
     "Unfiltered consumer intelligence — we inspect the cultural ground before you build.",
   serviceType: "Consumer Intelligence & Cultural Research",
@@ -57,12 +59,14 @@ const SERVICE_SCHEMA = {
     ],
   },
 };
+}
 
-const REVIEW_SCHEMA = {
+function buildReviewSchema(siteUrl: string) {
+  return {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Bakamo",
-  url: "https://bakamousa.com",
+  url: siteUrl,
   review: [
     {
       "@type": "Review",
@@ -94,9 +98,13 @@ const REVIEW_SCHEMA = {
     },
   ],
 };
+}
 
-export default function Home() {
+export default async function Home() {
   const content = getHomepageContent();
+  const siteUrl = await getSiteUrl();
+  const SERVICE_SCHEMA = buildServiceSchema(siteUrl);
+  const REVIEW_SCHEMA = buildReviewSchema(siteUrl);
 
   return (
     <main className="relative w-full min-h-screen bg-white overflow-x-hidden">

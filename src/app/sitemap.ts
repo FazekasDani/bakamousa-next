@@ -1,9 +1,10 @@
 import { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/content";
+import { getSiteUrl } from "@/lib/site-url";
 
-const SITE_URL = "https://bakamousa.com";
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const SITE_URL = await getSiteUrl();
 
-export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: SITE_URL,

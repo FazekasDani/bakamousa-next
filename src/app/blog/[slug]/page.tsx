@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPostBySlug, getFeaturedImageUrl, isGitContentConfigured } from "@/lib/content";
+import { getSiteUrl } from "@/lib/site-url";
 import sanitizeHtml from "sanitize-html";
 import { cookies } from 'next/headers';
 
@@ -13,6 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) return {};
+  const siteUrl = await getSiteUrl();
   return {
     title: post.title,
     description: post.excerpt,
@@ -23,11 +25,40 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       title: post.title,
       description: typeof post.excerpt === "string" ? post.excerpt : undefined,
-      url: `https://bakamousa.com/blog/${slug}`,
+      url: `${siteUrl}/blog/${slug}`,
       publishedTime: post.date || undefined,
       ...(post.featuredImage ? { images: [post.featuredImage] } : {}),
     },
   };
+}
+
+async function ArticleJsonLd({ post, slug, featuredImage }: { post: any; slug: string; featuredImage: string | null }) {
+  const siteUrl = await getSiteUrl();
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date || undefined,
+    url: `${siteUrl}/blog/${slug}`,
+    author: {
+      "@type": "Organization",
+      name: "Bakamo",
+      url: siteUrl,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Bakamo",
+      url: siteUrl,
+    },
+    ...(featuredImage ? { image: `${siteUrl}${featuredImage}` } : {}),
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
 }
 
 export default async function BlogPostPage({ params }: Props) {
@@ -68,30 +99,7 @@ export default async function BlogPostPage({ params }: Props) {
       </div>
 
       {/* Article JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            headline: post.title,
-            description: post.excerpt,
-            datePublished: post.date || undefined,
-            url: `https://bakamousa.com/blog/${(await params).slug}`,
-            author: {
-              "@type": "Organization",
-              name: "Bakamo",
-              url: "https://bakamousa.com",
-            },
-            publisher: {
-              "@type": "Organization",
-              name: "Bakamo",
-              url: "https://bakamousa.com",
-            },
-            ...(featuredImage ? { image: `https://bakamousa.com${featuredImage}` } : {}),
-          }),
-        }}
-      />
+      <ArticleJsonLd post={post} slug={slug} featuredImage={featuredImage} />
 
       <article className="mt-8">
         {featuredImage ? (
