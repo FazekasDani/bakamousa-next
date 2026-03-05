@@ -66,12 +66,12 @@ export default function SiteNavigation() {
             >
               Insights
             </Link>
-            <a
-              href="mailto:hello@bakamousa.com"
+            <Link
+              href="/contact"
               className="text-xs uppercase tracking-[0.15em] text-accent hover:text-white transition-colors"
             >
               Contact
-            </a>
+            </Link>
           </div>
         </div>
       </div>

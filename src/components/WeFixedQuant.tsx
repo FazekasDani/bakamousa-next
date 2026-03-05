@@ -420,7 +420,7 @@ export default function WeFixedQuant() {
           <div className="flex gap-8 text-sm text-text-muted">
             <a href="/about" className="hover:text-white transition-colors">About</a>
             <a href="/blog" className="hover:text-white transition-colors">Insights</a>
-            <a href="mailto:hello@bakamousa.com" className="hover:text-white transition-colors">Contact</a>
+            <a href="/contact" className="hover:text-white transition-colors">Contact</a>
           </div>
           <div className="text-xs text-text-muted">
             &copy; {new Date().getFullYear()} Bakamo USA. All rights reserved.
