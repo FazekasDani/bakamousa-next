@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -104,10 +104,19 @@ const CASE_STUDIES = [
   },
 ];
 
+// ── Hero background videos (add more paths here) ────────
+const HERO_VIDEOS = [
+  "/media/india-bg.mp4",
+  "/media/ukstreet-bg.mp4",
+];
+
 // ── Component ────────────────────────────────────────────
 
 export default function WeFixedQuant() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [heroVideo] = useState(
+    () => HERO_VIDEOS[Math.floor(Math.random() * HERO_VIDEOS.length)]
+  );
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -197,7 +206,7 @@ export default function WeFixedQuant() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover opacity-40 select-none pointer-events-none"
         >
-          <source src="/media/india-bg.mp4" type="video/mp4" />
+          <source src={heroVideo} type="video/mp4" />
         </video>
 
         <div className="hero-bg-gradient absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 via-[#111]/40 to-[#0a0a0a]" />
