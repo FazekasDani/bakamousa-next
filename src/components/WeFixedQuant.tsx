@@ -403,9 +403,20 @@ export default function WeFixedQuant() {
             You Can Start to<br />
             <span className="text-accent-glow font-light">Build On Reality</span>
           </h2>
-          <div className="reveal mt-12">
-            <a href="mailto:hello@bakamousa.com" className="cta-button">
-              Get in touch
+          <div className="reveal mt-16 flex justify-center">
+            <a href="/contact" className="pulse-cta group relative flex items-center justify-center w-40 h-40">
+              {/* Outer pulsing rings */}
+              <span className="absolute inset-0 rounded-full border border-accent/20 animate-[cta-ping_3s_ease-out_infinite]" />
+              <span className="absolute inset-0 rounded-full border border-accent/15 animate-[cta-ping_3s_ease-out_0.6s_infinite]" />
+              <span className="absolute inset-0 rounded-full border border-accent/10 animate-[cta-ping_3s_ease-out_1.2s_infinite]" />
+              {/* Glow backdrop */}
+              <span className="absolute inset-2 rounded-full bg-accent/5 transition-all duration-700 group-hover:bg-accent/15 group-hover:inset-0" />
+              {/* Core circle */}
+              <span className="absolute inset-4 rounded-full border border-accent/40 transition-all duration-500 group-hover:border-accent group-hover:inset-3" />
+              {/* Label */}
+              <span className="relative text-xs uppercase tracking-[0.2em] text-accent transition-colors duration-500 group-hover:text-white">
+                Get in touch
+              </span>
             </a>
           </div>
         </div>
