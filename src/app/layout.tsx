@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { readFileSync } from "fs";
-import { join } from "path";
-import KimiNavigation from "@/components/KimiNavigation";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import SiteNavigation from "@/components/SiteNavigation";
 import { getSiteUrlSync } from "@/lib/site-url";
 import "./globals.css";
 
@@ -18,11 +16,11 @@ const SITE_URL = getSiteUrlSync();
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Bakamo — Build on Reality",
+    default: "Bakamo — We Fixed Quant",
     template: "%s | Bakamo",
   },
   description:
-    "We inspect the cultural ground before you build. Unfiltered consumer intelligence for leaders who need to get the foundation right.",
+    "We deliver the real human narrative behind the decimal point. Unfiltered consumer intelligence for leaders who need reality, not assumptions.",
   alternates: {
     canonical: "/",
   },
@@ -31,24 +29,17 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: "Bakamo",
-    title: "Bakamo — Build on Reality",
+    title: "Bakamo — We Fixed Quant",
     description:
-      "We inspect the cultural ground before you build. Unfiltered consumer intelligence for leaders who need to get the foundation right.",
+      "We deliver the real human narrative behind the decimal point.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bakamo — Build on Reality",
+    title: "Bakamo — We Fixed Quant",
     description:
-      "Unfiltered consumer intelligence for leaders who need to get the foundation right.",
+      "We deliver the real human narrative behind the decimal point.",
   },
 };
-
-function getNavigationContent() {
-  const filePath = join(process.cwd(), "content", "homepage.json");
-  const raw = readFileSync(filePath, "utf8");
-  const content = JSON.parse(raw);
-  return content.navigation;
-}
 
 async function OrganizationJsonLd() {
   const { getSiteUrl } = await import("@/lib/site-url");
@@ -59,7 +50,7 @@ async function OrganizationJsonLd() {
     name: "Bakamo",
     url: siteUrl,
     description:
-      "Unfiltered consumer intelligence — we inspect the cultural ground before you build.",
+      "We deliver the real human narrative behind the decimal point. Unfiltered consumer intelligence.",
     foundingDate: "2015",
     founder: {
       "@type": "Person",
@@ -77,12 +68,10 @@ async function OrganizationJsonLd() {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const navContent = getNavigationContent();
-
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        {/* Google Tag Manager — must be as high in <head> as possible */}
+        {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -93,7 +82,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
       </head>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.className} antialiased bg-near-black text-text-primary`}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -104,18 +93,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
 
-        {/* GA4 direct tracking (SPA-aware) */}
         <GoogleAnalytics />
-
-        {/* Kimi-style auto-hiding glassmorphic nav */}
-        <KimiNavigation content={navContent} />
-
-        {/* Organization JSON-LD */}
+        <SiteNavigation />
         <OrganizationJsonLd />
 
-        {/* Content — no top padding, hero is full-screen */}
         {children}
-
       </body>
     </html>
   );

@@ -1,31 +1,35 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-/* ─── Nordic / Ground Inspector Palette ─── */
+/* ─── Dark Immersive Palette (Active Theory / y.co inspired) ─── */
 :root {
+  --black: #000000;
+  --near-black: #0a0a0a;
+  --dark-grey: #141414;
+  --mid-grey: #1e1e1e;
+  --border-grey: #2a2a2a;
+  --text-muted: #666666;
+  --text-secondary: #999999;
+  --text-primary: #e8e8e8;
   --white: #ffffff;
-  --off-white: #fafaf9;
-  --warm-grey: #f0ece6;
-  --stone: #d6d0c4;
-  --earth: #a39e93;
-  --charcoal: #2c2c2c;
-  --ink: #111111;
-  --accent: #3d3429;
-  --highlight: #c9a96e;
+  --accent: #c9a96e;
+  --accent-dim: rgba(201, 169, 110, 0.15);
 }
 
 @theme inline {
+  --color-black: var(--black);
+  --color-near-black: var(--near-black);
+  --color-dark-grey: var(--dark-grey);
+  --color-mid-grey: var(--mid-grey);
+  --color-border-grey: var(--border-grey);
+  --color-text-muted: var(--text-muted);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-primary: var(--text-primary);
   --color-white: var(--white);
-  --color-off-white: var(--off-white);
-  --color-warm-grey: var(--warm-grey);
-  --color-stone: var(--stone);
-  --color-earth: var(--earth);
-  --color-charcoal: var(--charcoal);
-  --color-ink: var(--ink);
   --color-accent: var(--accent);
-  --color-highlight: var(--highlight);
-  --color-background: var(--white);
-  --color-foreground: var(--ink);
+  --color-accent-dim: var(--accent-dim);
+  --color-background: var(--near-black);
+  --color-foreground: var(--text-primary);
 }
 
 /* ─── Base ─── */
@@ -34,104 +38,89 @@ html {
 }
 
 body {
-  background-color: var(--white);
-  color: var(--ink);
+  background-color: var(--near-black);
+  color: var(--text-primary);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background-color: var(--ink);
-  color: var(--white);
+  background-color: var(--accent);
+  color: var(--black);
 }
 
-/* ─── Scrollbar (subtle) ─── */
-::-webkit-scrollbar { width: 6px; }
+/* ─── Scrollbar (minimal) ─── */
+::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--stone); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--earth); }
+::-webkit-scrollbar-thumb { background: var(--border-grey); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
-/* ─── Floating smoke / answer animation ─── */
-@keyframes smoke-rise {
-  0% {
-    opacity: 0.9;
-    transform: translateY(0) scale(1);
-  }
-  60% {
-    opacity: 0.4;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-260px) scale(0.92);
-  }
-}
-
-.smoke-answer {
-  position: absolute;
-  animation: smoke-rise 8s ease-out forwards;
-  pointer-events: none;
-  white-space: nowrap;
-}
-
-/* ─── Float animation (hero background blobs) ─── */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-/* ─── Soil strata ─── */
-@keyframes strata-reveal {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.strata-layer {
-  animation: strata-reveal 0.8s ease-out forwards;
-  opacity: 0;
-}
-
-.strata-layer:nth-child(1) { animation-delay: 0.3s; }
-.strata-layer:nth-child(2) { animation-delay: 0.6s; }
-.strata-layer:nth-child(3) { animation-delay: 0.9s; }
-
-/* ─── Fade-in on scroll (used via IntersectionObserver) ─── */
-@keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(32px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
+/* ─── Reveal animations ─── */
 .reveal {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(40px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* ─── Editorial pull-quote ─── */
-.pull-quote {
-  font-size: 1.75rem;
-  font-weight: 700;
-  line-height: 1.3;
-  color: var(--ink);
-  border-left: 3px solid var(--ink);
-  padding-left: 1.5rem;
-  margin: 2.5rem 0;
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
-/* ─── Architectural line-drawing crack ─── */
-@keyframes draw-line {
-  to { stroke-dashoffset: 0; }
+/* ─── Section divider ─── */
+.section-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--accent);
+  margin: 0 auto;
 }
 
-.line-draw path {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: draw-line 2.5s ease-out forwards;
+/* ─── Quote styling ─── */
+.manifesto-quote {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--white);
+  font-style: italic;
+}
+
+/* ─── Accent highlight ─── */
+.text-accent-glow {
+  color: var(--accent);
+  text-shadow: 0 0 40px rgba(201, 169, 110, 0.3);
+}
+
+/* ─── Full-section utility ─── */
+.full-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 6rem 1.5rem;
+}
+
+/* ─── Methodology step cards ─── */
+.method-step {
+  position: relative;
+  padding-left: 2rem;
+  border-left: 1px solid var(--border-grey);
+  transition: border-color 0.6s ease;
+}
+.method-step:hover {
+  border-left-color: var(--accent);
 }
 
 /* ─── CTA button ─── */
@@ -140,40 +129,71 @@ body {
   align-items: center;
   justify-content: center;
   padding: 1rem 2.5rem;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 0.9375rem;
-  letter-spacing: 0.04em;
-  color: var(--white);
-  background-color: var(--ink);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--black);
+  background-color: var(--accent);
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .cta-button:hover {
-  background-color: var(--charcoal);
+  background-color: var(--white);
   transform: translateY(-1px);
+  box-shadow: 0 0 30px rgba(201, 169, 110, 0.3);
 }
 
-/* ─── Section utility ─── */
-.section-editorial {
-  max-width: 680px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+/* ─── Benefit / differentiator cards ─── */
+.diff-card {
+  background: var(--dark-grey);
+  border: 1px solid var(--border-grey);
+  padding: 2.5rem;
+  transition: border-color 0.4s ease, transform 0.4s ease;
+}
+.diff-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
 }
 
-/* ─── Split screen ─── */
-.split-screen {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  min-height: 480px;
+/* ─── Case study card ─── */
+.case-card {
+  background: var(--dark-grey);
+  border: 1px solid var(--border-grey);
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s ease;
+}
+.case-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.case-card:hover {
+  border-color: var(--accent);
+}
+.case-card:hover::before {
+  opacity: 1;
 }
 
-@media (max-width: 768px) {
-  .split-screen {
-    grid-template-columns: 1fr;
-  }
+/* ─── Grain overlay ─── */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
