@@ -189,7 +189,18 @@ export default function WeFixedQuant() {
 
       {/* ════════ HERO ════════ */}
       <section className="hero-section full-section relative overflow-hidden">
-        <div className="hero-bg-gradient absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#111] to-[#0a0a0a]" />
+        {/* Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-40 select-none pointer-events-none"
+        >
+          <source src="/media/india-bg.mp4" type="video/mp4" />
+        </video>
+
+        <div className="hero-bg-gradient absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 via-[#111]/40 to-[#0a0a0a]" />
         {/* Subtle radial glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[radial-gradient(circle,rgba(201,169,110,0.06)_0%,transparent_70%)]" />
 
