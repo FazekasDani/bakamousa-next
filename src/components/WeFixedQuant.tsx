@@ -109,6 +109,7 @@ const CASE_STUDIES = [
 const HERO_VIDEOS = [
   "/media/india-bg.mp4",
   "/media/ukstreet-bg.mp4",
+  "/media/shopping-bg.mp4",
 ];
 
 // ── Component ────────────────────────────────────────────

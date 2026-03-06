@@ -109,7 +109,7 @@ export default function AboutPage() {
             <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-sm transition-shadow">
               <h3 className="text-xl font-bold text-gray-900">Daniel Fazekas</h3>
               <p className="mt-3 text-gray-600 leading-relaxed">
-                <span className="font-semibold text-gray-800">Founder &amp; CEO</span> — pioneering &quot;insights without asking&quot; and global social intelligence innovation.
+                <span className="font-semibold text-gray-800">Campaigning for &quot;insights without asking&quot; and global social intelligence innovation.</span>
               </p>
             </div>
 
