@@ -23,8 +23,8 @@ export default function LandingPage() {
           </h1>
           <h2 className="text-xl md:text-2xl font-semibold mb-4 text-cyan-200/80">The Truth, Quantified.</h2>
           <p className="max-w-2xl text-sm md:text-lg mb-6 text-white/80">
-            We’ve solved the biggest problem in traditional market research: the bias of the question itself.
-            Bakamo Social’s unfiltered intelligence and Sandra Baumann’s nationwide quantification combine to give you board-ready, reality-rooted insight.
+            We&apos;ve solved the biggest problem in traditional market research: the bias of the question itself.
+            Bakamo Social&apos;s unfiltered intelligence and Sandra Baumann&apos;s nationwide quantification combine to give you board-ready, reality-rooted insight.
           </p>
           <div className="flex gap-4">
             <a href="#contact" className="inline-flex items-center justify-center rounded-lg px-6 py-3 font-bold text-black bg-gradient-to-r from-cyan-400 to-purple-500 shadow-lg transform hover:scale-105 transition" style={{ boxShadow: '0 8px 40px rgba(99,102,241,0.25)' }}>
@@ -45,10 +45,10 @@ export default function LandingPage() {
             <span role="img" aria-label="Boardroom in bubble" className="text-5xl">💼🫧</span>
           </div>
           <h3 className="text-2xl font-bold mb-2">The Echo Chamber</h3>
-          <p className="text-lg mb-4 font-semibold">Your biggest risk isn't bad data. It's irrelevant questions.</p>
+          <p className="text-lg mb-4 font-semibold">Your biggest risk isn&apos;t bad data. It&apos;s irrelevant questions.</p>
           <p className="mb-2">Traditional quantitative research has a fatal flaw. It begins in a boardroom, defining what you want to learn. You write surveys based on internal assumptions, creating an echo chamber where consumers can only answer what you decide to ask.</p>
           <p className="mb-2">You get statistically significant answers to culturally insignificant questions.</p>
-          <p className="mb-2">We flipped the model. We don’t ask. We listen first.</p>
+          <p className="mb-2">We flipped the model. We don&apos;t ask. We listen first.</p>
         </div>
       </section>
 
@@ -60,10 +60,10 @@ export default function LandingPage() {
             {/* Bakamo Social Column */}
             <div className="flex-1 bg-white rounded-lg shadow p-6">
               <h4 className="text-xl font-bold mb-2">THE RADAR: Discovering Unfiltered Reality</h4>
-              <p className="font-semibold mb-2">"Insights Without Asking"</p>
+              <p className="font-semibold mb-2">&quot;Insights Without Asking&quot;</p>
               <ul className="list-disc ml-6 mb-2">
                 <li>Bakamo analyzes millions of organic, unprompted conversations across the digital ecosystem.</li>
-                <li>We identify the language consumers actually use, the needs they express when no brand is watching, and the "unknown unknowns" that traditional surveys miss.</li>
+                <li>We identify the language consumers actually use, the needs they express when no brand is watching, and the &quot;unknown unknowns&quot; that traditional surveys miss.</li>
               </ul>
               <ul className="list-disc ml-6">
                 <li>Discover emerging narratives.</li>
@@ -74,9 +74,9 @@ export default function LandingPage() {
             {/* Sandra Baumann Column */}
             <div className="flex-1 bg-white rounded-lg shadow p-6">
               <h4 className="text-xl font-bold mb-2">THE ENGINE: Nationwide Quantification</h4>
-              <p className="font-semibold mb-2">"Statistical Rigor & Scale"</p>
+              <p className="font-semibold mb-2">&quot;Statistical Rigor &amp; Scale&quot;</p>
               <ul className="list-disc ml-6 mb-2">
-                <li>Sandra Baumann, one of America’s most trusted names in quantitative research, takes Bakamo’s organic insights and subjects them to rigorous statistical validation.</li>
+                <li>Sandra Baumann, one of America&apos;s most trusted names in quantitative research, takes Bakamo&apos;s organic insights and subjects them to rigorous statistical validation.</li>
                 <li>We design survey instruments based on reality, not guesswork, scaled to representative US samples.</li>
               </ul>
               <ul className="list-disc ml-6">
@@ -96,7 +96,7 @@ export default function LandingPage() {
           <ul className="list-decimal ml-8 mb-4">
             <li className="mb-2"><b>De-Risk Your Research Budget:</b> Stop spending six figures validating internal assumptions. We ensure you are measuring concepts that actually exist in the minds of consumers before you deploy a nationwide survey.</li>
             <li className="mb-2"><b>Speed to Culture:</b> Traditional survey design takes weeks of internal alignment. Bakamo accelerates the front-end by harvesting real-time cultural topics, allowing Baumann to get into the field faster with relevant questions.</li>
-            <li className="mb-2"><b>The End of the "Say-Do" Gap:</b> By grounding our quant in unprompted social behavior, we bridge the gap between what people say in surveys and what they actually care about in real life.</li>
+            <li className="mb-2"><b>The End of the &quot;Say-Do&quot; Gap:</b> By grounding our quant in unprompted social behavior, we bridge the gap between what people say in surveys and what they actually care about in real life.</li>
           </ul>
         </div>
       </section>
@@ -110,7 +110,7 @@ export default function LandingPage() {
             <div className="w-32 h-32 bg-gray-300 rounded-full flex items-center justify-center text-4xl">B</div>
           </div>
           <h3 className="text-2xl font-bold mb-4">Proven Innovation meets US Credibility.</h3>
-          <blockquote className="italic mb-4">“I’ve spent my career ensuring data is statistically sound. But my biggest concern has always been the inputs—are we asking the right questions? Partnering with Bakamo solves the input problem. They provide the raw, unfiltered truth of what’s happening in culture, allowing me to design quantitative studies that are wildly more accurate to reality.”<br /><span className="font-bold">— Sandra Baumann</span></blockquote>
+          <blockquote className="italic mb-4">“I&apos;ve spent my career ensuring data is statistically sound. But my biggest concern has always been the inputs—are we asking the right questions? Partnering with Bakamo solves the input problem. They provide the raw, unfiltered truth of what&apos;s happening in culture, allowing me to design quantitative studies that are wildly more accurate to reality.”<br /><span className="font-bold">— Sandra Baumann</span></blockquote>
           <blockquote className="italic mb-4">“[Short quote from Bakamo leadership about entering the US market and the power of this combination.]”<br /><span className="font-bold">— [Bakamo Founder Name/Title]</span></blockquote>
         </div>
       </section>

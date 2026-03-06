@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -449,9 +450,9 @@ export default function WeFixedQuant() {
             <span className="text-white text-lg font-light tracking-wide">BAKAMO</span>
           </div>
           <div className="flex gap-8 text-sm text-text-muted">
-            <a href="/about" className="hover:text-white transition-colors">About</a>
-            <a href="/blog" className="hover:text-white transition-colors">Insights</a>
-            <a href="/contact" className="hover:text-white transition-colors">Contact</a>
+            <Link href="/about" className="hover:text-white transition-colors">About</Link>
+            <Link href="/blog" className="hover:text-white transition-colors">Insights</Link>
+            <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
           </div>
           <div className="text-xs text-text-muted">
             &copy; {new Date().getFullYear()} Bakamo USA. All rights reserved.

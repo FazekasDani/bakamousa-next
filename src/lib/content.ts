@@ -10,7 +10,17 @@ const PAGES_DIR = path.join(CONTENT_DIR, "pages");
 type RawPost = {
   slug: string;
   content: string;
-  data: any;
+  data: Record<string, unknown>;
+};
+
+export type Post = {
+  title: string;
+  slug: string;
+  date: string | null;
+  excerpt: string;
+  content?: string;
+  featuredImage: string | null;
+  raw: RawPost;
 };
 
 export function isGitContentConfigured() {
@@ -25,10 +35,10 @@ function readPostFile(filePath: string): RawPost {
   return { slug, content, data };
 }
 
-export function getAllPosts(opts?: { perPage?: number; preview?: boolean }) {
+export function getAllPosts(opts?: { perPage?: number; preview?: boolean }): Post[] {
   if (!fs.existsSync(POSTS_DIR)) return [];
   const files = fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith(".md"));
-  let posts = files
+  let posts: Post[] = files
     .map((f) => readPostFile(path.join(POSTS_DIR, f)))
     .filter((p) => (opts?.preview ? true : !p.data.draft))
     .map((p) => ({
@@ -49,14 +59,14 @@ export function getAllPosts(opts?: { perPage?: number; preview?: boolean }) {
   return posts;
 }
 
-export function getPostBySlug(slug: string, opts?: { preview?: boolean }) {
+export function getPostBySlug(slug: string, opts?: { preview?: boolean }): Post | null {
   if (!fs.existsSync(POSTS_DIR)) return null;
   const files = fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith(".md"));
   for (const f of files) {
     const p = readPostFile(path.join(POSTS_DIR, f));
     if (p.slug === slug) {
       if (!opts?.preview && p.data.draft) return null;
-      const html = marked(p.content);
+      const html = marked(p.content) as string;
       return {
         title: p.data.title || p.slug,
         slug: p.slug,
@@ -71,7 +81,7 @@ export function getPostBySlug(slug: string, opts?: { preview?: boolean }) {
   return null;
 }
 
-export function getFeaturedImageUrl(post: any) {
+export function getFeaturedImageUrl(post: Post | null) {
   if (!post) return null;
   return post.featuredImage || null;
 }

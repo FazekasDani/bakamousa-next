@@ -121,7 +121,7 @@ export async function getLatestPosts(params?: {
     // placeholder objects. Filter out any items that don't include a usable title
     // or id so the frontend can correctly fall back to pages when no public
     // posts are available.
-    return results.filter((p) => Boolean(p && (p as any).id && p.title && p.title.rendered));
+    return results.filter((p) => Boolean(p && p.id && p.title && p.title.rendered));
   } catch (e) {
     // Network error or WP down; return empty list so build doesn't fail.
     console.error("getLatestPosts: WP fetch failed", e);
@@ -134,7 +134,7 @@ export async function getPostBySlug(
   params?: { revalidateSeconds?: number },
 ): Promise<WpPost | null> {
   try {
-    const results = await wpFetch<WpPost[]>(
+    const results = await wpFetch<(WpPost & { featured_media?: number })[]>(
       `/wp-json/wp/v2/posts?slug=${encodeURIComponent(slug)}&_fields=id,slug,date,title,excerpt,content,link,featured_media`,
       { revalidateSeconds: params?.revalidateSeconds },
     );
@@ -161,7 +161,7 @@ export async function getLatestPages(params?: {
 }): Promise<WpPost[]> {
   const perPage = params?.perPage ?? 6;
   try {
-    return await wpFetch<WpPost[]>(
+    return await wpFetch<(WpPost & { featured_media?: number })[]>(
       `/wp-json/wp/v2/pages?per_page=${perPage}&_fields=id,slug,date,title,excerpt,content,link,featured_media`,
       { revalidateSeconds: params?.revalidateSeconds },
     );
@@ -175,7 +175,7 @@ export async function getPageBySlug(
   slug: string,
   params?: { revalidateSeconds?: number },
 ): Promise<WpPost | null> {
-  const results = await wpFetch<WpPost[]>(
+  const results = await wpFetch<(WpPost & { featured_media?: number })[]>(
     `/wp-json/wp/v2/pages?slug=${encodeURIComponent(slug)}&_fields=id,slug,date,title,excerpt,content,link,featured_media`,
     { revalidateSeconds: params?.revalidateSeconds },
   );
@@ -186,17 +186,16 @@ export async function getPageBySlug(
 export type WpMedia = {
   id: number;
   source_url: string;
-  media_details?: any;
+  media_details?: Record<string, unknown>;
 };
 
 export async function getMedia(id: number): Promise<WpMedia> {
   return wpFetch<WpMedia>(`/wp-json/wp/v2/media/${id}`);
 }
 
-export async function getFeaturedImageUrl(post: WpPost): Promise<string | null> {
+export async function getFeaturedImageUrl(post: WpPost & { featured_media?: number }): Promise<string | null> {
   // featured_media is sometimes present on posts/pages; fetch its media record.
-  // Use `any` here because the API may include `featured_media` even if our type is minimal.
-  const fid = (post as any).featured_media as number | undefined;
+  const fid = post.featured_media;
   if (!fid) return null;
 
   try {

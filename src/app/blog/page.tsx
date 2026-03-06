@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getAllPosts, isGitContentConfigured } from "@/lib/content";
+import { getAllPosts, isGitContentConfigured, type Post } from "@/lib/content";
 import sanitizeHtml from "sanitize-html";
 
 import type { Metadata } from "next";
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default async function BlogIndexPage() {
   const gitOk = isGitContentConfigured();
-  let posts: any[] = [];
+  let posts: Post[] = [];
   const { cookies: cookiesFn } = await import('next/headers');
   const cookiesStore = await cookiesFn();
   const isPreview = Boolean(cookiesStore.get?.('git-preview')?.value);
@@ -59,7 +59,7 @@ export default async function BlogIndexPage() {
         ) : (
           posts.map((post) => (
             <Link
-              key={post.id}
+              key={post.slug}
               href={`/blog/${post.slug}`}
               className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-white/15 dark:bg-zinc-950"
             >

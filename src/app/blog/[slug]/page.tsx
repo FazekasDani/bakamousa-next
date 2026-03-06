@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getPostBySlug, getFeaturedImageUrl, isGitContentConfigured } from "@/lib/content";
+import { getPostBySlug, getFeaturedImageUrl, isGitContentConfigured, type Post } from "@/lib/content";
 import { getSiteUrl } from "@/lib/site-url";
 import sanitizeHtml from "sanitize-html";
 import { cookies } from 'next/headers';
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-async function ArticleJsonLd({ post, slug, featuredImage }: { post: any; slug: string; featuredImage: string | null }) {
+async function ArticleJsonLd({ post, slug, featuredImage }: { post: Post; slug: string; featuredImage: string | null }) {
   const siteUrl = await getSiteUrl();
   const schema = {
     "@context": "https://schema.org",

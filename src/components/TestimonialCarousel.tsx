@@ -52,11 +52,11 @@ export function TestimonialCarousel() {
           >
             {/* Quote */}
             <div className="relative max-w-3xl mx-auto">
-              <div className="absolute -top-8 -left-4 text-6xl text-bakamo-cyan/20 font-serif">"</div>
+              <div className="absolute -top-8 -left-4 text-6xl text-bakamo-cyan/20 font-serif">&quot;</div>
               <p className="text-xl md:text-2xl text-white font-medium leading-relaxed italic">
                 {testimonial.quote}
               </p>
-              <div className="absolute -bottom-8 -right-4 text-6xl text-bakamo-cyan/20 font-serif rotate-180">"</div>
+              <div className="absolute -bottom-8 -right-4 text-6xl text-bakamo-cyan/20 font-serif rotate-180">&quot;</div>
             </div>
 
             {/* Attribution */}
