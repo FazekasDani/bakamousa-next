@@ -5,12 +5,13 @@ import { marked } from "marked";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 const POSTS_DIR = path.join(CONTENT_DIR, "posts");
-const PAGES_DIR = path.join(CONTENT_DIR, "pages");
+const _PAGES_DIR = path.join(CONTENT_DIR, "pages"); // eslint-disable-line @typescript-eslint/no-unused-vars
 
 type RawPost = {
   slug: string;
   content: string;
-  data: Record<string, unknown>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  data: Record<string, any>;
 };
 
 export type Post = {

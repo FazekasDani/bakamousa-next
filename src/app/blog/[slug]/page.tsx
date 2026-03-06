@@ -88,7 +88,7 @@ export default async function BlogPostPage({ params }: Props) {
         </Link>
         {post?.raw?.data?.link ? (
           <a
-            href={post.raw.data.link}
+            href={String(post.raw.data.link)}
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-zinc-600 hover:text-black dark:text-zinc-400 dark:hover:text-white"
