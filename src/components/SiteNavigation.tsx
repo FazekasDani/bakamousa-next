@@ -79,6 +79,12 @@ export default function SiteNavigation() {
               Science
             </Link>
             <Link
+              href="/in-house-teams"
+              className="text-text-muted text-xs uppercase tracking-[0.15em] hover:text-white transition-colors"
+            >
+              In-House Teams
+            </Link>
+            <Link
               href="/contact"
               className="text-xs uppercase tracking-[0.15em] text-accent hover:text-white transition-colors"
             >
