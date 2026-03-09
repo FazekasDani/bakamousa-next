@@ -4,7 +4,7 @@ import ContactPage from "@/components/ContactPage";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Bakamo. Offices in New Jersey, London, Dortmund, Budapest, and Kuala Lumpur. Global coverage.",
+    "Book a Strategy Stress-Test with Bakamo. Offices in New Jersey, London, Dortmund, Budapest, and Kuala Lumpur.",
 };
 
 export default function Contact() {

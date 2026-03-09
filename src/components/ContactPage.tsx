@@ -73,10 +73,10 @@ export default function ContactPage() {
 
         <div className="relative z-10 max-w-5xl mx-auto w-full px-6 pb-16">
           <p className="contact-subtitle text-accent uppercase tracking-[0.2em] text-sm mb-4">
-            Get in Touch
+            The Consult
           </p>
           <h1 className="contact-title text-[clamp(2.5rem,6vw,5rem)] font-extralight leading-[0.95] text-white">
-            Contact
+            Book a Strategy<br />Stress-Test
           </h1>
         </div>
       </section>
@@ -122,17 +122,18 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* Request Case Studies */}
+        {/* Request Strategy Stress-Test */}
         <div className="info-card diff-card flex flex-col">
-          <span className="text-accent text-xs uppercase tracking-[0.15em] font-medium">Case Studies</span>
+          <span className="text-accent text-xs uppercase tracking-[0.15em] font-medium">Strategy Stress-Test</span>
           <p className="mt-6 text-text-secondary text-sm leading-relaxed flex-1">
-            See how we&rsquo;ve helped Sanofi, Janssen, and other leading organizations uncover the real narratives driving their markets.
+            Find out if your strategy can survive the real world. We&rsquo;ll identify the cultural
+            fault lines before they become market failures.
           </p>
           <a
-            href="mailto:info@bakamousa.com?subject=Request%20Case%20Studies"
+            href="mailto:info@bakamousa.com?subject=Book%20a%20Strategy%20Stress-Test"
             className="cta-button mt-6 text-xs"
           >
-            Request Case Studies
+            Book a Stress-Test
           </a>
         </div>
       </div>
@@ -141,7 +142,7 @@ export default function ContactPage() {
       <div className="max-w-5xl mx-auto text-center px-6 pb-20">
         <div className="section-divider mb-10" />
         <p className="text-text-muted text-sm tracking-wide">
-          Ready to fix your quant?
+          Ready to build on reality?
         </p>
       </div>
     </div>

@@ -8,104 +8,102 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 /* ═══════════════════════════════════════════════════════════
-   WeFixedQuant — immersive vertical landing (Active Theory / y.co style)
+   WeFixedQuant — premium research agency landing
    ═══════════════════════════════════════════════════════════ */
 
 // ── Data ─────────────────────────────────────────────────
 
+const SUITE = [
+  {
+    label: "A",
+    name: "TensionScope\u2122",
+    role: "The Diagnostic",
+    headline: `Decode the \u201cWhy\u201d behind the \u201cWhat.\u201d`,
+    body: `Standard research tells you what people say. TensionScope identifies the emotional and psychological tensions\u2014the \u201cpush and pull\u201d\u2014that actually drive their behavior. By mapping conversations against universal human needs (Security, Autonomy, Belonging), we provide a Tension Index to anticipate market shifts before they happen.`,
+    best: "Category entry, innovation, and emotional repositioning.",
+  },
+  {
+    label: "B",
+    name: "Bakamo Circle\u2122",
+    role: "The Deep Map",
+    headline: "360\u00b0 Cultural Intelligence.",
+    body: "A full-spectrum analysis of the consumer ecosystem. We move beyond basic demographics to map authentic Personas, organic Narratives, and the non-linear Consumer Journey. This is the qualitative \u201csoul\u201d of your market, scaled into quantitative reality.",
+    best: "Market segmentation and brand architecture.",
+  },
+  {
+    label: "C",
+    name: "Bakamo Tracking\u2122",
+    role: "The Baseline",
+    headline: "Measure what matters.",
+    body: "Traditional trackers are sterile. Ours are grounded. By using social intelligence to calibrate your tracking instrument, we ensure you are measuring the drivers that actually move the needle, weighted against representative, national panels.",
+    best: "Brand reputation and long-term equity monitoring.",
+  },
+];
+
+const RIGOR_POINTS = [
+  {
+    number: "I",
+    title: "Eliminating Coverage Error",
+    logic:
+      'Traditional sampling ignores the \u201cOutlier\u201d segments who define the future.',
+    proof:
+      "While the industry looked at Gen\u00a0Z for NA beverages, our radar found the Recovery Community. We captured a market that standard trackers simply didn\u2019t see.",
+  },
+  {
+    number: "II",
+    title: "Exhaustive Attribute Mapping",
+    logic:
+      'If a driver isn\u2019t in your \u201cTop\u00a010\u201d list, it doesn\u2019t exist in your data.',
+    proof:
+      "We use social discourse to calibrate your instrument. We don\u2019t guess the multiple-choice options; we harvest them from the street.",
+  },
+  {
+    number: "III",
+    title: "Reducing Response Bias",
+    logic:
+      'Corporate language leads to \u201cSatisficing\u201d\u2014mindless clicking.',
+    proof:
+      "We use Natural Language Synthesis to mirror authentic vernacular. When respondents see their reality reflected in the survey, data quality peaks.",
+  },
+];
+
 const DIFFERENTIATORS = [
   {
-    title: "Deep Psychological Decoding vs. Surface Sentiment",
-    body: "While conventional listening tools passively measure generic 'positive/negative' keyword volume, our approach identifies the deep psychological frictions and specific trust barriers actually driving behavior.",
+    title: "Cognitive Architecture",
+    body: "We categorize the chaos of social discourse into a rigorous framework of Universal Human Needs and Emotional Tensions.",
   },
   {
-    title: "Strategic Architecture vs. Raw Metrics",
-    body: "Instead of delivering disjointed charts, we map unstructured social discourse directly against established reputational pillars (Connection, Consistency, and Benevolence) to reveal actionable dimensions of relevance.",
+    title: "Decoding Friction, Not Sentiment",
+    body: "Most tools measure \u2018Positive vs.\u00a0Negative\u2019\u2014a metric that rarely predicts behavior. We identify the deep psychological barriers and cultural \u2018stop-signs\u2019 that actually derail the consumer journey. We don\u2019t just tell you how people feel; we tell you what is stopping them from acting.",
   },
   {
-    title: "Anthropological Context vs. Algorithmic Counting",
-    body: "We utilize manual, qualitative interpretation to decode the complex power dynamics, compliance nuances, and relational context of the patient-HCP relationship, moving beyond what automated tools can capture.",
+    title: "Anthropological Context",
+    body: "Algorithms miss sarcasm. Our PhD-led researchers decode the nuance machines ignore.",
   },
 ];
 
-const CAPABILITIES = [
-  {
-    title: "Omnichannel, Human-Led Harvesting",
-    body: "Our expert researchers manually explore and identify highly relevant patient and HCP communities across the digital landscape, capturing critical, authentic conversations in niche public spaces that standard automated listening tools miss.",
-  },
-  {
-    title: "Senior Human-in-the-Loop Analysis",
-    body: "We invest significant qualitative resources into actively reading, understanding, and empathetically decoding the nuanced reality of the community, ensuring no context is lost to an algorithm.",
-  },
-  {
-    title: "Anthropological Curation & Deep Semantic Decoding",
-    body: "We apply rigorous cultural frameworks to curate the raw data, conducting deep semantic analysis to uncover the hidden emotional tensions, unmet needs, and true drivers behind treatment decisions.",
-  },
-  {
-    title: "Rigorous & Ethical Compliance",
-    body: "We operate strictly within ESOMAR & EPHMRA guidelines to ensure protection of privacy, and compliant reporting of Adverse Events (AEs).",
-  },
-];
-
-const METHODOLOGY = [
+const OUTCOME_STEPS = [
   {
     number: "01",
     title: "Listen",
     subtitle: "The Radar",
-    body: `We map the 'underground' drivers of culture using unfiltered social discourse. We don't frame the answer with a question; we discover what we didn't know to ask. We extract real insights, map them to real drivers, and build the survey from lived reality.`,
+    body: "Map the \u201cunderground\u201d drivers. Discover what you didn\u2019t know to ask.",
   },
   {
     number: "02",
     title: "Measure",
     subtitle: "The Bridge",
-    body: "We then use traditional quantitative methods to calculate the weight each narrative carries — statistically, demographically, and nationally.",
+    body: "Calculate the statistical weight of those narratives across national panels.",
   },
   {
     number: "03",
     title: "Stress-Test",
     subtitle: "The Insurance",
-    body: "We calculate if a strategy can survive on the detected terrain, identifying 'cultural fault lines' before they lead to market failure.",
+    body: "Identify cultural fault lines to see if your strategy can survive the real world.",
   },
 ];
 
-const BENEFITS = [
-  {
-    title: `Embeds the "Why" into the "What"`,
-    body: "Because the survey options are sourced directly from organic cultural narratives, the underlying emotional drivers behind each data point are understood before the quantitative survey is even fielded.",
-  },
-  {
-    title: "Drives Higher Data Quality",
-    body: "When respondents see their authentic lived experiences — such as specific lifestyle impacts or adherence frictions — reflected in the survey options, they feel understood, which significantly reduces 'straight-lining' and survey drop-off.",
-  },
-  {
-    title: "Accelerates Speed to Field",
-    body: "By harvesting real-time cultural topics to design the questionnaire, we bypass the need for lengthy exploratory qualitative phases, getting a highly calibrated, relevant instrument into the field faster.",
-  },
-  {
-    title: "Bigger Scale, Lower Cost",
-    body: "Cheaper than focus groups, bigger in scale — cultural intelligence at a fraction of the cost of traditional qualitative phases.",
-  },
-];
-
-const CASE_STUDIES = [
-  {
-    client: "Sanofi",
-    title: "The Inflection Point",
-    body: `We didn't just profile a 'target group.' We exposed the exact moments of parental anxiety and medical hesitation that traditional surveys never saw. Our discovery became the launch strategy.`,
-  },
-  {
-    client: "Janssen",
-    title: "The Sensitive Truth",
-    body: "Some subjects are too heavy for a survey. We decoded organic, unfiltered conversations to give HCPs the missing vocabulary they needed to move patients toward better outcomes — without the interference of a research lens.",
-  },
-  {
-    client: "Janssen",
-    title: "The Misdiagnosis Gap",
-    body: `Traditional recall surveys rely on memory. We mapped lived reality. By tracing the authentic 'misdiagnosis journey' through organic discourse, we captured the peer-level data that standard research leaves behind.`,
-  },
-];
-
-// ── Hero background videos (add more paths here) ────────
+// ── Hero background videos ──────────────────────────────
 const HERO_VIDEOS = [
   "/media/india-bg.mp4",
   "/media/ukstreet-bg.mp4",
@@ -122,7 +120,6 @@ export default function WeFixedQuant() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Animate every .reveal element on scroll
       gsap.utils.toArray<HTMLElement>(".reveal").forEach((el) => {
         gsap.fromTo(
           el,
@@ -141,7 +138,6 @@ export default function WeFixedQuant() {
         );
       });
 
-      // Animate .reveal-left elements
       gsap.utils.toArray<HTMLElement>(".reveal-left").forEach((el) => {
         gsap.fromTo(
           el,
@@ -160,7 +156,6 @@ export default function WeFixedQuant() {
         );
       });
 
-      // Hero title entrance (no scroll trigger — immediate)
       gsap.fromTo(
         ".hero-title",
         { y: 60, opacity: 0 },
@@ -177,7 +172,6 @@ export default function WeFixedQuant() {
         { scaleX: 1, duration: 1.2, ease: "expo.out", delay: 1.0 }
       );
 
-      // Parallax on hero
       gsap.to(".hero-bg-gradient", {
         yPercent: 30,
         ease: "none",
@@ -195,12 +189,10 @@ export default function WeFixedQuant() {
 
   return (
     <div ref={containerRef}>
-      {/* Grain overlay */}
       <div className="grain-overlay" />
 
-      {/* ════════ HERO ════════ */}
+      {/* ════════ SECTION 1 — THE PROVOCATION ════════ */}
       <section className="hero-section full-section relative overflow-hidden">
-        {/* Background Video */}
         <video
           autoPlay
           loop
@@ -212,7 +204,6 @@ export default function WeFixedQuant() {
         </video>
 
         <div className="hero-bg-gradient absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 via-[#111]/40 to-[#0a0a0a]" />
-        {/* Subtle radial glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[radial-gradient(circle,rgba(201,169,110,0.06)_0%,transparent_70%)]" />
 
         <div className="relative z-10 text-center max-w-4xl mx-auto">
@@ -221,18 +212,18 @@ export default function WeFixedQuant() {
           </h1>
           <div className="hero-line w-16 h-px bg-accent mx-auto mt-8 origin-left" />
           <p className="hero-subtitle mt-8 text-lg md:text-xl text-text-secondary font-light max-w-2xl mx-auto leading-relaxed">
-            We deliver the real human narrative behind the decimal point.
+            48% of executives report that traditional quant fails to deliver actionable insights
+            because it lacks contextual depth.
           </p>
         </div>
 
-        {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
           <span className="text-[10px] uppercase tracking-[0.3em] text-text-muted">Scroll</span>
           <div className="w-px h-8 bg-gradient-to-b from-text-muted to-transparent" />
         </div>
       </section>
 
-      {/* ════════ PROBLEM ════════ */}
+      {/* ════════ PROVOCATION — BODY ════════ */}
       <section className="full-section">
         <div className="max-w-3xl mx-auto text-center">
           <p className="reveal manifesto-quote">
@@ -240,70 +231,115 @@ export default function WeFixedQuant() {
           </p>
           <div className="reveal mt-12 space-y-6 text-text-secondary text-lg font-light leading-relaxed max-w-2xl mx-auto">
             <p>
-              You spend six figures to ask questions you wrote, in language you use, to confirm what you already think.
+              You spend six figures to confirm your own assumptions in language your customers
+              don&rsquo;t use.
             </p>
             <p className="text-text-muted">
-              It&rsquo;s elegant data built on an assumption, far from reality.
+              It&rsquo;s elegant data built on a blind spot.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ════════ SOLUTION INTRO ════════ */}
+      {/* ════════ SECTION 2 — THE NEW STANDARD ════════ */}
       <section className="full-section bg-dark-grey">
         <div className="max-w-3xl mx-auto">
-          <p className="reveal text-accent uppercase tracking-[0.2em] text-sm mb-6">We fixed it</p>
+          <p className="reveal text-accent uppercase tracking-[0.2em] text-sm mb-6">
+            The New Standard
+          </p>
           <h2 className="reveal text-[clamp(1.75rem,4vw,3.5rem)] font-extralight leading-tight text-white">
-            We don&rsquo;t start with a blank survey.<br />
-            <span className="text-text-secondary">We start by listening to the unfiltered reality.</span>
+            We set a new standard.
           </h2>
-        </div>
-      </section>
-
-      {/* ════════ THE RADAR ════════ */}
-      <section className="py-32 px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="reveal space-y-8 text-lg font-light leading-relaxed text-text-secondary">
+          <div className="reveal mt-10 space-y-6 text-text-secondary text-lg font-light leading-relaxed">
             <p className="text-text-primary text-xl">
-              We start with an observational &ldquo;radar&rdquo; that captures unprompted, authentic audience
-              reality by analyzing organic conversations in the digital public sphere — before any
-              research questions are asked.
+              We don&rsquo;t start with a blank survey. We start with a Radar.
             </p>
             <p>
-              It identifies the exact language, emotional tensions, and hidden decision-making engines
-              consumers express when no brand is watching.
+              We capture unprompted, authentic reality before a single question is asked.
             </p>
             <p>
-              It surfaces the &ldquo;unknown unknowns&rdquo; and emerging narratives mapping consumers&rsquo;
-              lived experiences without research interference.
+              We surface the &ldquo;unknown unknowns&rdquo;&mdash;the lived experience that research
+              interference usually kills.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ════════ SOCIAL LISTENING CRITIQUE ════════ */}
+      {/* ════════ SECTION 3 — THE SUITE ════════ */}
+      <section className="py-32 px-6">
+        <div className="max-w-5xl mx-auto">
+          <p className="reveal text-accent uppercase tracking-[0.2em] text-sm mb-4">The Suite</p>
+          <h2 className="reveal text-3xl md:text-5xl font-extralight text-white mb-20">
+            Three Pathways to Reality
+          </h2>
+          <div className="space-y-16">
+            {SUITE.map((s) => (
+              <div key={s.label} className="reveal diff-card relative">
+                <div className="flex items-baseline gap-4 mb-2">
+                  <span className="text-accent font-mono text-sm">{s.label}</span>
+                  <h3 className="text-white text-2xl md:text-3xl font-light">{s.name}</h3>
+                  <span className="text-text-muted text-sm hidden md:inline">&mdash; {s.role}</span>
+                </div>
+                <p className="text-white text-lg font-medium mt-4 mb-4">{s.headline}</p>
+                <p className="text-text-secondary text-sm leading-relaxed max-w-3xl">{s.body}</p>
+                <p className="mt-4 text-accent text-xs uppercase tracking-[0.15em]">
+                  Best for: {s.best}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════ SECTION 4 — SCIENCE OF RIGOR ════════ */}
+      <section className="py-32 px-6 bg-dark-grey">
+        <div className="max-w-5xl mx-auto">
+          <p className="reveal text-accent uppercase tracking-[0.2em] text-sm mb-4">
+            The Science of Rigor
+          </p>
+          <h2 className="reveal text-3xl md:text-4xl font-extralight text-white mb-20 max-w-3xl">
+            We solve the three critical failures of the research instrument.
+          </h2>
+          <div className="space-y-20">
+            {RIGOR_POINTS.map((r) => (
+              <div key={r.number} className="reveal method-step">
+                <div className="flex items-baseline gap-4 mb-3">
+                  <span className="text-accent font-mono text-sm">{r.number}</span>
+                  <h3 className="text-white text-2xl md:text-3xl font-light">{r.title}</h3>
+                </div>
+                <div className="space-y-3 max-w-2xl">
+                  <p className="text-text-primary text-sm leading-relaxed">
+                    <span className="text-accent font-medium">The Logic:</span> {r.logic}
+                  </p>
+                  <p className="text-text-secondary text-sm leading-relaxed">
+                    <span className="text-accent font-medium">The Proof:</span> {r.proof}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════ SECTION 5 — THE DIFFERENTIATOR ════════ */}
       <section className="full-section">
         <div className="max-w-3xl mx-auto text-center">
           <p className="reveal manifesto-quote">
-            &lsquo;Social Listening is a Polluted Mess&rsquo;
+            We Are Researchers, Not Coders.
           </p>
           <div className="section-divider reveal mt-10" />
           <div className="reveal mt-10">
-            <p className="text-accent uppercase tracking-[0.2em] text-sm mb-4">We fixed it</p>
-            <p className="text-2xl md:text-3xl font-extralight text-white leading-snug">
-              We don&rsquo;t sell software. We sell perspective.
+            <p className="text-text-secondary text-lg font-light leading-relaxed max-w-2xl mx-auto">
+              To most leaders, social listening is a &ldquo;creepy&rdquo; vanity project&mdash;60%
+              bot noise and shallow word clouds. Most tools are built by software engineers to sell
+              subscriptions. We fixed it.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ════════ OUR APPROACH (3 differentiators) ════════ */}
-      <section className="py-32 px-6 bg-dark-grey">
+      <section className="py-32 px-6">
         <div className="max-w-5xl mx-auto">
-          <p className="reveal text-accent uppercase tracking-[0.2em] text-sm mb-4">Our Approach</p>
-          <h2 className="reveal text-3xl md:text-4xl font-extralight text-white mb-16">
-            Different from Standard Social Listening
-          </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {DIFFERENTIATORS.map((d, i) => (
               <div key={i} className="reveal diff-card">
@@ -316,55 +352,22 @@ export default function WeFixedQuant() {
         </div>
       </section>
 
-      {/* ════════ HUMAN-LED ════════ */}
-      <section className="full-section">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="reveal manifesto-quote">
-            &lsquo;Most tools are built by software engineers, not researchers&rsquo;
-          </p>
-          <div className="section-divider reveal mt-10" />
-          <div className="reveal mt-10">
-            <p className="text-accent uppercase tracking-[0.2em] text-sm mb-4">We fixed it</p>
-            <p className="text-2xl md:text-3xl font-extralight text-white leading-snug">
-              Algorithms don&rsquo;t understand irony. We do.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ════════ RESEARCHER CAPABILITIES ════════ */}
-      <section className="py-32 px-6">
-        <div className="max-w-5xl mx-auto">
-          <p className="reveal text-accent uppercase tracking-[0.2em] text-sm mb-4">Our Researchers</p>
-          <h2 className="reveal text-2xl md:text-3xl font-extralight text-white mb-16 max-w-2xl">
-            Surveys delivered by researchers with experience in both social intelligence and quant.
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {CAPABILITIES.map((c, i) => (
-              <div key={i} className="reveal diff-card">
-                <span className="text-accent text-sm font-mono mb-4 block">0{i + 1}</span>
-                <h3 className="text-white text-lg font-medium mb-4 leading-snug">{c.title}</h3>
-                <p className="text-text-secondary text-sm leading-relaxed">{c.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ════════ METHODOLOGY ════════ */}
+      {/* ════════ SECTION 6 — THE OUTCOME ════════ */}
       <section className="py-32 px-6 bg-dark-grey">
         <div className="max-w-4xl mx-auto">
-          <p className="reveal text-accent uppercase tracking-[0.2em] text-sm mb-4">Step by Step</p>
+          <p className="reveal text-accent uppercase tracking-[0.2em] text-sm mb-4">
+            The Outcome
+          </p>
           <h2 className="reveal text-3xl md:text-5xl font-extralight text-white mb-20">
-            Methodology
+            Strategic Insurance
           </h2>
           <div className="space-y-20">
-            {METHODOLOGY.map((m) => (
+            {OUTCOME_STEPS.map((m) => (
               <div key={m.number} className="reveal method-step">
                 <div className="flex items-baseline gap-4 mb-3">
                   <span className="text-accent font-mono text-sm">{m.number}</span>
                   <h3 className="text-white text-2xl md:text-3xl font-light">{m.title}</h3>
-                  <span className="text-text-muted text-sm hidden md:inline">— {m.subtitle}</span>
+                  <span className="text-text-muted text-sm hidden md:inline">&mdash; {m.subtitle}</span>
                 </div>
                 <p className="text-text-secondary font-light leading-relaxed max-w-2xl">
                   {m.body}
@@ -375,67 +378,24 @@ export default function WeFixedQuant() {
         </div>
       </section>
 
-      {/* ════════ BENEFITS ════════ */}
-      <section className="py-32 px-6">
-        <div className="max-w-5xl mx-auto">
-          <p className="reveal text-accent uppercase tracking-[0.2em] text-sm mb-4">Benefits</p>
-          <h2 className="reveal text-3xl md:text-4xl font-extralight text-white mb-16">
-            Why it works
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {BENEFITS.map((b, i) => (
-              <div key={i} className="reveal diff-card">
-                <h3 className="text-white text-lg font-medium mb-4 leading-snug">{b.title}</h3>
-                <p className="text-text-secondary text-sm leading-relaxed">{b.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ════════ CASE STUDIES ════════ */}
-      <section className="py-32 px-6 bg-dark-grey">
-        <div className="max-w-5xl mx-auto">
-          <p className="reveal text-accent uppercase tracking-[0.2em] text-sm mb-4">Case Studies</p>
-          <h2 className="reveal text-3xl md:text-4xl font-extralight text-white mb-16">
-            Proof in the field
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {CASE_STUDIES.map((cs, i) => (
-              <div key={i} className="reveal case-card">
-                <span className="text-accent uppercase tracking-[0.15em] text-xs font-medium">{cs.client}</span>
-                <h3 className="text-white text-xl font-medium mt-3 mb-4">{cs.title}</h3>
-                <p className="text-text-secondary text-sm leading-relaxed">{cs.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ════════ CLOSING CTA ════════ */}
       <section className="full-section relative overflow-hidden">
-        {/* Subtle glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(201,169,110,0.05)_0%,transparent_70%)]" />
 
         <div className="relative z-10 text-center max-w-3xl mx-auto">
           <p className="reveal text-accent uppercase tracking-[0.2em] text-sm mb-8">
-            Once Your Quant is Fixed
+            Once Your Quant is Fixed, You Can
           </p>
           <h2 className="reveal text-[clamp(2.5rem,7vw,6rem)] font-extralight leading-[0.95] text-white">
-            You Can Start to<br />
-            <span className="text-accent-glow font-light">Build On Reality</span>
+            <span className="text-accent-glow font-light">Build on Reality.</span>
           </h2>
           <div className="reveal mt-16 flex justify-center">
             <a href="/contact" className="pulse-cta group relative flex items-center justify-center w-40 h-40">
-              {/* Outer pulsing rings */}
               <span className="absolute inset-0 rounded-full border border-accent/20 animate-[cta-ping_3s_ease-out_infinite]" />
               <span className="absolute inset-0 rounded-full border border-accent/15 animate-[cta-ping_3s_ease-out_0.6s_infinite]" />
               <span className="absolute inset-0 rounded-full border border-accent/10 animate-[cta-ping_3s_ease-out_1.2s_infinite]" />
-              {/* Glow backdrop */}
               <span className="absolute inset-2 rounded-full bg-accent/5 transition-all duration-700 group-hover:bg-accent/15 group-hover:inset-0" />
-              {/* Core circle */}
               <span className="absolute inset-4 rounded-full border border-accent/40 transition-all duration-500 group-hover:border-accent group-hover:inset-3" />
-              {/* Label */}
               <span className="relative text-xs uppercase tracking-[0.2em] text-accent transition-colors duration-500 group-hover:text-white">
                 Get in touch
               </span>
@@ -452,7 +412,9 @@ export default function WeFixedQuant() {
           </div>
           <div className="flex gap-8 text-sm text-text-muted">
             <Link href="/about" className="hover:text-white transition-colors">About</Link>
-            <Link href="/blog" className="hover:text-white transition-colors">Insights</Link>
+            <Link href="/solutions" className="hover:text-white transition-colors">Solutions</Link>
+            <Link href="/technology" className="hover:text-white transition-colors">Technology</Link>
+            <Link href="/science" className="hover:text-white transition-colors">Science</Link>
             <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
           </div>
           <div className="text-xs text-text-muted">

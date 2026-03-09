@@ -61,10 +61,22 @@ export default function SiteNavigation() {
               About
             </Link>
             <Link
-              href="/blog"
+              href="/solutions"
               className="text-text-muted text-xs uppercase tracking-[0.15em] hover:text-white transition-colors"
             >
-              Insights
+              Solutions
+            </Link>
+            <Link
+              href="/technology"
+              className="text-text-muted text-xs uppercase tracking-[0.15em] hover:text-white transition-colors"
+            >
+              Technology
+            </Link>
+            <Link
+              href="/science"
+              className="text-text-muted text-xs uppercase tracking-[0.15em] hover:text-white transition-colors"
+            >
+              Science
             </Link>
             <Link
               href="/contact"
