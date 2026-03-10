@@ -1,4 +1,4 @@
-import WeFixedQuant from "@/components/WeFixedQuant";
+import WeFixedQuant from "../components/WeFixedQuant";
 import { getSiteUrl } from "@/lib/site-url";
 
 function buildServiceSchema(siteUrl: string) {
