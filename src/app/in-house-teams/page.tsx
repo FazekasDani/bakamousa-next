@@ -4,14 +4,14 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "For In-House Teams | Bakamo",
   description:
-    "Smarter research, designed by reality. Align with consumer reality, access the invisible data layer, and stress-test internal insights.",
+    "Unfiltered consumer intelligence that complements your internal research. Human understanding, not AI dashboards.",
   alternates: {
     canonical: "/in-house-teams",
   },
   openGraph: {
     title: "For In-House Teams | Bakamo",
     description:
-      "Smarter research, designed by reality. Align with consumer reality, access the invisible data layer, and stress-test internal insights.",
+      "Unfiltered consumer intelligence that complements your internal research. Human understanding, not AI dashboards.",
   },
 };
 
@@ -40,11 +40,11 @@ const PILLARS = [
     number: "02",
     title: "Access the \u201cInvisible\u201d Data Layer",
     intro:
-      "Standard social listening tools often prioritize volume and sentiment, frequently missing the nuanced conversations happening in difficult-to-capture digital spaces.",
+      "Every quarter, another AI tool promises to \u201crevolutionize listening.\u201d The output is usually the same: volume charts, sentiment scores, and word clouds that no strategist can act on. We go where the algorithms don\u2019t.",
     points: [
       {
         name: "Beyond Automated Tools",
-        body: "We combine advanced technology with PhD-level social scientists to identify narratives and lived experiences that remain outside the scope of conventional dashboards.",
+        body: "We combine advanced technology with PhD-level social scientists who actually read, interpret, and decode the conversations\u2014identifying narratives and lived experiences that remain invisible to any dashboard.",
       },
       {
         name: "Unknown Unknowns",
@@ -110,19 +110,49 @@ export default function InHouseTeamsPage() {
             For In-House Teams
           </p>
           <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-extralight leading-[0.95] tracking-tight text-white">
-            Smarter Research,
+            Human
             <br />
             <span className="text-accent-glow font-light">
-              Designed by Reality
+              Understanding
             </span>
           </h1>
           <div className="w-16 h-px bg-accent mt-10" />
           <p className="mt-10 text-text-secondary text-lg font-light leading-relaxed max-w-2xl">
-            Internal teams often operate within &ldquo;boardroom bubbles,&rdquo;
-            relying on legacy segmentation models or corporate terminology that
-            can distance research from actual consumer life. Bakamo reverses
-            this sequence by listening first.
+            Unfiltered consumer intelligence that complements your internal
+            research. We analyze unprompted social conversations to uncover
+            blind spots, validate hypotheses, and help in-house teams design
+            smarter research&mdash;faster and more efficiently.
           </p>
+        </div>
+      </section>
+
+      {/* ═══════ Human-First Manifesto ═══════ */}
+      <section className="full-section">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="manifesto-quote">
+            AI dashboards promise you the world.<br />
+            They deliver word clouds.
+          </p>
+          <div className="section-divider mt-10 mb-10" />
+          <div className="space-y-6 text-text-secondary text-lg font-light leading-relaxed max-w-2xl mx-auto">
+            <p>
+              The market is flooded with tools that auto-generate
+              &ldquo;insights&rdquo; no human has actually read, validated, or
+              understood. They scale noise, not understanding.
+            </p>
+            <p>
+              We do the opposite. We help internal insights, marketing, and innovation
+              teams access perspectives that are often invisible to traditional
+              surveys or standard social listening tools&mdash;because a human
+              researcher found them, read them, and decoded them.
+            </p>
+            <p className="text-white text-xl font-medium">
+              One unfiltered analysis gives you the ability to see the world as
+              your consumers do&mdash;and ask the right questions, about the
+              things that matter to them. The result? Lower rejects, higher
+              engagement, research people actually want to participate in.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -165,7 +195,7 @@ export default function InHouseTeamsPage() {
         <div className="max-w-3xl mx-auto text-center">
           <div className="section-divider mb-12" />
           <h2 className="text-3xl md:text-4xl font-extralight text-white mb-6">
-            Stop Measuring Your Own Assumptions.
+            No dashboard will ever replace understanding.
           </h2>
           <p className="text-text-secondary text-lg font-light mb-10 max-w-2xl mx-auto leading-relaxed">
             Let&rsquo;s calibrate your upcoming tracker, segmentation, or
