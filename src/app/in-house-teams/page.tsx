@@ -18,21 +18,21 @@ export const metadata: Metadata = {
 const PILLARS = [
   {
     number: "01",
-    title: "Smarter Research, Designed by Reality",
+    title: "Design Research Around Reality",
     intro:
-      "Internal teams often operate within \u201cboardroom bubbles,\u201d relying on legacy segmentation models or corporate terminology that can distance research from actual consumer life. Bakamo reverses this sequence by listening first.",
+      "Internal teams often operate within \u201cboardroom bubbles\u201d\u2014working with inherited segmentation models, legacy terminology, or internal assumptions that gradually drift away from real consumer life. Bakamo reverses the sequence. We listen first.",
     points: [
       {
         name: "Align with Consumer Reality",
-        body: "We surface the actual language and framing people use, ensuring your downstream surveys measure what truly matters to consumers, not just what matters to your organization.",
+        body: "We surface the authentic language and mental framing consumers use when discussing your category. This ensures that downstream research measures what truly matters to people\u2014not just what matters internally.",
       },
       {
         name: "Streamline Downstream Surveys",
-        body: "By identifying the right questions early, we help you reduce unnecessary survey length and improve questionnaire design.",
+        body: "By identifying the right questions early, we help teams eliminate unnecessary survey complexity and design questionnaires that are sharper, faster, and easier to complete.",
       },
       {
-        name: "Drives Higher Data Quality",
-        body: "When respondents see their authentic lived experiences reflected in your survey options, \u201cstraight-lining\u201d drops and engagement peaks.",
+        name: "Improve Data Quality",
+        body: "When respondents recognize their real experiences in survey questions and response options, engagement increases and low-quality behaviors like straight-lining drop dramatically.",
       },
     ],
   },
@@ -40,19 +40,19 @@ const PILLARS = [
     number: "02",
     title: "Access the \u201cInvisible\u201d Data Layer",
     intro:
-      "Every quarter, another AI tool promises to \u201crevolutionize listening.\u201d The output is usually the same: volume charts, sentiment scores, and word clouds that no strategist can act on. We go where the algorithms don\u2019t.",
+      "Every year, new AI tools promise to \u201crevolutionize listening.\u201d Most deliver the same outputs: volume charts, sentiment scores, and word clouds that no strategist can act on. Bakamo focuses on what lies beneath.",
     points: [
       {
         name: "Beyond Automated Tools",
-        body: "We combine advanced technology with PhD-level social scientists who actually read, interpret, and decode the conversations\u2014identifying narratives and lived experiences that remain invisible to any dashboard.",
+        body: "Our work combines proprietary technology with PhD-level social scientists who read and interpret conversations directly. This allows us to identify cultural narratives, lived experiences, and emerging meanings that algorithms cannot detect.",
       },
       {
-        name: "Unknown Unknowns",
-        body: "Our \u201cRadar\u201d approach identifies early signals, niche communities, and overlooked tensions that reveal entirely new directions for strategy or innovation.",
+        name: "Identify the Unknown Unknowns",
+        body: "Our Radar methodology surfaces early signals, niche communities, and overlooked tensions that reveal entirely new strategic opportunities.",
       },
       {
-        name: "Holistic Usage & Attitude Insights",
-        body: "We uncover broader motivations and emerging behaviors within your category and adjacent spaces that traditional category-focused research misses.",
+        name: "Expand the Lens",
+        body: "Because people rarely discuss their lives within neat category boundaries, we uncover motivations and emerging behaviors that often sit adjacent to your category\u2014but strongly influence it.",
       },
     ],
   },
@@ -60,19 +60,19 @@ const PILLARS = [
     number: "03",
     title: "Strategic Insurance for Internal Insights",
     intro:
-      "Bakamo acts as an independent \u201cground truth engine,\u201d helping in-house teams stress-test hypotheses and avoid internal echo chambers.",
+      "Even the best internal research teams can become constrained by organizational assumptions or strategic momentum. Bakamo provides an independent ground-truth layer that helps teams stress-test their thinking.",
     points: [
       {
-        name: "Validate Internal Hypotheses",
-        body: "Social conversations provide unfiltered evidence that can either validate or challenge your internal findings, acting as strategic insurance for high-stakes decisions.",
+        name: "Validate Strategic Hypotheses",
+        body: "Unprompted conversations provide unfiltered evidence that can confirm\u2014or challenge\u2014internal assumptions before major investments are made.",
       },
       {
-        name: "Bias Reduction",
-        body: "Our method forces you to confront uncomfortable or unexpected themes that bubble up organically, rather than just confirming what your team already believes.",
+        name: "Reduce Confirmation Bias",
+        body: "Because our method starts with open listening rather than predefined questions, unexpected themes frequently surface\u2014forcing teams to confront realities that traditional research may overlook.",
       },
       {
-        name: "Calibrate Tracking for Impact",
-        body: "We integrate social intelligence with your quantitative systems to ensure your metrics measure the real drivers of consumer perception.",
+        name: "Calibrate Tracking Systems",
+        body: "We help integrate social intelligence with existing quantitative trackers to ensure that metrics measure the real drivers of consumer perception and behavior.",
       },
     ],
   },
@@ -80,19 +80,19 @@ const PILLARS = [
     number: "04",
     title: "Efficiency at the Pace of Business",
     intro:
-      "Working with Bakamo enables in-house teams to spend research budgets more intelligently and move faster from exploration to action.",
+      "Bakamo allows in-house teams to move from exploration to action much faster. By mining existing conversations, we identify the questions worth asking before large research investments are made.",
     points: [
       {
         name: "Cost-Efficient Discovery",
-        body: "We mine existing conversations to figure out what to ask, allowing you to avoid expensive \u201cresearch detours\u201d later in the project lifecycle.",
+        body: "Understanding what matters to consumers early helps teams avoid expensive research detours later in the project lifecycle.",
       },
       {
         name: "Rapid Intelligence Pulses",
-        body: "Most projects are completed within a few weeks, cutting significant time from the overall research process.",
+        body: "Most projects are delivered within a few weeks, allowing teams to integrate insights into ongoing strategy cycles.",
       },
       {
-        name: "10-Day \u201cFirst Read\u201d",
-        body: "Within 7\u201310 days, teams typically receive early narrative mapping and recommended next research steps to quickly evaluate where deeper research will create the most value.",
+        name: "The 10-Day First Read",
+        body: "Within 7\u201310 days, teams typically receive an initial narrative map of the category landscape together with recommended next research steps\u2014providing a rapid way to assess where deeper investigation will create the most value.",
       },
     ],
   },
@@ -118,40 +118,57 @@ export default function InHouseTeamsPage() {
           </h1>
           <div className="w-16 h-px bg-accent mt-10" />
           <p className="mt-10 text-text-secondary text-lg font-light leading-relaxed max-w-2xl">
-            Unfiltered consumer intelligence that complements your internal
-            research. We analyze unprompted social conversations to uncover
-            blind spots, validate hypotheses, and help in-house teams design
-            smarter research&mdash;faster and more efficiently.
+            Unfiltered consumer intelligence for in-house insight teams.
+          </p>
+          <p className="mt-6 text-text-secondary text-lg font-light leading-relaxed max-w-2xl">
+            Bakamo helps internal insights, marketing, and innovation teams see
+            the world through the eyes of their consumers. We analyze unprompted
+            social conversations to uncover blind spots, validate strategic
+            assumptions, and help teams design better research&mdash;faster and
+            more efficiently.
+          </p>
+          <p className="mt-6 text-text-secondary text-lg font-light leading-relaxed max-w-2xl">
+            The result is research grounded in how people actually think, speak,
+            and live, not how organizations imagine they do.
           </p>
         </div>
       </section>
 
       {/* ═══════ Human-First Manifesto ═══════ */}
-      <section className="full-section">
+      <section className="px-6 py-28">
         <div className="max-w-3xl mx-auto text-center">
           <p className="manifesto-quote">
-            AI dashboards promise you the world.<br />
+            AI dashboards promise the world.<br />
             They deliver word clouds.
           </p>
           <div className="section-divider mt-10 mb-10" />
           <div className="space-y-6 text-text-secondary text-lg font-light leading-relaxed max-w-2xl mx-auto">
             <p>
-              The market is flooded with tools that auto-generate
-              &ldquo;insights&rdquo; no human has actually read, validated, or
-              understood. They scale noise, not understanding.
+              The market is flooded with platforms that automatically generate
+              &ldquo;insights&rdquo; no human has actually read, interpreted, or
+              validated. These systems scale noise rather than understanding.
             </p>
             <p>
-              We do the opposite. We help internal insights, marketing, and innovation
-              teams access perspectives that are often invisible to traditional
-              surveys or standard social listening tools&mdash;because a human
-              researcher found them, read them, and decoded them.
+              Bakamo does the opposite. We combine advanced technology with human
+              interpretation. Our researchers read, analyze, and decode thousands
+              of real conversations to surface the meanings, tensions, and
+              narratives that automated tools consistently miss.
             </p>
-            <p className="text-white text-xl font-medium">
-              One unfiltered analysis gives you the ability to see the world as
-              your consumers do&mdash;and ask the right questions, about the
-              things that matter to them. The result? Lower rejects, higher
-              engagement, research people actually want to participate in.
+            <p>
+              This produces a layer of consumer understanding that traditional
+              surveys and standard social listening rarely access.
             </p>
+            <p>
+              A single unfiltered analysis allows teams to see their category as
+              consumers experience it&mdash;and to ask better questions about the
+              issues that actually matter to them.
+            </p>
+            <p className="text-white text-xl font-medium mt-8">The result:</p>
+            <ul className="text-white text-lg font-medium space-y-3 list-none mt-4">
+              <li>lower concept rejection rates</li>
+              <li>higher engagement in surveys</li>
+              <li>research that people recognize as relevant to their lives</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -198,9 +215,9 @@ export default function InHouseTeamsPage() {
             No dashboard will ever replace understanding.
           </h2>
           <p className="text-text-secondary text-lg font-light mb-10 max-w-2xl mx-auto leading-relaxed">
-            Let&rsquo;s calibrate your upcoming tracker, segmentation, or
-            innovation pipeline against reality&mdash;starting with a 10-day
-            First Read.
+            Before launching your next tracker, segmentation, or innovation
+            program, calibrate it against how people actually talk about their
+            lives. Start with a 10-Day First Read.
           </p>
           <Link href="/contact" className="cta-button text-sm">
             Schedule a Strategy Stress-Test
