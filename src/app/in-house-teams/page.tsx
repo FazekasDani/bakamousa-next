@@ -4,63 +4,97 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "For In-House Teams | Bakamo",
   description:
-    "Calibration & ground truth for corporate insights teams. Align your research with unfiltered reality.",
+    "Smarter research, designed by reality. Align with consumer reality, access the invisible data layer, and stress-test internal insights.",
   alternates: {
     canonical: "/in-house-teams",
   },
   openGraph: {
     title: "For In-House Teams | Bakamo",
     description:
-      "Calibration & ground truth for corporate insights teams. Align your research with unfiltered reality.",
+      "Smarter research, designed by reality. Align with consumer reality, access the invisible data layer, and stress-test internal insights.",
   },
 };
 
-const SERVICE_LAYERS = [
+const PILLARS = [
   {
     number: "01",
-    name: "The Strategic Diagnostic",
-    subtitle: "The Scan",
-    purpose:
-      "A rapid audit to find hidden friction points and evaluate your current market stance.",
-    deliverable:
-      "A Category TensionScope\u2122 to identify cultural and competitive tensions ripe for disruption.",
+    title: "Smarter Research, Designed by Reality",
+    intro:
+      "Internal teams often operate within \u201cboardroom bubbles,\u201d relying on legacy segmentation models or corporate terminology that can distance research from actual consumer life. Bakamo reverses this sequence by listening first.",
+    points: [
+      {
+        name: "Align with Consumer Reality",
+        body: "We surface the actual language and framing people use, ensuring your downstream surveys measure what truly matters to consumers, not just what matters to your organization.",
+      },
+      {
+        name: "Streamline Downstream Surveys",
+        body: "By identifying the right questions early, we help you reduce unnecessary survey length and improve questionnaire design.",
+      },
+      {
+        name: "Drives Higher Data Quality",
+        body: "When respondents see their authentic lived experiences reflected in your survey options, \u201cstraight-lining\u201d drops and engagement peaks.",
+      },
+    ],
   },
   {
     number: "02",
-    name: "The Construction Suite",
-    subtitle: "Strategic Projects",
-    purpose:
-      "A highly collaborative phase to turn insights into actionable, road-tested strategies.",
-    deliverable:
-      "Detailed personas, market landscapes, and a Validated Strategy Playbook with tested messaging.",
+    title: "Access the \u201cInvisible\u201d Data Layer",
+    intro:
+      "Standard social listening tools often prioritize volume and sentiment, frequently missing the nuanced conversations happening in difficult-to-capture digital spaces.",
+    points: [
+      {
+        name: "Beyond Automated Tools",
+        body: "We combine advanced technology with PhD-level social scientists to identify narratives and lived experiences that remain outside the scope of conventional dashboards.",
+      },
+      {
+        name: "Unknown Unknowns",
+        body: "Our \u201cRadar\u201d approach identifies early signals, niche communities, and overlooked tensions that reveal entirely new directions for strategy or innovation.",
+      },
+      {
+        name: "Holistic Usage & Attitude Insights",
+        body: "We uncover broader motivations and emerging behaviors within your category and adjacent spaces that traditional category-focused research misses.",
+      },
+    ],
   },
   {
     number: "03",
-    name: "Strategic Synthesis",
-    subtitle: "Maintenance Engine",
-    purpose:
-      "A partnership to keep your \u201cear to the ground\u201d long after strategy launch.",
-    deliverable:
-      "AI-enabled trackers and custom dashboards that separate meaningful cultural signals from noise.",
-  },
-];
-
-const BENEFITS = [
-  {
-    title: "Embed the \u201cWhy\u201d into the \u201cWhat\u201d",
-    body: "Understand the emotional drivers behind the data points before you even field the quantitative study.",
-  },
-  {
-    title: "Drive Higher Data Quality",
-    body: "When respondents see their authentic lived experiences reflected in your survey options, \u201cstraight-lining\u201d and drop-offs disappear.",
-  },
-  {
-    title: "Speed to Culture",
-    body: "Bypass lengthy exploratory qualitative phases by harvesting real-time cultural topics to design your questionnaire.",
+    title: "Strategic Insurance for Internal Insights",
+    intro:
+      "Bakamo acts as an independent \u201cground truth engine,\u201d helping in-house teams stress-test hypotheses and avoid internal echo chambers.",
+    points: [
+      {
+        name: "Validate Internal Hypotheses",
+        body: "Social conversations provide unfiltered evidence that can either validate or challenge your internal findings, acting as strategic insurance for high-stakes decisions.",
+      },
+      {
+        name: "Bias Reduction",
+        body: "Our method forces you to confront uncomfortable or unexpected themes that bubble up organically, rather than just confirming what your team already believes.",
+      },
+      {
+        name: "Calibrate Tracking for Impact",
+        body: "We integrate social intelligence with your quantitative systems to ensure your metrics measure the real drivers of consumer perception.",
+      },
+    ],
   },
   {
-    title: "Strategic Insurance",
-    body: "We calculate if your strategy can survive on the detected terrain, identifying \u201ccultural fault lines\u201d before they lead to market failure.",
+    number: "04",
+    title: "Efficiency at the Pace of Business",
+    intro:
+      "Working with Bakamo enables in-house teams to spend research budgets more intelligently and move faster from exploration to action.",
+    points: [
+      {
+        name: "Cost-Efficient Discovery",
+        body: "We mine existing conversations to figure out what to ask, allowing you to avoid expensive \u201cresearch detours\u201d later in the project lifecycle.",
+      },
+      {
+        name: "Rapid Intelligence Pulses",
+        body: "Most projects are completed within a few weeks, cutting significant time from the overall research process.",
+      },
+      {
+        name: "10-Day \u201cFirst Read\u201d",
+        body: "Within 7\u201310 days, teams typically receive early narrative mapping and recommended next research steps to quickly evaluate where deeper research will create the most value.",
+      },
+    ],
   },
 ];
 
@@ -76,171 +110,67 @@ export default function InHouseTeamsPage() {
             For In-House Teams
           </p>
           <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-extralight leading-[0.95] tracking-tight text-white">
-            Calibration &amp;&nbsp;Ground&nbsp;Truth
+            Smarter Research,
             <br />
             <span className="text-accent-glow font-light">
-              for In-House Teams
+              Designed by Reality
             </span>
           </h1>
           <div className="w-16 h-px bg-accent mt-10" />
+          <p className="mt-10 text-text-secondary text-lg font-light leading-relaxed max-w-2xl">
+            Internal teams often operate within &ldquo;boardroom bubbles,&rdquo;
+            relying on legacy segmentation models or corporate terminology that
+            can distance research from actual consumer life. Bakamo reverses
+            this sequence by listening first.
+          </p>
         </div>
       </section>
 
-      {/* ═══════ Section 1 — The Provocation ═══════ */}
-      <section className="px-6 pb-28">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-accent uppercase tracking-[0.2em] text-sm mb-6">
-            The Reality Check
-          </p>
-          <h2 className="text-3xl md:text-5xl font-extralight text-white mb-10">
-            Are You Asking the Right Questions?
-          </h2>
-          <div className="space-y-6 text-text-secondary text-lg font-light leading-relaxed">
-            <p>
-              Most research fails not because of bad data, but because the
-              questions were wrong from the start. Traditional quantitative
-              research often begins in a boardroom, fueled by internal
-              assumptions.
-            </p>
-            <p>
-              When you spend six figures validating what leadership already
-              believes, using corporate language your customers don&rsquo;t use,
-              you aren&rsquo;t measuring the market&mdash;you&rsquo;re measuring
-              your own bias.
-            </p>
-            <p className="text-white text-xl font-medium italic">
-              Statistically significant answers to culturally insignificant
-              questions.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════ Section 2 — The Solution ═══════ */}
-      <section className="px-6 pb-28 bg-dark-grey py-28">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-accent uppercase tracking-[0.2em] text-sm mb-6">
-            How We Help
-          </p>
-          <h2 className="text-3xl md:text-5xl font-extralight text-white mb-10">
-            Align Your Research with Unfiltered Reality
-          </h2>
-          <div className="space-y-8 text-text-secondary text-lg font-light leading-relaxed">
-            <div>
-              <h3 className="text-white text-lg font-medium mb-2">
-                We Reverse the Sequence
-              </h3>
-              <p>
-                We don&rsquo;t start with a blank survey; we start with a
-                &ldquo;Radar&rdquo; that captures unprompted, authentic audience
-                reality.
-              </p>
+      {/* ═══════ Four Pillars ═══════ */}
+      {PILLARS.map((pillar, pi) => (
+        <section
+          key={pillar.number}
+          className={`px-6 py-28 ${pi % 2 === 1 ? "bg-dark-grey" : ""}`}
+        >
+          <div className="max-w-5xl mx-auto">
+            <div className="flex items-baseline gap-4 mb-4">
+              <span className="text-accent font-mono text-sm">
+                {pillar.number}
+              </span>
+              <h2 className="text-3xl md:text-4xl font-extralight text-white">
+                {pillar.title}
+              </h2>
             </div>
-            <div>
-              <h3 className="text-white text-lg font-medium mb-2">
-                Discover the &ldquo;Unknown Unknowns&rdquo;
-              </h3>
-              <p>
-                By analyzing organic conversations where consumers speak freely
-                without research interference, we identify the exact language,
-                emotional tensions, and hidden decision-engines they use when no
-                brand is watching.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-white text-lg font-medium mb-2">
-                Grounded Instrument Design
-              </h3>
-              <p>
-                We harvest every organic friction point to ensure your survey
-                options are exhaustive. We turn &ldquo;real-world rants&rdquo;
-                into statistically weighted metrics, ensuring your research is
-                worth the investment.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════ Section 3 — Service Layers ═══════ */}
-      <section className="px-6 py-28">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-accent uppercase tracking-[0.2em] text-sm mb-6">
-            Our Service Layers
-          </p>
-          <h2 className="text-3xl md:text-5xl font-extralight text-white mb-20">
-            Modular Intelligence to Support Your Cycle
-          </h2>
-          <div className="space-y-20">
-            {SERVICE_LAYERS.map((layer) => (
-              <div key={layer.number} className="method-step">
-                <div className="flex items-baseline gap-4 mb-3">
-                  <span className="text-accent font-mono text-sm">
-                    {layer.number}
-                  </span>
-                  <h3 className="text-white text-2xl md:text-3xl font-light">
-                    {layer.name}
+            <p className="text-text-secondary text-lg font-light leading-relaxed max-w-3xl mb-16">
+              {pillar.intro}
+            </p>
+            <div className="grid md:grid-cols-3 gap-6">
+              {pillar.points.map((point, i) => (
+                <div key={i} className="diff-card">
+                  <h3 className="text-white text-lg font-medium mb-4 leading-snug">
+                    {point.name}
                   </h3>
-                  <span className="text-text-muted text-sm hidden md:inline">
-                    &mdash; {layer.subtitle}
-                  </span>
-                </div>
-                <div className="space-y-2 max-w-2xl">
-                  <p className="text-text-primary text-sm leading-relaxed">
-                    <span className="text-accent font-medium">Purpose:</span>{" "}
-                    {layer.purpose}
-                  </p>
                   <p className="text-text-secondary text-sm leading-relaxed">
-                    <span className="text-accent font-medium">
-                      Deliverable:
-                    </span>{" "}
-                    {layer.deliverable}
+                    {point.body}
                   </p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* ═══════ Section 4 — Benefits ═══════ */}
-      <section className="px-6 py-28 bg-dark-grey">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-accent uppercase tracking-[0.2em] text-sm mb-6">
-            The Advantage
-          </p>
-          <h2 className="text-3xl md:text-5xl font-extralight text-white mb-16">
-            Why Grounded Quantification Works
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {BENEFITS.map((b, i) => (
-              <div key={i} className="diff-card">
-                <span className="text-accent text-sm font-mono mb-4 block">
-                  0{i + 1}
-                </span>
-                <h3 className="text-white text-lg font-medium mb-4 leading-snug">
-                  {b.title}
-                </h3>
-                <p className="text-text-secondary text-sm leading-relaxed">
-                  {b.body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      ))}
 
       {/* ═══════ Final CTA ═══════ */}
       <section className="px-6 py-28">
         <div className="max-w-3xl mx-auto text-center">
           <div className="section-divider mb-12" />
           <h2 className="text-3xl md:text-4xl font-extralight text-white mb-6">
-            Protect Your Investment from Blind Spots.
+            Stop Measuring Your Own Assumptions.
           </h2>
           <p className="text-text-secondary text-lg font-light mb-10 max-w-2xl mx-auto leading-relaxed">
-            Don&rsquo;t bet your next high-stakes decision on a boardroom
-            hypothesis. Let&rsquo;s calibrate your upcoming tracker,
-            segmentation, or innovation pipeline against reality.
+            Let&rsquo;s calibrate your upcoming tracker, segmentation, or
+            innovation pipeline against reality&mdash;starting with a 10-day
+            First Read.
           </p>
           <Link href="/contact" className="cta-button text-sm">
             Schedule a Strategy Stress-Test
