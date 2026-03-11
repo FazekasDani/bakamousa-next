@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
 import { Cormorant_Garamond } from "next/font/google";
 import { gsap } from "gsap";
 
@@ -61,11 +61,11 @@ function getEmailForDomain(): string {
 
 export default function ContactPage() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [email, setEmail] = useState("info@bakamousa.com");
-
-  useEffect(() => {
-    setEmail(getEmailForDomain());
-  }, []);
+  const email = useSyncExternalStore(
+    () => () => undefined,
+    getEmailForDomain,
+    () => "info@bakamousa.com",
+  );
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -129,7 +129,7 @@ export default function ContactPage() {
               <h1
                 className={`${cormorant.className} contact-title mt-6 max-w-4xl text-[clamp(3.2rem,7vw,6.4rem)] leading-[0.88] tracking-tight text-white`}
               >
-                Let's inspect the ground before you commit the strategy.
+                Let&apos;s inspect the ground before you commit the strategy.
               </h1>
               <div className="mt-10 h-px w-16 bg-accent" />
               <p className="contact-body mt-8 max-w-2xl text-lg font-light leading-relaxed text-text-secondary">

@@ -124,7 +124,7 @@ export default function TechnologyPage() {
               </h1>
               <div className="mt-10 h-px w-16 bg-accent" />
               <p className="mt-10 max-w-2xl text-lg font-light leading-relaxed text-text-secondary">
-                Bakamo's technology stack is a research pipeline, not a software
+                Bakamo&apos;s technology stack is a research pipeline, not a software
                 theater demo. It combines harvesting, LLM-assisted analysis,
                 qualitative interpretation, and quantitative calibration into a
                 single system designed to improve decisions.
@@ -228,7 +228,7 @@ export default function TechnologyPage() {
               The system is designed to stay honest.
             </h2>
             <p className="mt-6 max-w-xl text-lg font-light leading-relaxed text-text-secondary">
-              Bakamo's technology matters because of the rules around it. The
+              Bakamo&apos;s technology matters because of the rules around it. The
               workflow is built to preserve nuance, protect rigor, and avoid the
               false confidence that shallow automation creates.
             </p>

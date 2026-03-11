@@ -201,7 +201,7 @@ export async function getFeaturedImageUrl(post: WpPost & { featured_media?: numb
   try {
     const media = await getMedia(fid);
     return media.source_url ?? null;
-  } catch (e) {
+  } catch {
     return null;
   }
 }

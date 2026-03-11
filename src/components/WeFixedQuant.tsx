@@ -199,11 +199,11 @@ const HERO_VIDEOS = [
 
 export default function WeFixedQuant() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [heroVideo, setHeroVideo] = useState(HERO_VIDEOS[0]);
+  const [heroVideo] = useState(
+    () => HERO_VIDEOS[Math.floor(Math.random() * HERO_VIDEOS.length)]
+  );
 
   useEffect(() => {
-    setHeroVideo(HERO_VIDEOS[Math.floor(Math.random() * HERO_VIDEOS.length)]);
-
     const ctx = gsap.context(() => {
       gsap.utils.toArray<HTMLElement>(".reveal").forEach((element) => {
         gsap.fromTo(

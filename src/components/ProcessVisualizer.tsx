@@ -178,7 +178,7 @@ export function ProcessVisualizer() {
       </div>
 
       {/* ═══ DATA POINTS ═══ */}
-      {particles.map((particle, index) => {
+      {particles.map((particle) => {
         const driftMultiplier = [1, -1, 0.5, -0.5][driftCycle];
         const currentX = isRadarPhase
           ? particle.x + particle.drift.dx * driftMultiplier
