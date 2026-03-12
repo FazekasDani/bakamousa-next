@@ -202,5 +202,5 @@ High-level changes when pivoting to Git-sourced content:
 - Build/runtime: Implement `src/lib/content.ts` to load Markdown at build time (`getStaticProps`/`generateStaticParams`) or fetch raw files from a remote Git repo at runtime and cache them.
 - Sync: Optionally add a `scripts/sync_content_from_git.sh` or a GitHub Action that updates the `content/` folder and triggers a Vercel redeploy via the existing deploy hook.
 
-See `docs/CONTENT_FROM_GIT.md` for a step-by-step migration and recommended file layouts, frontmatter schema, environment variables, and preview workflow.
+See `docs/CONTENT_FROM_GIT.md` for a step-by-steyp migration and recommended file layouts, frontmatter schema, environment variables, and preview workflow.
 
