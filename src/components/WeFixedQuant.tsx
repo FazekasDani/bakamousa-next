@@ -224,11 +224,6 @@ export default function WeFixedQuant() {
       });
 
       gsap.fromTo(
-        ".hero-kicker",
-        { y: 24, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: "expo.out", delay: 0.2 }
-      );
-      gsap.fromTo(
         ".hero-title",
         { y: 64, opacity: 0 },
         { y: 0, opacity: 1, duration: 1.15, ease: "expo.out", delay: 0.3 }
@@ -309,11 +304,8 @@ export default function WeFixedQuant() {
         <div className="relative z-10 mx-auto max-w-6xl">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.92fr)] lg:items-end">
             <div>
-              <p className="hero-kicker text-sm uppercase tracking-[0.24em] text-accent">
-                Bakamo USA
-              </p>
               <h1
-                className={`${cormorant.className} hero-title mt-6 max-w-4xl text-[clamp(3.4rem,8vw,7rem)] leading-[0.88] tracking-tight text-white`}
+                className={`${cormorant.className} hero-title max-w-4xl text-[clamp(3.4rem,8vw,7rem)] leading-[0.88] tracking-tight text-white`}
               >
                 Build on <span className="text-accent-glow">reality</span>
                 <br />
