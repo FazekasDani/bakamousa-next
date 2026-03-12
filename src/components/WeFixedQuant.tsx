@@ -193,6 +193,7 @@ const FOOTER_LINKS = [
 
 const HERO_VIDEOS = [
   "/media/india-bg.mp4",
+  "/media/protests-bg.mp4",
   "/media/ukstreet-bg.mp4",
   "/media/shopping-bg.mp4",
 ];
