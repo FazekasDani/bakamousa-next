@@ -110,7 +110,11 @@ export default function TechnologyPage() {
         />
       </div>
 
-      <section className="relative px-6 pb-20 pt-32 md:pb-24 md:pt-44">
+      <section
+        className="relative px-6 pb-20 pt-32 md:pb-24 md:pt-44"
+        data-analytics-section="technology_hero"
+        data-analytics-label="Technology Hero"
+      >
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1.02fr)_minmax(320px,0.98fr)] lg:items-end">
             <div>
@@ -130,7 +134,15 @@ export default function TechnologyPage() {
                 single system designed to improve decisions.
               </p>
               <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-                <Link href="/contact" className="cta-button text-sm">
+                <Link
+                  href="/contact"
+                  className="cta-button text-sm"
+                  data-analytics-event="cta_click"
+                  data-analytics-label="Book a Demo"
+                  data-analytics-location="technology_hero"
+                  data-analytics-destination="/contact"
+                  data-analytics-service-area="technology"
+                >
                   Book a Demo
                 </Link>
                 <p className="max-w-sm text-sm uppercase tracking-[0.16em] text-text-muted">
@@ -173,7 +185,11 @@ export default function TechnologyPage() {
         </div>
       </section>
 
-      <section className="px-6 py-24 md:py-28">
+      <section
+        className="px-6 py-24 md:py-28"
+        data-analytics-section="technology_pipeline"
+        data-analytics-label="Technology Pipeline"
+      >
         <div className="mx-auto max-w-6xl">
           <div className="max-w-3xl">
             <p className="text-sm uppercase tracking-[0.2em] text-accent">
@@ -218,7 +234,11 @@ export default function TechnologyPage() {
         </div>
       </section>
 
-      <section className="bg-dark-grey/70 px-6 py-24 md:py-28">
+      <section
+        className="bg-dark-grey/70 px-6 py-24 md:py-28"
+        data-analytics-section="technology_doctrine"
+        data-analytics-label="Technology Doctrine"
+      >
         <div className="mx-auto max-w-6xl grid gap-12 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-start">
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-accent">
@@ -270,7 +290,11 @@ export default function TechnologyPage() {
         </div>
       </section>
 
-      <section className="px-6 py-24">
+      <section
+        className="px-6 py-24"
+        data-analytics-section="technology_final_cta"
+        data-analytics-label="Technology Final CTA"
+      >
         <div
           className="mx-auto max-w-5xl rounded-[2rem] border border-accent/20 p-8 text-center md:p-12"
           style={{
@@ -291,7 +315,15 @@ export default function TechnologyPage() {
             qualitative interpretation, and quantitative calibration work
             together on a real strategic question.
           </p>
-          <Link href="/contact" className="cta-button mt-10 text-sm">
+          <Link
+            href="/contact"
+            className="cta-button mt-10 text-sm"
+            data-analytics-event="cta_click"
+            data-analytics-label="Book a Demo"
+            data-analytics-location="technology_final_cta"
+            data-analytics-destination="/contact"
+            data-analytics-service-area="technology"
+          >
             Book a Demo
           </Link>
         </div>

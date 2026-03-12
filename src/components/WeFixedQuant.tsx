@@ -287,7 +287,11 @@ export default function WeFixedQuant() {
     <div ref={containerRef} className="relative">
       <div className="grain-overlay" />
 
-      <section className="hero-section relative isolate overflow-hidden px-6 pb-16 pt-32 md:pb-24 md:pt-44">
+      <section
+        className="hero-section relative isolate overflow-hidden px-6 pb-16 pt-32 md:pb-24 md:pt-44"
+        data-analytics-section="home_hero"
+        data-analytics-label="Home Hero"
+      >
         <video
           autoPlay
           loop
@@ -320,12 +324,23 @@ export default function WeFixedQuant() {
                 sharper instruments and stronger strategic decisions.
               </p>
               <div className="hero-actions mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-                <Link href="/contact" className="cta-button text-sm">
+                <Link
+                  href="/contact"
+                  className="cta-button text-sm"
+                  data-analytics-event="cta_click"
+                  data-analytics-label="Start the Inspection"
+                  data-analytics-location="home_hero"
+                  data-analytics-destination="/contact"
+                >
                   Start the Inspection
                 </Link>
                 <Link
                   href="/solutions"
                   className="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm uppercase tracking-[0.16em] text-white transition-colors hover:border-accent hover:text-accent"
+                  data-analytics-event="cta_click"
+                  data-analytics-label="Explore the Toolkit"
+                  data-analytics-location="home_hero"
+                  data-analytics-destination="/solutions"
                 >
                   Explore the Toolkit
                 </Link>
@@ -395,7 +410,11 @@ export default function WeFixedQuant() {
         </div>
       </section>
 
-      <section className="px-6 py-24 md:py-32">
+      <section
+        className="px-6 py-24 md:py-32"
+        data-analytics-section="home_terrain"
+        data-analytics-label="Home Terrain"
+      >
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-start">
           <div>
             <p className="reveal text-sm uppercase tracking-[0.2em] text-accent">
@@ -461,7 +480,11 @@ export default function WeFixedQuant() {
         </div>
       </section>
 
-      <section className="bg-dark-grey px-6 py-24 md:py-32">
+      <section
+        className="bg-dark-grey px-6 py-24 md:py-32"
+        data-analytics-section="home_method"
+        data-analytics-label="Home Method"
+      >
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-start">
           <div>
             <p className="reveal text-sm uppercase tracking-[0.2em] text-accent">
@@ -519,7 +542,11 @@ export default function WeFixedQuant() {
         </div>
       </section>
 
-      <section className="px-6 py-24 md:py-32">
+      <section
+        className="px-6 py-24 md:py-32"
+        data-analytics-section="home_failures"
+        data-analytics-label="Home Failures"
+      >
         <div className="mx-auto max-w-6xl">
           <div className="max-w-3xl">
             <p className="reveal text-sm uppercase tracking-[0.2em] text-accent">
@@ -560,7 +587,11 @@ export default function WeFixedQuant() {
         </div>
       </section>
 
-      <section className="bg-dark-grey/70 px-6 py-24 md:py-32">
+      <section
+        className="bg-dark-grey/70 px-6 py-24 md:py-32"
+        data-analytics-section="home_suite"
+        data-analytics-label="Home Suite"
+      >
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div className="max-w-3xl">
@@ -579,6 +610,10 @@ export default function WeFixedQuant() {
             <Link
               href="/solutions"
               className="reveal text-sm uppercase tracking-[0.16em] text-accent transition-colors hover:text-white"
+              data-analytics-event="cta_click"
+              data-analytics-label="Explore all solutions"
+              data-analytics-location="home_suite"
+              data-analytics-destination="/solutions"
             >
               Explore all solutions
             </Link>
@@ -624,7 +659,11 @@ export default function WeFixedQuant() {
         </div>
       </section>
 
-      <section className="px-6 py-24 md:py-32">
+      <section
+        className="px-6 py-24 md:py-32"
+        data-analytics-section="home_final_cta"
+        data-analytics-label="Home Final CTA"
+      >
         <div
           className="mx-auto max-w-6xl rounded-[2rem] border border-white/10 p-8 md:p-12"
           style={{
@@ -713,7 +752,14 @@ export default function WeFixedQuant() {
                   </div>
                 ))}
               </div>
-              <Link href="/contact" className="cta-button mt-8 w-full text-sm sm:w-auto">
+              <Link
+                href="/contact"
+                className="cta-button mt-8 w-full text-sm sm:w-auto"
+                data-analytics-event="cta_click"
+                data-analytics-label="Start the Inspection"
+                data-analytics-location="home_final_cta"
+                data-analytics-destination="/contact"
+              >
                 Start the Inspection
               </Link>
             </div>

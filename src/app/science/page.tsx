@@ -218,7 +218,11 @@ export default function SciencePage() {
         </div>
       </section>
 
-      <section className="px-6 py-24">
+      <section
+        className="px-6 py-24"
+        data-analytics-section="science_final_cta"
+        data-analytics-label="Science Final CTA"
+      >
         <div
           className="mx-auto max-w-5xl rounded-[2rem] border border-accent/20 p-8 text-center md:p-12"
           style={{
@@ -239,7 +243,15 @@ export default function SciencePage() {
             discourse, frames tension, and turns cultural observation into
             strategic action.
           </p>
-          <Link href="/contact" className="cta-button mt-10 text-sm">
+          <Link
+            href="/contact"
+            className="cta-button mt-10 text-sm"
+            data-analytics-event="cta_click"
+            data-analytics-label="Book a Strategy Consult"
+            data-analytics-location="science_final_cta"
+            data-analytics-destination="/contact"
+            data-analytics-service-area="science"
+          >
             Book a Strategy Consult
           </Link>
         </div>

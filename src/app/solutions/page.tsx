@@ -108,7 +108,11 @@ export default function SolutionsPage() {
         />
       </div>
 
-      <section className="relative px-6 pb-20 pt-32 md:pb-24 md:pt-44">
+      <section
+        className="relative px-6 pb-20 pt-32 md:pb-24 md:pt-44"
+        data-analytics-section="solutions_hero"
+        data-analytics-label="Solutions Hero"
+      >
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)] lg:items-end">
             <div>
@@ -127,12 +131,25 @@ export default function SolutionsPage() {
                 actually live, speak, and decide, not from internal shorthand.
               </p>
               <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-                <Link href="/contact" className="cta-button text-sm">
+                <Link
+                  href="/contact"
+                  className="cta-button text-sm"
+                  data-analytics-event="cta_click"
+                  data-analytics-label="Book a Strategy Consult"
+                  data-analytics-location="solutions_hero"
+                  data-analytics-destination="/contact"
+                  data-analytics-service-area="solutions"
+                >
                   Book a Strategy Consult
                 </Link>
                 <Link
                   href="/technology"
                   className="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm uppercase tracking-[0.16em] text-white transition-colors hover:border-accent hover:text-accent"
+                  data-analytics-event="cta_click"
+                  data-analytics-label="See the Engine"
+                  data-analytics-location="solutions_hero"
+                  data-analytics-destination="/technology"
+                  data-analytics-service-area="technology"
                 >
                   See the Engine
                 </Link>
@@ -172,7 +189,11 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-      <section className="px-6 py-24 md:py-28">
+      <section
+        className="px-6 py-24 md:py-28"
+        data-analytics-section="solutions_catalog"
+        data-analytics-label="Solutions Catalog"
+      >
         <div className="mx-auto max-w-6xl space-y-8">
           {SOLUTIONS.map((solution, index) => (
             <article
@@ -267,7 +288,11 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-      <section className="px-6 py-24">
+      <section
+        className="px-6 py-24"
+        data-analytics-section="solutions_final_cta"
+        data-analytics-label="Solutions Final CTA"
+      >
         <div
           className="mx-auto max-w-5xl rounded-[2rem] border border-accent/20 p-8 text-center md:p-12"
           style={{
@@ -288,7 +313,15 @@ export default function SolutionsPage() {
             or calibrated measurement before the project scope gets fixed in the
             wrong shape.
           </p>
-          <Link href="/contact" className="cta-button mt-10 text-sm">
+          <Link
+            href="/contact"
+            className="cta-button mt-10 text-sm"
+            data-analytics-event="cta_click"
+            data-analytics-label="Book a Strategy Consult"
+            data-analytics-location="solutions_final_cta"
+            data-analytics-destination="/contact"
+            data-analytics-service-area="solutions"
+          >
             Book a Strategy Consult
           </Link>
         </div>

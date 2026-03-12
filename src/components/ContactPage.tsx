@@ -106,7 +106,11 @@ export default function ContactPage() {
     <div ref={containerRef} className="relative pb-24 text-text-primary">
       <div className="grain-overlay" />
 
-      <section className="relative isolate overflow-hidden px-6 pb-20 pt-32 md:pb-24 md:pt-44">
+      <section
+        className="relative isolate overflow-hidden px-6 pb-20 pt-32 md:pb-24 md:pt-44"
+        data-analytics-section="contact_hero"
+        data-analytics-label="Contact Hero"
+      >
         <video
           autoPlay
           loop
@@ -139,12 +143,24 @@ export default function ContactPage() {
                 before the brief gets fixed in the wrong form.
               </p>
               <div className="contact-body mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-                <a href={stressTestHref} className="cta-button text-sm">
+                <a
+                  href={stressTestHref}
+                  className="cta-button text-sm"
+                  data-analytics-event="generate_lead"
+                  data-analytics-label="Book a Stress-Test"
+                  data-analytics-location="contact_hero"
+                  data-analytics-contact-method="email"
+                  data-analytics-lead-source="contact_page"
+                >
                   Book a Stress-Test
                 </a>
                 <a
                   href={emailHref}
                   className="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm uppercase tracking-[0.16em] text-white transition-colors hover:border-accent hover:text-accent"
+                  data-analytics-event="contact_click"
+                  data-analytics-label="Email Us Directly"
+                  data-analytics-location="contact_hero"
+                  data-analytics-contact-method="email"
                 >
                   Email Us Directly
                 </a>
@@ -169,6 +185,10 @@ export default function ContactPage() {
                   <a
                     href={emailHref}
                     className="mt-2 block text-lg font-light text-white transition-colors hover:text-accent"
+                    data-analytics-event="contact_click"
+                    data-analytics-label="Contact Email"
+                    data-analytics-location="contact_details"
+                    data-analytics-contact-method="email"
                   >
                     {email}
                   </a>
@@ -180,6 +200,10 @@ export default function ContactPage() {
                   <a
                     href="tel:+441553432939"
                     className="mt-2 block text-lg font-light text-white transition-colors hover:text-accent"
+                    data-analytics-event="contact_click"
+                    data-analytics-label="Contact Phone"
+                    data-analytics-location="contact_details"
+                    data-analytics-contact-method="phone"
                   >
                     +44 1553 432939
                   </a>
@@ -198,7 +222,11 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="px-6 py-24 md:py-28">
+      <section
+        className="px-6 py-24 md:py-28"
+        data-analytics-section="contact_reasons"
+        data-analytics-label="Contact Reasons"
+      >
         <div className="mx-auto max-w-6xl grid gap-12 lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] lg:items-start">
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-accent">
@@ -284,7 +312,11 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="px-6 py-24">
+      <section
+        className="px-6 py-24"
+        data-analytics-section="contact_final_cta"
+        data-analytics-label="Contact Final CTA"
+      >
         <div
           className="mx-auto max-w-5xl rounded-[2rem] border border-accent/20 p-8 text-center md:p-12"
           style={{
@@ -304,7 +336,15 @@ export default function ContactPage() {
             Send the context, the problem, or the upcoming decision. We will
             help work out the most useful way to start.
           </p>
-          <a href={stressTestHref} className="cta-button mt-10 text-sm">
+          <a
+            href={stressTestHref}
+            className="cta-button mt-10 text-sm"
+            data-analytics-event="generate_lead"
+            data-analytics-label="Book a Stress-Test"
+            data-analytics-location="contact_final_cta"
+            data-analytics-contact-method="email"
+            data-analytics-lead-source="contact_page"
+          >
             Book a Stress-Test
           </a>
         </div>

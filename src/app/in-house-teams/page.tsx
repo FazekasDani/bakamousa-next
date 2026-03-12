@@ -212,7 +212,11 @@ export default function InHouseTeamsPage() {
         />
       </div>
 
-      <section className="relative px-6 pb-20 pt-32 md:pb-24 md:pt-44">
+      <section
+        className="relative px-6 pb-20 pt-32 md:pb-24 md:pt-44"
+        data-analytics-section="inhouse_hero"
+        data-analytics-label="In-House Teams Hero"
+      >
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-14 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)] lg:items-end">
             <div>
@@ -237,7 +241,15 @@ export default function InHouseTeamsPage() {
                 research.
               </p>
               <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-                <Link href="/contact" className="cta-button text-sm">
+                <Link
+                  href="/contact"
+                  className="cta-button text-sm"
+                  data-analytics-event="cta_click"
+                  data-analytics-label="Schedule a Strategy Stress-Test"
+                  data-analytics-location="inhouse_hero"
+                  data-analytics-destination="/contact"
+                  data-analytics-service-area="in_house_teams"
+                >
                   Schedule a Strategy Stress-Test
                 </Link>
                 <p className="max-w-sm text-sm uppercase tracking-[0.16em] text-text-muted">
@@ -303,7 +315,11 @@ export default function InHouseTeamsPage() {
         </div>
       </section>
 
-      <section className="px-6 py-24 md:py-28">
+      <section
+        className="px-6 py-24 md:py-28"
+        data-analytics-section="inhouse_human_interpretation"
+        data-analytics-label="In-House Human Interpretation"
+      >
         <div
           className="mx-auto max-w-6xl rounded-[2rem] border border-white/10 p-8 md:p-12"
           style={{
@@ -363,7 +379,11 @@ export default function InHouseTeamsPage() {
         </div>
       </section>
 
-      <section className="px-6 py-24 md:py-28">
+      <section
+        className="px-6 py-24 md:py-28"
+        data-analytics-section="inhouse_pillars"
+        data-analytics-label="In-House Pillars"
+      >
         <div className="mx-auto max-w-6xl">
           <div className="max-w-3xl">
             <p className="text-sm uppercase tracking-[0.2em] text-accent">
@@ -470,7 +490,11 @@ export default function InHouseTeamsPage() {
         </div>
       </section>
 
-      <section className="px-6 py-24 md:py-28">
+      <section
+        className="px-6 py-24 md:py-28"
+        data-analytics-section="inhouse_final_cta"
+        data-analytics-label="In-House Final CTA"
+      >
         <div
           className="mx-auto max-w-6xl rounded-[2rem] border border-accent/20 p-8 md:p-12"
           style={{
@@ -511,6 +535,11 @@ export default function InHouseTeamsPage() {
               <Link
                 href="/contact"
                 className="cta-button mt-8 w-full text-sm sm:w-auto"
+                data-analytics-event="cta_click"
+                data-analytics-label="Schedule a Strategy Stress-Test"
+                data-analytics-location="inhouse_final_cta"
+                data-analytics-destination="/contact"
+                data-analytics-service-area="in_house_teams"
               >
                 Schedule a Strategy Stress-Test
               </Link>

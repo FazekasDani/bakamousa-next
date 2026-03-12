@@ -49,6 +49,10 @@ export default function SiteNavigation() {
           <Link
             href="/"
             className="text-white text-sm font-light tracking-[0.25em] hover:text-accent transition-colors"
+            data-analytics-event="nav_click"
+            data-analytics-label="Bakamo Home"
+            data-analytics-location="top_nav"
+            data-analytics-destination="/"
           >
             BAKAMO
           </Link>
@@ -57,36 +61,60 @@ export default function SiteNavigation() {
             <Link
               href="/about"
               className="text-text-muted text-xs uppercase tracking-[0.15em] hover:text-white transition-colors"
+              data-analytics-event="nav_click"
+              data-analytics-label="About"
+              data-analytics-location="top_nav"
+              data-analytics-destination="/about"
             >
               About
             </Link>
             <Link
               href="/solutions"
               className="text-text-muted text-xs uppercase tracking-[0.15em] hover:text-white transition-colors"
+              data-analytics-event="nav_click"
+              data-analytics-label="Solutions"
+              data-analytics-location="top_nav"
+              data-analytics-destination="/solutions"
             >
               Solutions
             </Link>
             <Link
               href="/technology"
               className="text-text-muted text-xs uppercase tracking-[0.15em] hover:text-white transition-colors"
+              data-analytics-event="nav_click"
+              data-analytics-label="Technology"
+              data-analytics-location="top_nav"
+              data-analytics-destination="/technology"
             >
               Technology
             </Link>
             <Link
               href="/science"
               className="text-text-muted text-xs uppercase tracking-[0.15em] hover:text-white transition-colors"
+              data-analytics-event="nav_click"
+              data-analytics-label="Science"
+              data-analytics-location="top_nav"
+              data-analytics-destination="/science"
             >
               Science
             </Link>
             <Link
               href="/in-house-teams"
               className="text-text-muted text-xs uppercase tracking-[0.15em] hover:text-white transition-colors"
+              data-analytics-event="nav_click"
+              data-analytics-label="In-House Teams"
+              data-analytics-location="top_nav"
+              data-analytics-destination="/in-house-teams"
             >
               In-House Teams
             </Link>
             <Link
               href="/contact"
               className="text-xs uppercase tracking-[0.15em] text-accent hover:text-white transition-colors"
+              data-analytics-event="nav_click"
+              data-analytics-label="Contact"
+              data-analytics-location="top_nav"
+              data-analytics-destination="/contact"
             >
               Contact
             </Link>
