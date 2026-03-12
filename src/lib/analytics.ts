@@ -3,12 +3,6 @@ type SearchParamLike = { toString(): string } | null | undefined;
 export type AnalyticsValue = string | number | boolean;
 export type AnalyticsPayload = Record<string, AnalyticsValue | undefined>;
 
-declare global {
-  interface Window {
-    dataLayer?: Array<Record<string, unknown>>;
-  }
-}
-
 const PAGE_TYPE_PATTERNS = [
   { pattern: /^\/$/, type: "home" },
   { pattern: /^\/about(?:\/|$)/, type: "about" },
@@ -38,12 +32,16 @@ export function pushDataLayerEvent(
     return;
   }
 
+  const analyticsWindow = window as Window & {
+    dataLayer?: Array<Record<string, unknown>>;
+  };
+
   const cleanPayload = Object.fromEntries(
     Object.entries(payload).filter(([, value]) => value !== undefined && value !== "")
   ) as Record<string, AnalyticsValue>;
 
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event: eventName, ...cleanPayload });
+  analyticsWindow.dataLayer = analyticsWindow.dataLayer || [];
+  analyticsWindow.dataLayer.push({ event: eventName, ...cleanPayload });
 }
 
 export function throttle<T extends (...args: never[]) => void>(
