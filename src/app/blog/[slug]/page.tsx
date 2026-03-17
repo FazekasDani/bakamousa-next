@@ -69,7 +69,7 @@ export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const cookiesStore = await cookies();
   const isPreview = Boolean(cookiesStore.get?.('git-preview')?.value);
-  const post = await getPostBySlug(slug, { preview: isPreview });
+  const post = getPostBySlug(slug, { preview: isPreview });
 
   if (!post) {
     notFound();

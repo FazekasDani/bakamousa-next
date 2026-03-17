@@ -149,6 +149,7 @@ export default function HeroSection() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type your answer here…"
+            aria-label="Type your answer"
             className="w-full sm:w-[400px] rounded-none border-b-2 border-ink bg-transparent px-1 py-3 text-lg text-ink placeholder:text-earth focus:outline-none focus:border-charcoal transition-colors"
           />
           <button

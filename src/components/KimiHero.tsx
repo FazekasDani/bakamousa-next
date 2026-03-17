@@ -181,6 +181,7 @@ export default function KimiHero({ content }: { content: KimiHeroContent }) {
               {statements.map((_, index) => (
                 <button
                   key={index}
+                  aria-label={`Go to statement ${index + 1}`}
                   onClick={() => setCurrentIndex(index)}
                   className={`h-1.5 rounded-full transition-all duration-300 ${index === currentIndex
                       ? "bg-ink w-6"
@@ -206,11 +207,13 @@ export default function KimiHero({ content }: { content: KimiHeroContent }) {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder={content.inputPlaceholder}
+                  aria-label="Type your answer"
                   disabled={isSubmitted}
                   className="w-full px-6 py-4 pr-14 bg-white border border-stone rounded-full text-base text-ink placeholder:text-earth focus:outline-none focus:border-ink focus:ring-2 focus:ring-ink/10 transition-all duration-300 disabled:opacity-50"
                 />
                 <button
                   type="submit"
+                  aria-label="Submit your answer"
                   disabled={isSubmitted || !inputValue.trim()}
                   className={`absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 ${isSubmitted
                       ? "bg-green-600 text-white"

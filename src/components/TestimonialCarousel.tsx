@@ -73,6 +73,7 @@ export function TestimonialCarousel() {
         {TESTIMONIALS.map((_, index) => (
           <button
             key={index}
+            aria-label={`Go to testimonial ${index + 1}`}
             onClick={() => setActiveIndex(index)}
             className={`relative h-1 rounded-full transition-all duration-500 ${
               index === activeIndex ? "w-12 bg-bakamo-cyan" : "w-6 bg-white/20 hover:bg-white/40"

@@ -25,6 +25,7 @@ Vercel project settings
    - `WORDPRESS_BASE_URL` = `https://bakamosocial.com`
    - `WP_PREVIEW_SECRET` = `<long-random-secret>` (generate ~32+ chars)
    - `NEXT_PUBLIC_SITE_URL` = `https://bakamousa.com`
+   - `NEXT_PUBLIC_GTM_ID` = `GTM-5ZQTVMCV` (Google Tag Manager container ID — required for analytics)
    - Optional (only if WP uses basic auth): `WORDPRESS_BASIC_AUTH_USER`, `WORDPRESS_BASIC_AUTH_PASS`
 
 Domain verification & DNS changes (Gandi)
