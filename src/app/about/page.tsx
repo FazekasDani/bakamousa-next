@@ -83,7 +83,7 @@ export default function AboutPage() {
             </div>
             <div className="diff-card">
               <h3 className="text-white text-xl font-medium">Dr.&nbsp;Sandra Baumann</h3>
-              <p className="text-accent text-xs uppercase tracking-[0.12em] mt-1 mb-4">Chief Methodologist</p>
+              <p className="text-accent text-xs uppercase tracking-[0.12em] mt-1 mb-4">Founder &amp; CEO</p>
               <p className="text-text-secondary text-sm leading-relaxed">
                 Brings statistical precision and quantitative rigor&mdash;transforming cultural
                 signals into representative, defensible measurement frameworks.
