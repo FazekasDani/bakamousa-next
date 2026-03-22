@@ -607,59 +607,17 @@ export default function ElectionsPage() {
           >
             <div className="grid md:grid-cols-2 gap-0">
 
-              {/* Visual panel — replace SVG with image from the French election report if available */}
+              {/* Visual panel — drop your image at public/media/french-election-media-relay.png */}
               <div
-                className="relative flex flex-col items-center justify-center gap-6 p-10 md:border-r border-white/10"
+                className="relative overflow-hidden md:border-r border-white/10"
                 style={{ minHeight: "300px" }}
               >
-                {/* S-curve: visualises the media relay arc from social media → press pick-up → public discourse */}
-                <svg
-                  viewBox="0 0 280 160"
-                  className="w-full max-w-[260px]"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-label="Diagram showing the S-curve arc of information moving from social media through media relay to public discourse"
-                >
-                  {/* Faint grid lines */}
-                  <line x1="0" y1="40" x2="280" y2="40" stroke="white" strokeWidth="0.4" strokeDasharray="3 5" opacity="0.08" />
-                  <line x1="0" y1="80" x2="280" y2="80" stroke="white" strokeWidth="0.4" strokeDasharray="3 5" opacity="0.08" />
-                  <line x1="0" y1="120" x2="280" y2="120" stroke="white" strokeWidth="0.4" strokeDasharray="3 5" opacity="0.08" />
-
-                  {/* Glow beneath the curve */}
-                  <path
-                    d="M20 145 C 55 145, 80 100, 100 75 S 165 20, 255 18 L 255 155 L 20 155 Z"
-                    fill="url(#curveGlow)"
-                    opacity="0.25"
-                  />
-                  <defs>
-                    <linearGradient id="curveGlow" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#c9a96e" stopOpacity="0.4" />
-                      <stop offset="100%" stopColor="#c9a96e" stopOpacity="0" />
-                    </linearGradient>
-                  </defs>
-
-                  {/* Main S-curve */}
-                  <path
-                    d="M20 145 C 55 145, 80 100, 100 75 S 165 18, 255 18"
-                    stroke="#c9a96e"
-                    strokeWidth="2.2"
-                    strokeLinecap="round"
-                  />
-
-                  {/* Stage dots */}
-                  <circle cx="20"  cy="145" r="5" fill="#c9a96e" opacity="0.5" />
-                  <circle cx="100" cy="75"  r="4.5" fill="#c9a96e" opacity="0.65" />
-                  <circle cx="255" cy="18"  r="5" fill="#c9a96e" />
-
-                  {/* Stage labels */}
-                  <text x="2"   y="158" fill="rgba(255,255,255,0.3)" fontSize="7.5" fontFamily="system-ui, sans-serif">Social media</text>
-                  <text x="72"  y="92"  fill="rgba(255,255,255,0.3)" fontSize="7.5" fontFamily="system-ui, sans-serif">Media relay</text>
-                  <text x="196" y="13"  fill="rgba(201,169,110,0.85)" fontSize="7.5" fontFamily="system-ui, sans-serif">Public discourse</text>
-                </svg>
-
-                <p className="text-[10px] uppercase tracking-[0.18em] text-text-muted text-center">
-                  The media relay arc &mdash; 2022 French Presidential Election
-                </p>
+                <Image
+                  src="/media/french-election-media-relay.png"
+                  alt="Key visual from Bakamo's 2022 French Presidential Election report — the media relay arc"
+                  fill
+                  className="object-cover"
+                />
               </div>
 
               {/* Text panel */}
