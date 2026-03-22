@@ -614,7 +614,7 @@ export default function ElectionsPage() {
               >
                 <Image
                   src="/media/FrenchElectionPic.png"
-                  alt="Key visual from Bakamo's 2022 French Presidential Election report — the media relay arc"
+                  alt="Key visual from Bakamo's 2017 French Presidential Election report — the media relay arc"
                   fill
                   className="object-cover"
                 />
@@ -626,11 +626,11 @@ export default function ElectionsPage() {
                 <h3
                   className={`${cormorant.className} text-2xl md:text-3xl font-light text-white leading-tight mb-5`}
                 >
-                  The 2022 French Presidential Election
+                  The 2017 French Presidential Election
                 </h3>
                 <p className="text-sm font-light leading-relaxed text-text-secondary mb-6">
                   Bakamo&apos;s first public election study analysed the psychographic texture of social
-                  media discourse during the Macron&ndash;Le Pen runoff, mapping how organic expressions
+                  media discourse during the 2017 Macron&ndash;Le Pen runoff, mapping how organic expressions
                   flowed through the media relay before reshaping mainstream narratives. The methodology and
                   findings were picked up and cited internationally.
                 </p>
@@ -675,7 +675,7 @@ export default function ElectionsPage() {
                     <polyline points="7 10 12 15 17 10" />
                     <line x1="12" y1="15" x2="12" y2="3" />
                   </svg>
-                  Read the 2022 French Election Report (PDF)
+                  Read the 2017 French Election Report (PDF)
                 </a>
               </div>
 
