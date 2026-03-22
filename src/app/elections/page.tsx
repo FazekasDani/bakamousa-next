@@ -582,6 +582,150 @@ export default function ElectionsPage() {
         </div>
       </section>
 
+      <div className="section-divider" />
+
+      {/* Section: Previous Research */}
+      <section
+        className="px-6 py-16"
+        data-analytics-section="elections_prior_research"
+        data-analytics-label="Prior Research"
+      >
+        <div className="max-w-4xl mx-auto">
+          <p className="text-accent uppercase tracking-[0.2em] text-sm mb-4">Earlier Work</p>
+          <h2
+            className={`${cormorant.className} text-3xl font-light text-white mb-8 leading-tight`}
+          >
+            Bakamo&apos;s Election Research Has Been Cited by International Media
+          </h2>
+
+          <div
+            className="rounded-[2rem] border border-white/10 overflow-hidden"
+            style={{
+              background:
+                "linear-gradient(150deg, rgba(26,53,80,0.22), rgba(10,10,10,0.98))",
+            }}
+          >
+            <div className="grid md:grid-cols-2 gap-0">
+
+              {/* Visual panel — replace SVG with image from the French election report if available */}
+              <div
+                className="relative flex flex-col items-center justify-center gap-6 p-10 md:border-r border-white/10"
+                style={{ minHeight: "300px" }}
+              >
+                {/* S-curve: visualises the media relay arc from social media → press pick-up → public discourse */}
+                <svg
+                  viewBox="0 0 280 160"
+                  className="w-full max-w-[260px]"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-label="Diagram showing the S-curve arc of information moving from social media through media relay to public discourse"
+                >
+                  {/* Faint grid lines */}
+                  <line x1="0" y1="40" x2="280" y2="40" stroke="white" strokeWidth="0.4" strokeDasharray="3 5" opacity="0.08" />
+                  <line x1="0" y1="80" x2="280" y2="80" stroke="white" strokeWidth="0.4" strokeDasharray="3 5" opacity="0.08" />
+                  <line x1="0" y1="120" x2="280" y2="120" stroke="white" strokeWidth="0.4" strokeDasharray="3 5" opacity="0.08" />
+
+                  {/* Glow beneath the curve */}
+                  <path
+                    d="M20 145 C 55 145, 80 100, 100 75 S 165 20, 255 18 L 255 155 L 20 155 Z"
+                    fill="url(#curveGlow)"
+                    opacity="0.25"
+                  />
+                  <defs>
+                    <linearGradient id="curveGlow" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#c9a96e" stopOpacity="0.4" />
+                      <stop offset="100%" stopColor="#c9a96e" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+
+                  {/* Main S-curve */}
+                  <path
+                    d="M20 145 C 55 145, 80 100, 100 75 S 165 18, 255 18"
+                    stroke="#c9a96e"
+                    strokeWidth="2.2"
+                    strokeLinecap="round"
+                  />
+
+                  {/* Stage dots */}
+                  <circle cx="20"  cy="145" r="5" fill="#c9a96e" opacity="0.5" />
+                  <circle cx="100" cy="75"  r="4.5" fill="#c9a96e" opacity="0.65" />
+                  <circle cx="255" cy="18"  r="5" fill="#c9a96e" />
+
+                  {/* Stage labels */}
+                  <text x="2"   y="158" fill="rgba(255,255,255,0.3)" fontSize="7.5" fontFamily="system-ui, sans-serif">Social media</text>
+                  <text x="72"  y="92"  fill="rgba(255,255,255,0.3)" fontSize="7.5" fontFamily="system-ui, sans-serif">Media relay</text>
+                  <text x="196" y="13"  fill="rgba(201,169,110,0.85)" fontSize="7.5" fontFamily="system-ui, sans-serif">Public discourse</text>
+                </svg>
+
+                <p className="text-[10px] uppercase tracking-[0.18em] text-text-muted text-center">
+                  The media relay arc &mdash; 2022 French Presidential Election
+                </p>
+              </div>
+
+              {/* Text panel */}
+              <div className="p-8 md:p-10 flex flex-col justify-center">
+                <p className="text-xs uppercase tracking-[0.16em] text-accent mb-3">Previous Work</p>
+                <h3
+                  className={`${cormorant.className} text-2xl md:text-3xl font-light text-white leading-tight mb-5`}
+                >
+                  The 2022 French Presidential Election
+                </h3>
+                <p className="text-sm font-light leading-relaxed text-text-secondary mb-6">
+                  Bakamo&apos;s first public election study analysed the psychographic texture of social
+                  media discourse during the Macron&ndash;Le Pen runoff, mapping how organic expressions
+                  flowed through the media relay before reshaping mainstream narratives. The methodology and
+                  findings were picked up and cited internationally.
+                </p>
+
+                {/* Outlet badges */}
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {[
+                    "Bloomberg", "Reuters", "The Economist", "FT",
+                    "The Independent", "Axios",
+                  ].map((outlet) => (
+                    <span
+                      key={outlet}
+                      className="text-[10px] uppercase tracking-[0.14em] border border-white/15 text-text-muted rounded-full px-3 py-1"
+                    >
+                      {outlet}
+                    </span>
+                  ))}
+                </div>
+
+                <a
+                  href="/frenchelection"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-accent hover:underline underline-offset-4"
+                  data-analytics-event="cta_click"
+                  data-analytics-label="Download French Election Report"
+                  data-analytics-location="elections_prior_research"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  Read the 2022 French Election Report (PDF)
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section
         className="px-6 py-24"
