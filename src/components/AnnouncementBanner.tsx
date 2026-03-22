@@ -6,17 +6,16 @@ import { useEffect, useState } from "react";
 const BANNER_KEY = "bakamo_announcement_hu_election_2026";
 
 export default function AnnouncementBanner() {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return !sessionStorage.getItem(BANNER_KEY);
+  });
 
   useEffect(() => {
-    if (sessionStorage.getItem(BANNER_KEY)) return;
-    setVisible(true);
-
     const timer = setTimeout(() => {
       setVisible(false);
       sessionStorage.setItem(BANNER_KEY, "dismissed");
     }, 7000);
-
     return () => clearTimeout(timer);
   }, []);
 
