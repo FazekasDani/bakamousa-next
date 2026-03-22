@@ -79,7 +79,7 @@ export default function PrivacyPage() {
               </p>
               {/* ⚠️ Replace the placeholder below with the actual Delaware registered address */}
               <p>
-                Registered address: <span className="text-accent">[INSERT DELAWARE REGISTERED ADDRESS]</span>
+                Registered address: 8 The Green, Ste A, Dover, DE 19901, USA
               </p>
               <p>
                 Bakamo Inc. is a subsidiary of{" "}
