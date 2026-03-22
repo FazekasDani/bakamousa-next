@@ -30,24 +30,6 @@ const HERO_BLIND_SPOTS = [
   },
 ];
 
-const HERO_SIGNALS = [
-  {
-    label: "Radar first",
-    value: "Discovery before validation",
-    body: "We start with unprompted discourse so the next study begins closer to reality.",
-  },
-  {
-    label: "Human-led",
-    value: "Interpretation, not word clouds",
-    body: "PhD-level researchers decode tensions, context, and cultural meaning that software alone misses.",
-  },
-  {
-    label: "Decision-ready",
-    value: "Sharper quant and strategy",
-    body: "The output is a stronger instrument, a clearer brief, and fewer expensive detours.",
-  },
-];
-
 const TERRAIN_MARKERS = [
   {
     label: "2008",
@@ -170,15 +152,15 @@ const DIFFERENTIATORS = [
 const CTA_POINTS = [
   {
     label: "01",
-    body: "Discovery before validation, so the next study starts from live reality.",
+    body: "A candid read on whether your current research frame matches the ground your consumers are actually standing on.",
   },
   {
     label: "02",
-    body: "A narrative map of the category, including fault lines and overlooked opportunities.",
+    body: "A map of the tensions, narratives, and fault lines your next study should be built around.",
   },
   {
     label: "03",
-    body: "A sharper brief for tracking, segmentation, innovation, or repositioning work.",
+    body: "A concrete recommendation: sharpen the brief, recalibrate the tracker, or rethink the segmentation.",
   },
 ];
 
@@ -382,24 +364,6 @@ export default function WeFixedQuant() {
             </aside>
           </div>
 
-          <div className="mt-14 grid gap-4 md:grid-cols-3">
-            {HERO_SIGNALS.map((signal) => (
-              <div
-                key={signal.label}
-                className="hero-signal rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm"
-              >
-                <p className="text-xs uppercase tracking-[0.18em] text-accent">
-                  {signal.label}
-                </p>
-                <p className="mt-4 text-2xl font-light leading-tight text-white">
-                  {signal.value}
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-text-secondary">
-                  {signal.body}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
 
         <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 opacity-40">
@@ -468,12 +432,12 @@ export default function WeFixedQuant() {
                 The business reality
               </p>
               <h3 className="mt-4 text-2xl font-light leading-snug text-white">
-                Would you build a high-rise without a geological survey?
+                This is the ground your next strategy has to hold.
               </h3>
               <p className="mt-4 text-sm leading-relaxed text-text-secondary">
-                Most organizations still validate a blueprint without testing the
-                cultural soil underneath it. That is not insight. It is blueprint
-                confirmation.
+                The shifts above are not background context. They are
+                load-bearing conditions. Everything that follows shows how we
+                test for them.
               </p>
             </div>
           </div>
@@ -494,9 +458,8 @@ export default function WeFixedQuant() {
               Discovery first. Measurement second. Strategy third.
             </h2>
             <p className="reveal mt-6 max-w-xl text-lg font-light leading-relaxed text-text-secondary">
-              Bakamo works like a front-end stress test for strategy. We inspect
-              the ground before teams commit language, budget, and momentum to a
-              single research direction.
+              We stress-test the cultural ground before teams commit language,
+              budget, and momentum to a direction that may not hold.
             </p>
 
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
@@ -682,13 +645,10 @@ export default function WeFixedQuant() {
                 We are not selling software theater.
               </h2>
               <p className="reveal mt-8 max-w-xl text-lg font-light leading-relaxed text-text-secondary">
-                Most social intelligence platforms are designed to sell access
-                to dashboards. Bakamo is designed to improve decisions.
-              </p>
-              <p className="reveal mt-6 max-w-xl text-base leading-relaxed text-text-secondary">
-                The difference is not aesthetic. It is methodological. We treat
+                Most social intelligence platforms sell access to dashboards. We
+                sell better decisions. The difference is methodological: we treat
                 cultural discourse as research material that has to be read,
-                interpreted, challenged, and translated into action.
+                interpreted, challenged, and turned into action.
               </p>
             </div>
 
@@ -727,12 +687,12 @@ export default function WeFixedQuant() {
               <h2
                 className={`${cormorant.className} reveal mt-6 text-4xl leading-[0.96] text-white md:text-5xl lg:text-6xl`}
               >
-                Stop building on sand.
+                What happens next.
               </h2>
               <p className="reveal mt-8 max-w-2xl text-lg font-light leading-relaxed text-text-secondary">
-                Before the next tracker refresh, segmentation project,
-                innovation screen, or repositioning brief, inspect the ground
-                your customers are actually standing on.
+                A single conversation tells us whether Bakamo&apos;s
+                ground-inspection layer would sharpen your next brief. No pitch
+                deck. No six-week scoping phase.
               </p>
             </div>
 
