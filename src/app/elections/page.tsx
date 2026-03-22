@@ -118,7 +118,7 @@ export default function ElectionsPage() {
             <span className="text-xs uppercase tracking-[0.16em] text-text-muted">
               For Immediate Release
             </span>
-            <span className="text-xs text-text-muted">Friday, Mar 20, 2026</span>
+            <span className="text-xs text-text-muted">Monday, Mar 23, 2026</span>
           </div>
 
           <p className="text-accent uppercase tracking-[0.2em] text-sm mb-6">
@@ -178,10 +178,10 @@ export default function ElectionsPage() {
       {/* Hero image */}
       <section className="px-6 pb-6">
         <div className="max-w-4xl mx-auto">
-          <div className="relative w-full overflow-hidden rounded-[1.5rem]" style={{ aspectRatio: "16/9" }}>
+          <div className="relative w-full overflow-hidden rounded-[1.5rem]" style={{ aspectRatio: "1536/1645" }}>
             <Image
-              src="/media/Gemini_Generated_Image_le68aqle68aqle68.png"
-              alt="Hungarian election rally — March 15, 2026"
+              src="/media/HU_election_hero.png"
+              alt="Left: personal sign reading '03.15 ITT VOLTAM — 04.12 OTT LESZEK' (I was here, I will be there). Right: crowd banner reading 'Együtt erő vagyunk!' (Together we are strong). Two contrasting communication frames from the March 15, 2026 Budapest rally."
               fill
               className="object-cover"
               priority
