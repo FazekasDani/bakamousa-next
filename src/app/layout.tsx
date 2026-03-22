@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { GoogleTagManager } from "@next/third-parties/google";
 import AnalyticsInstrumentation from "@/components/AnalyticsInstrumentation";
+import CookieBanner from "@/components/CookieBanner";
 import SiteNavigation from "@/components/SiteNavigation";
 import { getSiteUrlSync } from "@/lib/site-url";
 import "./globals.css";
@@ -13,7 +13,6 @@ const inter = Inter({
 });
 
 const SITE_URL = getSiteUrlSync();
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -72,24 +71,14 @@ async function OrganizationJsonLd() {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
-      {GTM_ID ? <GoogleTagManager gtmId={GTM_ID} /> : null}
       <body className={`${inter.className} antialiased bg-near-black text-text-primary`}>
-        {GTM_ID ? (
-          <noscript>
-            <iframe
-              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-              height="0"
-              width="0"
-              style={{ display: "none", visibility: "hidden" }}
-            />
-          </noscript>
-        ) : null}
-
         <AnalyticsInstrumentation />
         <SiteNavigation />
         <OrganizationJsonLd />
 
         {children}
+
+        <CookieBanner />
       </body>
     </html>
   );
