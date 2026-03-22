@@ -63,10 +63,10 @@ export default function CookieBanner() {
             We use analytics cookies to understand how visitors use our site —
             no advertising, no third-party sharing.{" "}
             <a
-              href="/contact"
+              href="/privacy"
               className="text-accent underline-offset-2 hover:underline"
             >
-              Learn more
+              Privacy policy
             </a>
             .
           </p>
