@@ -54,6 +54,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${SITE_URL}/elections`,
+      lastModified: new Date("2026-03-20"),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
   ];
 
   const posts = getAllPosts();
