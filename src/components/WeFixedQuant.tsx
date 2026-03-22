@@ -17,16 +17,16 @@ const cormorant = Cormorant_Garamond({
 
 const HERO_BLIND_SPOTS = [
   {
-    title: "Boardroom language",
-    body: "Most research instruments still begin inside the company, so they inherit the company's assumptions before consumers ever enter the frame.",
+    title: "It starts indoors",
+    body: "The language, the framing, the hypotheses — all written in a boardroom. Consumers are invited in, but the assumptions got there first.",
   },
   {
-    title: "Dashboard abstraction",
-    body: "Automated summaries scale outputs, not understanding. They flatten the nuance that strategy actually depends on.",
+    title: "It scales the wrong thing",
+    body: "Dashboards produce volume, not clarity. Nuance gets averaged out. What's left looks clean but means less.",
   },
   {
-    title: "Validation too early",
-    body: "Teams move to quant before they have discovered the right tensions, vocabulary, or hypotheses to measure.",
+    title: "It measures too soon",
+    body: "Quant arrives before the right tensions, vocabulary, or questions have even surfaced. You get precision without discovery.",
   },
 ];
 
