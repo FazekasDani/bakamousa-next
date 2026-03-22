@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond } from "next/font/google";
+import Image from "next/image";
 import Link from "next/link";
 
 const cormorant = Cormorant_Garamond({
@@ -84,20 +85,7 @@ function PullQuote({
   );
 }
 
-function StatCallout({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="text-center px-6">
-      <p
-        className={`${cormorant.className} text-[clamp(3rem,7vw,5.5rem)] leading-none font-light text-accent`}
-      >
-        {value}
-      </p>
-      <p className="mt-3 text-sm font-light text-text-secondary max-w-[16ch] mx-auto leading-relaxed">
-        {label}
-      </p>
-    </div>
-  );
-}
+const PDF_PATH = "/media/Bakakmo_HU_Election_PressRelease_EN.pdf";
 
 export default function ElectionsPage() {
   return (
@@ -166,27 +154,38 @@ export default function ElectionsPage() {
             media. But the difference in inner-directed share is significant, persistent across
             sources, and &mdash; we argue &mdash; carries predictive weight.
           </p>
+
+          <div className="mt-10">
+            <a
+              href={PDF_PATH}
+              download
+              className="cta-button text-sm inline-flex items-center gap-3"
+              data-analytics-event="cta_click"
+              data-analytics-label="Download Full Report"
+              data-analytics-location="elections_hero"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download Full Report (PDF)
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* Key Stats Banner */}
-      <section
-        className="px-6 py-16"
-        data-analytics-section="elections_stats"
-        data-analytics-label="Key Stats"
-      >
-        <div
-          className="max-w-5xl mx-auto rounded-[2rem] border border-white/10 p-10 md:p-14"
-          style={{
-            background:
-              "linear-gradient(140deg, rgba(201,169,110,0.12), rgba(20,20,20,0.94) 38%, rgba(10,10,10,0.98))",
-          }}
-        >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-white/10">
-            <StatCallout value="10,000+" label="Social media expressions analyzed" />
-            <StatCallout value="12.4pp" label="Inner-directed gap: Tisza vs. Fidesz" />
-            <StatCallout value="2.8×" label="More likely for Tisza supporters to post inner-directed" />
-            <StatCallout value="Mar 11–18" label="Data collection window, Brandwatch" />
+      {/* Hero image */}
+      <section className="px-6 pb-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="relative w-full overflow-hidden rounded-[1.5rem]" style={{ aspectRatio: "16/9" }}>
+            <Image
+              src="/media/Gemini_Generated_Image_le68aqle68aqle68.png"
+              alt="Hungarian election rally — March 15, 2026"
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
         </div>
       </section>
