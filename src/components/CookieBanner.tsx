@@ -20,14 +20,14 @@ function loadGTM() {
 }
 
 export default function CookieBanner() {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return localStorage.getItem(CONSENT_KEY) === null;
+  });
 
   useEffect(() => {
-    const stored = localStorage.getItem(CONSENT_KEY);
-    if (stored === "accepted") {
+    if (localStorage.getItem(CONSENT_KEY) === "accepted") {
       loadGTM();
-    } else if (!stored) {
-      setVisible(true);
     }
   }, []);
 

@@ -312,9 +312,9 @@ export default function WeFixedQuant() {
               <h1
                 className={`${cormorant.className} hero-title max-w-4xl text-[clamp(3.4rem,8vw,7rem)] leading-[0.88] tracking-tight text-white`}
               >
-                Build on <span className="text-accent-glow">reality</span>
+                Strategy is only as strong as
                 <br />
-                before you build the strategy.
+                the <span className="text-accent-glow">ground</span> beneath it.
               </h1>
               <div className="hero-line mt-10 h-px w-16 bg-accent" />
               <p className="hero-body mt-8 max-w-2xl text-lg font-light leading-relaxed text-text-secondary md:text-xl">
