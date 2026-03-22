@@ -613,7 +613,7 @@ export default function ElectionsPage() {
                 style={{ minHeight: "300px" }}
               >
                 <Image
-                  src="/media/french-election-media-relay.png"
+                  src="/media/FrenchElectionPic.png"
                   alt="Key visual from Bakamo's 2022 French Presidential Election report — the media relay arc"
                   fill
                   className="object-cover"
