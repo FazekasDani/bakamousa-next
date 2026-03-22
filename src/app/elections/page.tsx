@@ -175,17 +175,61 @@ export default function ElectionsPage() {
         </div>
       </section>
 
-      {/* Hero image */}
-      <section className="px-6 pb-6">
+      {/* Image juxtaposition */}
+      <section className="px-6 pb-4">
         <div className="max-w-4xl mx-auto">
-          <div className="relative w-full overflow-hidden rounded-[1.5rem]" style={{ aspectRatio: "1536/1645" }}>
-            <Image
-              src="/media/HU_election_hero.png"
-              alt="Left: personal sign reading '03.15 ITT VOLTAM — 04.12 OTT LESZEK' (I was here, I will be there). Right: crowd banner reading 'Együtt erő vagyunk!' (Together we are strong). Two contrasting communication frames from the March 15, 2026 Budapest rally."
-              fill
-              className="object-cover"
-              priority
-            />
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
+
+            {/* Inner-directed */}
+            <figure className="flex flex-col gap-3">
+              <div className="relative overflow-hidden rounded-[1.25rem]" style={{ height: "340px" }}>
+                <Image
+                  src="/media/imaggeinnerdirected.png"
+                  alt="Personal sign: '03.15 ITT VOLTAM — 04.12 OTT LESZEK'"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                <span className="absolute top-3 left-3 text-[10px] uppercase tracking-[0.18em] bg-accent text-black px-3 py-1 rounded-full font-semibold">
+                  Inner-Directed
+                </span>
+              </div>
+              <figcaption className="px-1">
+                <p className="text-accent text-sm italic font-light leading-snug">
+                  &ldquo;03.15 ITT VOLTAM &mdash; 04.12 OTT LESZEK&rdquo;
+                </p>
+                <p className="text-text-muted text-xs mt-1.5 leading-relaxed">
+                  I was here on March 15 &mdash; I will be there on April 12. Personal commitment anchored in individual agency.
+                </p>
+              </figcaption>
+            </figure>
+
+            {/* Outer-directed */}
+            <figure className="flex flex-col gap-3">
+              <div className="relative overflow-hidden rounded-[1.25rem]" style={{ height: "340px" }}>
+                <Image
+                  src="/media/Imageouterdirected.png"
+                  alt="Crowd banner: 'Együtt erő vagyunk!'"
+                  fill
+                  className="object-cover object-top"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                <span className="absolute top-3 left-3 text-[10px] uppercase tracking-[0.18em] bg-white/15 text-white border border-white/25 backdrop-blur-sm px-3 py-1 rounded-full">
+                  Outer-Directed
+                </span>
+              </div>
+              <figcaption className="px-1">
+                <p className="text-text-primary text-sm italic font-light leading-snug">
+                  &ldquo;Együtt erő vagyunk! 🇭🇺&rdquo;
+                </p>
+                <p className="text-text-muted text-xs mt-1.5 leading-relaxed">
+                  Together we are strong. Group identity, collective belonging, social validation.
+                </p>
+              </figcaption>
+            </figure>
+
           </div>
         </div>
       </section>
