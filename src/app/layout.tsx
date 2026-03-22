@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import AnalyticsInstrumentation from "@/components/AnalyticsInstrumentation";
+import AnnouncementBanner from "@/components/AnnouncementBanner";
 import CookieBanner from "@/components/CookieBanner";
 import SiteNavigation from "@/components/SiteNavigation";
 import { getSiteUrlSync } from "@/lib/site-url";
@@ -73,6 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={inter.variable}>
       <body className={`${inter.className} antialiased bg-near-black text-text-primary`}>
         <AnalyticsInstrumentation />
+        <AnnouncementBanner />
         <SiteNavigation />
         <OrganizationJsonLd />
 
