@@ -207,30 +207,6 @@ export default function MigrationPage() {
                 </p>
               </div>
 
-              {/* Seven super-narrative frames — on-brand visualization */}
-              <div className="mt-10">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-accent mb-4">
-                  Seven super-narrative frames identified
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    "Cultural Differences",
-                    "Economic Impact",
-                    "Rule of Law",
-                    "Security",
-                    "Foreign Powers",
-                    "Hungarian Government",
-                    "Faith-based &amp; Civic Organisations",
-                  ].map((frame) => (
-                    <span
-                      key={frame}
-                      className="text-xs text-text-primary border border-accent/30 bg-accent/5 rounded-full px-4 py-1.5"
-                      dangerouslySetInnerHTML={{ __html: frame }}
-                    />
-                  ))}
-                </div>
-              </div>
-
               {/* ESOMAR Congress 2016 reference */}
               <div
                 className="mt-10 rounded-2xl border border-accent/20 p-6"
