@@ -166,7 +166,112 @@ export default function MigrationPage() {
             Selected migration research.
           </h2>
 
-          {/* Card 1 — FES */}
+          {/* Card 1 — OSF (Hungarian Refugee Perception) */}
+          <article
+            className="rounded-[2rem] border border-white/10 overflow-hidden mb-8"
+            style={{
+              background:
+                "linear-gradient(160deg, rgba(26,53,80,0.22), rgba(20,20,20,0.94) 40%, rgba(10,10,10,0.98))",
+            }}
+            data-analytics-section="migration_study_osf"
+            data-analytics-label="OSF Study"
+          >
+            <div className="p-8 md:p-12">
+              <div className="flex flex-wrap items-center gap-3 mb-5">
+                <span className="text-[10px] uppercase tracking-[0.18em] bg-accent text-black px-3 py-1 rounded-full font-semibold">
+                  Public Report
+                </span>
+                <span className="text-xs uppercase tracking-[0.14em] text-text-muted">
+                  Open Society Foundation &middot; Hungary &middot; 2015
+                </span>
+              </div>
+
+              <h3
+                className={`${cormorant.className} text-2xl md:text-3xl font-light text-white leading-tight mb-6`}
+              >
+                Refugees in Hungarian Social Media
+              </h3>
+
+              <div className="space-y-4 text-base font-light leading-relaxed text-text-secondary max-w-3xl">
+                <p>
+                  At the height of the 2015 refugee crisis, the Open Society Foundation
+                  commissioned Bakamo to analyze how the situation was being discussed by
+                  Hungarians on social media &mdash; and, critically, how government communication
+                  was reshaping that conversation in real time.
+                </p>
+                <p>
+                  The study mapped the main topics and triggers of the Hungarian online debate,
+                  tracked the penetration of official campaign messages through buzzword analysis,
+                  and identified the associations citizens were actually forming around the
+                  government&rsquo;s framing.
+                </p>
+              </div>
+
+              {/* Seven super-narrative frames — on-brand visualization */}
+              <div className="mt-10">
+                <p className="text-[10px] uppercase tracking-[0.2em] text-accent mb-4">
+                  Seven super-narrative frames identified
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Cultural Differences",
+                    "Economic Impact",
+                    "Rule of Law",
+                    "Security",
+                    "Foreign Powers",
+                    "Hungarian Government",
+                    "Faith-based &amp; Civic Organisations",
+                  ].map((frame) => (
+                    <span
+                      key={frame}
+                      className="text-xs text-text-primary border border-accent/30 bg-accent/5 rounded-full px-4 py-1.5"
+                      dangerouslySetInnerHTML={{ __html: frame }}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* ESOMAR Congress 2016 reference */}
+              <div
+                className="mt-10 rounded-2xl border border-accent/20 p-6"
+                style={{
+                  background:
+                    "linear-gradient(145deg, rgba(201,169,110,0.08), rgba(10,10,10,0.4))",
+                }}
+              >
+                <p className="text-[10px] uppercase tracking-[0.2em] text-accent mb-3">
+                  Presented at ESOMAR Congress 2016 &middot; New Orleans
+                </p>
+                <p
+                  className={`${cormorant.className} italic text-xl text-white leading-snug mb-3`}
+                >
+                  &ldquo;Kicking Refugees Was Just the Beginning&rdquo;
+                </p>
+                <p className="text-sm font-light leading-relaxed text-text-secondary">
+                  The findings were presented to the global research community at the ESOMAR
+                  Congress 2016 in New Orleans in a joint session by{" "}
+                  <span className="text-white">Daniel Fazekas</span> (Bakamo) and{" "}
+                  <span className="text-white">Balazs Denes</span> (Open Society Foundation).
+                </p>
+              </div>
+
+              <div className="mt-8">
+                <a
+                  href={OSF_PDF}
+                  download
+                  className="cta-button text-sm inline-flex items-center gap-3"
+                  data-analytics-event="cta_click"
+                  data-analytics-label="Download OSF Report"
+                  data-analytics-location="migration_study_osf"
+                >
+                  <DownloadIcon />
+                  Download Full Report (PDF)
+                </a>
+              </div>
+            </div>
+          </article>
+
+          {/* Card 2 — FES */}
           <article
             className="rounded-[2rem] border border-white/10 overflow-hidden mb-8"
             style={{
@@ -215,63 +320,6 @@ export default function MigrationPage() {
                   data-analytics-event="cta_click"
                   data-analytics-label="Download FES Report"
                   data-analytics-location="migration_study_fes"
-                >
-                  <DownloadIcon />
-                  Download Full Report (PDF)
-                </a>
-              </div>
-            </div>
-          </article>
-
-          {/* Card 2 — OSF */}
-          <article
-            className="rounded-[2rem] border border-white/10 overflow-hidden mb-8"
-            style={{
-              background:
-                "linear-gradient(160deg, rgba(26,53,80,0.22), rgba(20,20,20,0.94) 40%, rgba(10,10,10,0.98))",
-            }}
-            data-analytics-section="migration_study_osf"
-            data-analytics-label="OSF Study"
-          >
-            <div className="p-8 md:p-12">
-              <div className="flex flex-wrap items-center gap-3 mb-5">
-                <span className="text-[10px] uppercase tracking-[0.18em] bg-accent text-black px-3 py-1 rounded-full font-semibold">
-                  Public Report
-                </span>
-                <span className="text-xs uppercase tracking-[0.14em] text-text-muted">
-                  Open Society Foundation &middot; Hungary &middot; 2015
-                </span>
-              </div>
-
-              <h3
-                className={`${cormorant.className} text-2xl md:text-3xl font-light text-white leading-tight mb-6`}
-              >
-                Refugees in Hungarian Social Media
-              </h3>
-
-              <div className="space-y-4 text-base font-light leading-relaxed text-text-secondary max-w-3xl">
-                <p>
-                  At the height of the 2015 refugee crisis, the Open Society Foundation
-                  commissioned Bakamo to analyze how the situation was being discussed by
-                  Hungarians on social media &mdash; and, critically, how government communication
-                  was reshaping that conversation in real time.
-                </p>
-                <p>
-                  The study mapped the main topics and triggers of the Hungarian online debate,
-                  tracked the penetration of official campaign messages through buzzword analysis,
-                  and identified the associations citizens were actually forming around the
-                  government&rsquo;s framing.
-                </p>
-              </div>
-
-              <div className="mt-8">
-                <a
-                  href={OSF_PDF}
-                  download
-                  className="cta-button text-sm inline-flex items-center gap-3"
-                  data-analytics-event="cta_click"
-                  data-analytics-label="Download OSF Report"
-                  data-analytics-location="migration_study_osf"
                 >
                   <DownloadIcon />
                   Download Full Report (PDF)
