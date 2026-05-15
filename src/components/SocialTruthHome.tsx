@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Cormorant_Garamond } from "next/font/google";
 import AtlasGlobe from "@/components/AtlasGlobe";
+import ClientMarquee from "@/components/ClientMarquee";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -74,23 +75,6 @@ export default function SocialTruthHome() {
         </div>
       </section>
 
-      <section className="px-6 py-20 md:py-28" data-analytics-section="home_video">
-        <div className="mx-auto max-w-6xl">
-          <div className="relative flex aspect-video w-full items-center justify-center border border-border-grey bg-dark-grey">
-            <div className="flex h-20 w-20 items-center justify-center rounded-full border border-accent text-accent">
-              <span className="ml-1 block h-0 w-0 border-y-[12px] border-l-[18px] border-y-transparent border-l-current" />
-            </div>
-            <p className="absolute bottom-8 left-8 text-sm uppercase tracking-[0.2em] text-text-muted">
-              Coming soon.
-            </p>
-          </div>
-          <p className="mt-5 text-sm leading-relaxed text-text-muted">
-            Dan Fazekas, Sandra Baumann, and Daniel Foreman &mdash; with the clients who put Social
-            Truth to work.
-          </p>
-        </div>
-      </section>
-
       <section className="border-t border-border-grey px-6 py-24 md:py-32">
         <div className="mx-auto max-w-5xl">
           <h2 className="text-3xl font-light leading-tight text-white md:text-5xl">
@@ -153,6 +137,9 @@ export default function SocialTruthHome() {
         <p className="mx-auto mt-16 max-w-2xl text-center text-2xl font-light text-white">
           The Atlas grows. The method does not change.
         </p>
+        <div className="mx-auto max-w-6xl">
+          <ClientMarquee />
+        </div>
       </section>
 
       <section className="border-t border-border-grey px-6 py-24 md:py-32">
