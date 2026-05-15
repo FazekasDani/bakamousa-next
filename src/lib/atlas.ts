@@ -5,9 +5,10 @@ export type AtlasCase = {
   sector: string;
   lat: number;
   lng: number;
-  challenge: string;
-  truth: string;
-  impact: string;
+  essence: string;
+  challenge?: string;
+  truth?: string;
+  impact?: string;
 };
 
 export type AtlasPoint =
@@ -27,6 +28,8 @@ export const ACTIVE_ATLAS_CASES: AtlasCase[] = [
     sector: "Public sphere",
     lat: 47.4979,
     lng: 19.0402,
+    essence:
+      "A polarised electorate is not divided by what people want. It is divided by two opposing psychological architectures — the Employee, who locates safety inside the system, and the Entrepreneur, who locates it in personal agency. Identity comes first. Politics follows.",
     challenge:
       "Hungary held the most contested election in its post-1989 history. The polling industry had been systematically eroded for over a decade. Independent polls showed the challenger leading by anywhere from 9 to 23 points. Government-aligned institutes forecast the opposite. The country had no shared instrument it could trust.",
     truth:
@@ -37,10 +40,12 @@ export const ACTIVE_ATLAS_CASES: AtlasCase[] = [
   {
     id: "stella-chewys",
     name: "Stella & Chewy's",
-    sectorRegion: "Pet food / North America",
+    sectorRegion: "Premium pet food / North America",
     sector: "Pet food",
     lat: 43.0389,
     lng: -87.9065,
+    essence:
+      "What people call premium pet food is not a category in their minds. It is a stage on which owners perform their love — as trainers, as nurturers, as healers. The product is the script.",
     challenge:
       "Stella & Chewy's was preparing to enter the gently cooked dog food space, a premium category that looked well-defined on paper. The internal brief reflected standard category logic: quantify the segment, identify the target consumer, position against the competitive set.",
     truth:
@@ -55,12 +60,34 @@ export const ACTIVE_ATLAS_CASES: AtlasCase[] = [
     sector: "Public health",
     lat: 38.9072,
     lng: -77.0369,
+    essence:
+      "The middle of a contested public conversation is not undecided. It accepts the problem exists and rejects the language used to name it. The door is opened by class, not race.",
     challenge:
       "A national health equity advocacy organization wanted to understand the discourse surrounding one of the most contested public health questions in America. Conventional research struggles when the topic is politically loaded and respondent self-presentation distorts the data.",
     truth:
       "We analyzed 3.5 million unprompted mentions across nine platforms and surfaced three distinct narrative architectures, not a spectrum. The swayable middle was not undecided. It was differently decided: a worldview that accepts disparities exist but rejects the racial framing used to explain them.",
     impact:
       "A national survey of 1,850 voters, conducted independently in early 2025, segmented the electorate into three groups whose structure, proportions, and attitudinal architecture closely tracked what the social intelligence had described. Two independent methodologies converged on the same three-part architecture.",
+  },
+  {
+    id: "non-alcoholic-spirits",
+    name: "Non-Alcoholic Spirits",
+    sectorRegion: "Non-alcoholic spirits / North America",
+    sector: "Beverage",
+    lat: 40.7128,
+    lng: -74.006,
+    essence:
+      "A new beverage category cannot be sold on what it removes. People do not seek the absence of alcohol — they seek a different way to be present in the moments alcohol used to mark. Until the category offers that, it is a substitute. After, it is a choice.",
+  },
+  {
+    id: "body-care-ssa",
+    name: "Body Care, Sub-Saharan Africa",
+    sectorRegion: "Body care / Sub-Saharan Africa",
+    sector: "Body care",
+    lat: -26.2041,
+    lng: 28.0473,
+    essence:
+      "Skin is a social currency before it is a body. In markets where lightness still carries advantage, “celebrate who you are” rings hollow against a culture organised around changing who you are.",
   },
 ];
 
@@ -74,7 +101,6 @@ export const INERT_ATLAS_POINTS: AtlasPoint[] = [
   { id: "placeholder-germany", status: "inert", lat: 52.52, lng: 13.405 },
   { id: "placeholder-spain", status: "inert", lat: 40.4168, lng: -3.7038 },
   { id: "placeholder-italy", status: "inert", lat: 41.9028, lng: 12.4964 },
-  { id: "placeholder-south-africa", status: "inert", lat: -26.2041, lng: 28.0473 },
   { id: "placeholder-kenya", status: "inert", lat: -1.2921, lng: 36.8219 },
   { id: "placeholder-india", status: "inert", lat: 28.6139, lng: 77.209 },
   { id: "placeholder-malaysia", status: "inert", lat: 3.139, lng: 101.6869 },

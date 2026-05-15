@@ -1,7 +1,15 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { Cormorant_Garamond } from "next/font/google";
 import { ATLAS_POINTS, type AtlasPoint, type AtlasCase } from "@/lib/atlas";
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
 
 type ProjectedPoint = AtlasPoint & {
   x: number;
@@ -333,22 +341,35 @@ export default function AtlasGlobe() {
             <p className="mt-4 text-xs uppercase tracking-[0.18em] text-accent">
               {selectedCase.sectorRegion}
             </p>
-            <div className="mt-10 space-y-7 text-base leading-relaxed text-text-secondary">
-              <section>
-                <h4 className="text-xs uppercase tracking-[0.18em] text-white">The Challenge</h4>
-                <p className="mt-3">{selectedCase.challenge}</p>
-              </section>
-              <section>
-                <h4 className="text-xs uppercase tracking-[0.18em] text-white">
-                  The Social Truth Revealed
-                </h4>
-                <p className="mt-3">{selectedCase.truth}</p>
-              </section>
-              <section>
-                <h4 className="text-xs uppercase tracking-[0.18em] text-white">The Impact</h4>
-                <p className="mt-3">{selectedCase.impact}</p>
-              </section>
-            </div>
+            <p
+              className={`${cormorant.className} mt-8 border-l border-accent pl-6 text-xl italic leading-snug text-white md:text-2xl`}
+            >
+              {selectedCase.essence}
+            </p>
+            {selectedCase.challenge || selectedCase.truth || selectedCase.impact ? (
+              <div className="mt-10 space-y-7 text-base leading-relaxed text-text-secondary">
+                {selectedCase.challenge ? (
+                  <section>
+                    <h4 className="text-xs uppercase tracking-[0.18em] text-white">The Challenge</h4>
+                    <p className="mt-3">{selectedCase.challenge}</p>
+                  </section>
+                ) : null}
+                {selectedCase.truth ? (
+                  <section>
+                    <h4 className="text-xs uppercase tracking-[0.18em] text-white">
+                      How It Surfaced
+                    </h4>
+                    <p className="mt-3">{selectedCase.truth}</p>
+                  </section>
+                ) : null}
+                {selectedCase.impact ? (
+                  <section>
+                    <h4 className="text-xs uppercase tracking-[0.18em] text-white">The Impact</h4>
+                    <p className="mt-3">{selectedCase.impact}</p>
+                  </section>
+                ) : null}
+              </div>
+            ) : null}
           </article>
         </div>
       ) : null}
