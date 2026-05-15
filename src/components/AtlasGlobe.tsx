@@ -43,98 +43,344 @@ const LANDMASSES: Landmass[] = [
   {
     id: "north-america",
     points: [
-      { lat: 72, lng: -164 },
-      { lat: 70, lng: -136 },
-      { lat: 58, lng: -122 },
-      { lat: 50, lng: -100 },
-      { lat: 31, lng: -106 },
-      { lat: 18, lng: -94 },
+      { lat: 71, lng: -156 },
+      { lat: 70, lng: -142 },
+      { lat: 69, lng: -135 },
+      { lat: 60, lng: -141 },
+      { lat: 56, lng: -134 },
+      { lat: 50, lng: -127 },
+      { lat: 47, lng: -124 },
+      { lat: 42, lng: -124 },
+      { lat: 38, lng: -123 },
+      { lat: 34, lng: -120 },
+      { lat: 32, lng: -117 },
+      { lat: 30, lng: -116 },
+      { lat: 23, lng: -110 },
+      { lat: 22, lng: -106 },
+      { lat: 17, lng: -101 },
+      { lat: 16, lng: -97 },
+      { lat: 14, lng: -92 },
+      { lat: 12, lng: -87 },
       { lat: 9, lng: -83 },
-      { lat: 18, lng: -73 },
-      { lat: 31, lng: -81 },
-      { lat: 40, lng: -73 },
-      { lat: 51, lng: -60 },
-      { lat: 60, lng: -72 },
-      { lat: 64, lng: -96 },
-      { lat: 70, lng: -118 },
+      { lat: 8, lng: -78 },
+      { lat: 12, lng: -83 },
+      { lat: 16, lng: -88 },
+      { lat: 21, lng: -86 },
+      { lat: 19, lng: -91 },
+      { lat: 22, lng: -97 },
+      { lat: 26, lng: -97 },
+      { lat: 29, lng: -94 },
+      { lat: 29, lng: -89 },
+      { lat: 30, lng: -84 },
+      { lat: 26, lng: -82 },
+      { lat: 25, lng: -81 },
+      { lat: 27, lng: -80 },
+      { lat: 32, lng: -81 },
+      { lat: 35, lng: -76 },
+      { lat: 39, lng: -75 },
+      { lat: 41, lng: -71 },
+      { lat: 44, lng: -68 },
+      { lat: 45, lng: -61 },
+      { lat: 48, lng: -59 },
+      { lat: 51, lng: -56 },
+      { lat: 53, lng: -56 },
+      { lat: 56, lng: -61 },
+      { lat: 60, lng: -64 },
+      { lat: 62, lng: -78 },
+      { lat: 58, lng: -78 },
+      { lat: 55, lng: -82 },
+      { lat: 53, lng: -82 },
+      { lat: 56, lng: -87 },
+      { lat: 60, lng: -94 },
+      { lat: 64, lng: -85 },
+      { lat: 67, lng: -82 },
+      { lat: 71, lng: -71 },
+      { lat: 75, lng: -78 },
+      { lat: 76, lng: -95 },
+      { lat: 73, lng: -108 },
+      { lat: 71, lng: -118 },
+      { lat: 69, lng: -127 },
+      { lat: 70, lng: -148 },
     ],
   },
   {
     id: "south-america",
     points: [
-      { lat: 12, lng: -81 },
-      { lat: 7, lng: -61 },
-      { lat: -3, lng: -44 },
+      { lat: 11, lng: -72 },
+      { lat: 12, lng: -68 },
+      { lat: 9, lng: -60 },
+      { lat: 5, lng: -52 },
+      { lat: -1, lng: -48 },
+      { lat: -5, lng: -36 },
+      { lat: -8, lng: -34 },
+      { lat: -13, lng: -38 },
       { lat: -17, lng: -39 },
-      { lat: -34, lng: -53 },
+      { lat: -22, lng: -41 },
+      { lat: -25, lng: -48 },
+      { lat: -29, lng: -49 },
+      { lat: -33, lng: -52 },
+      { lat: -38, lng: -57 },
+      { lat: -41, lng: -62 },
+      { lat: -47, lng: -65 },
+      { lat: -52, lng: -68 },
       { lat: -55, lng: -68 },
-      { lat: -42, lng: -74 },
-      { lat: -20, lng: -72 },
-      { lat: 2, lng: -78 },
+      { lat: -53, lng: -73 },
+      { lat: -49, lng: -75 },
+      { lat: -42, lng: -73 },
+      { lat: -36, lng: -73 },
+      { lat: -27, lng: -71 },
+      { lat: -20, lng: -71 },
+      { lat: -15, lng: -76 },
+      { lat: -8, lng: -79 },
+      { lat: -3, lng: -81 },
+      { lat: 1, lng: -80 },
+      { lat: 5, lng: -77 },
+      { lat: 9, lng: -77 },
+      { lat: 12, lng: -73 },
     ],
   },
   {
-    id: "europe",
+    id: "eurasia",
     points: [
-      { lat: 71, lng: -10 },
-      { lat: 66, lng: 26 },
-      { lat: 55, lng: 40 },
-      { lat: 44, lng: 31 },
-      { lat: 37, lng: 22 },
-      { lat: 41, lng: 4 },
-      { lat: 36, lng: -9 },
-      { lat: 50, lng: -10 },
-      { lat: 60, lng: -6 },
+      { lat: 36, lng: -6 },
+      { lat: 37, lng: -9 },
+      { lat: 43, lng: -9 },
+      { lat: 48, lng: -5 },
+      { lat: 50, lng: -1 },
+      { lat: 50, lng: 2 },
+      { lat: 51, lng: 4 },
+      { lat: 53, lng: 7 },
+      { lat: 57, lng: 8 },
+      { lat: 58, lng: 10 },
+      { lat: 63, lng: 5 },
+      { lat: 68, lng: 14 },
+      { lat: 71, lng: 26 },
+      { lat: 69, lng: 33 },
+      { lat: 67, lng: 41 },
+      { lat: 68, lng: 55 },
+      { lat: 72, lng: 70 },
+      { lat: 74, lng: 84 },
+      { lat: 76, lng: 100 },
+      { lat: 73, lng: 113 },
+      { lat: 72, lng: 130 },
+      { lat: 71, lng: 140 },
+      { lat: 67, lng: 158 },
+      { lat: 64, lng: 178 },
+      { lat: 60, lng: 168 },
+      { lat: 58, lng: 162 },
+      { lat: 53, lng: 158 },
+      { lat: 50, lng: 156 },
+      { lat: 47, lng: 142 },
+      { lat: 42, lng: 134 },
+      { lat: 39, lng: 128 },
+      { lat: 35, lng: 126 },
+      { lat: 30, lng: 122 },
+      { lat: 23, lng: 117 },
+      { lat: 21, lng: 109 },
+      { lat: 11, lng: 107 },
+      { lat: 9, lng: 105 },
+      { lat: 13, lng: 100 },
+      { lat: 8, lng: 99 },
+      { lat: 2, lng: 102 },
+      { lat: 7, lng: 95 },
+      { lat: 16, lng: 95 },
+      { lat: 21, lng: 90 },
+      { lat: 22, lng: 87 },
+      { lat: 19, lng: 84 },
+      { lat: 13, lng: 80 },
+      { lat: 8, lng: 77 },
+      { lat: 15, lng: 73 },
+      { lat: 23, lng: 68 },
+      { lat: 25, lng: 60 },
+      { lat: 25, lng: 57 },
+      { lat: 26, lng: 56 },
+      { lat: 28, lng: 51 },
+      { lat: 25, lng: 50 },
+      { lat: 19, lng: 41 },
+      { lat: 13, lng: 43 },
+      { lat: 12, lng: 51 },
+      { lat: 17, lng: 56 },
+      { lat: 23, lng: 60 },
+      { lat: 22, lng: 60 },
+      { lat: 24, lng: 35 },
+      { lat: 30, lng: 33 },
+      { lat: 36, lng: 36 },
+      { lat: 36, lng: 30 },
+      { lat: 41, lng: 28 },
+      { lat: 38, lng: 24 },
+      { lat: 41, lng: 19 },
+      { lat: 45, lng: 13 },
+      { lat: 44, lng: 9 },
+      { lat: 43, lng: 5 },
+      { lat: 41, lng: 3 },
+      { lat: 38, lng: -1 },
+    ],
+  },
+  {
+    id: "uk-ireland",
+    points: [
+      { lat: 50, lng: -5 },
+      { lat: 51, lng: -4 },
+      { lat: 51, lng: 1 },
+      { lat: 53, lng: 1 },
+      { lat: 55, lng: -2 },
+      { lat: 58, lng: -3 },
+      { lat: 58, lng: -5 },
+      { lat: 55, lng: -6 },
+      { lat: 55, lng: -8 },
+      { lat: 52, lng: -10 },
+      { lat: 51, lng: -10 },
+      { lat: 53, lng: -6 },
+      { lat: 53, lng: -3 },
+      { lat: 52, lng: -4 },
     ],
   },
   {
     id: "africa",
     points: [
-      { lat: 37, lng: -17 },
-      { lat: 33, lng: 31 },
-      { lat: 14, lng: 51 },
-      { lat: -12, lng: 43 },
+      { lat: 32, lng: -9 },
+      { lat: 35, lng: -6 },
+      { lat: 37, lng: -1 },
+      { lat: 36, lng: 5 },
+      { lat: 33, lng: 11 },
+      { lat: 32, lng: 22 },
+      { lat: 31, lng: 30 },
+      { lat: 30, lng: 33 },
+      { lat: 24, lng: 36 },
+      { lat: 18, lng: 39 },
+      { lat: 12, lng: 43 },
+      { lat: 11, lng: 51 },
+      { lat: 2, lng: 46 },
+      { lat: -5, lng: 40 },
+      { lat: -10, lng: 40 },
+      { lat: -16, lng: 40 },
+      { lat: -22, lng: 35 },
+      { lat: -26, lng: 33 },
+      { lat: -29, lng: 32 },
+      { lat: -34, lng: 26 },
       { lat: -35, lng: 20 },
-      { lat: -30, lng: 5 },
-      { lat: -1, lng: -17 },
-      { lat: 18, lng: -16 },
+      { lat: -34, lng: 18 },
+      { lat: -29, lng: 17 },
+      { lat: -23, lng: 14 },
+      { lat: -18, lng: 12 },
+      { lat: -12, lng: 13 },
+      { lat: -5, lng: 12 },
+      { lat: 0, lng: 9 },
+      { lat: 4, lng: 9 },
+      { lat: 6, lng: 3 },
+      { lat: 6, lng: -2 },
+      { lat: 5, lng: -8 },
+      { lat: 9, lng: -13 },
+      { lat: 14, lng: -17 },
+      { lat: 20, lng: -17 },
+      { lat: 25, lng: -15 },
+      { lat: 30, lng: -10 },
     ],
   },
   {
-    id: "asia",
+    id: "madagascar",
     points: [
-      { lat: 69, lng: 36 },
-      { lat: 70, lng: 92 },
-      { lat: 59, lng: 142 },
-      { lat: 43, lng: 151 },
-      { lat: 22, lng: 122 },
-      { lat: 7, lng: 100 },
-      { lat: 22, lng: 78 },
-      { lat: 10, lng: 45 },
-      { lat: 32, lng: 34 },
-      { lat: 51, lng: 48 },
+      { lat: -12, lng: 49 },
+      { lat: -15, lng: 50 },
+      { lat: -20, lng: 49 },
+      { lat: -25, lng: 47 },
+      { lat: -25, lng: 44 },
+      { lat: -22, lng: 43 },
+      { lat: -16, lng: 45 },
+      { lat: -13, lng: 47 },
     ],
   },
   {
     id: "australia",
     points: [
-      { lat: -11, lng: 113 },
-      { lat: -16, lng: 146 },
-      { lat: -30, lng: 153 },
-      { lat: -43, lng: 145 },
-      { lat: -35, lng: 116 },
-      { lat: -22, lng: 113 },
+      { lat: -11, lng: 132 },
+      { lat: -12, lng: 137 },
+      { lat: -15, lng: 141 },
+      { lat: -11, lng: 142 },
+      { lat: -14, lng: 144 },
+      { lat: -20, lng: 149 },
+      { lat: -25, lng: 153 },
+      { lat: -29, lng: 153 },
+      { lat: -34, lng: 151 },
+      { lat: -38, lng: 147 },
+      { lat: -39, lng: 143 },
+      { lat: -38, lng: 140 },
+      { lat: -35, lng: 138 },
+      { lat: -32, lng: 134 },
+      { lat: -34, lng: 122 },
+      { lat: -33, lng: 115 },
+      { lat: -30, lng: 115 },
+      { lat: -26, lng: 113 },
+      { lat: -22, lng: 114 },
+      { lat: -20, lng: 119 },
+      { lat: -18, lng: 122 },
+      { lat: -14, lng: 126 },
+      { lat: -12, lng: 130 },
+    ],
+  },
+  {
+    id: "new-zealand-n",
+    points: [
+      { lat: -35, lng: 174 },
+      { lat: -37, lng: 175 },
+      { lat: -38, lng: 178 },
+      { lat: -41, lng: 175 },
+      { lat: -40, lng: 173 },
+      { lat: -37, lng: 173 },
+    ],
+  },
+  {
+    id: "new-zealand-s",
+    points: [
+      { lat: -41, lng: 174 },
+      { lat: -43, lng: 173 },
+      { lat: -46, lng: 170 },
+      { lat: -47, lng: 168 },
+      { lat: -45, lng: 167 },
+      { lat: -42, lng: 171 },
     ],
   },
   {
     id: "greenland",
     points: [
-      { lat: 82, lng: -54 },
-      { lat: 76, lng: -20 },
-      { lat: 65, lng: -31 },
-      { lat: 60, lng: -45 },
-      { lat: 66, lng: -58 },
-      { lat: 76, lng: -72 },
+      { lat: 83, lng: -32 },
+      { lat: 81, lng: -16 },
+      { lat: 75, lng: -19 },
+      { lat: 68, lng: -23 },
+      { lat: 64, lng: -40 },
+      { lat: 60, lng: -44 },
+      { lat: 64, lng: -52 },
+      { lat: 68, lng: -53 },
+      { lat: 73, lng: -56 },
+      { lat: 76, lng: -65 },
+      { lat: 80, lng: -68 },
+      { lat: 82, lng: -50 },
+    ],
+  },
+  {
+    id: "iceland",
+    points: [
+      { lat: 64, lng: -22 },
+      { lat: 65, lng: -16 },
+      { lat: 66, lng: -15 },
+      { lat: 66, lng: -19 },
+      { lat: 64, lng: -23 },
+      { lat: 64, lng: -24 },
+    ],
+  },
+  {
+    id: "japan-honshu",
+    points: [
+      { lat: 35, lng: 139 },
+      { lat: 38, lng: 141 },
+      { lat: 41, lng: 141 },
+      { lat: 41, lng: 140 },
+      { lat: 38, lng: 137 },
+      { lat: 36, lng: 133 },
+      { lat: 34, lng: 131 },
+      { lat: 33, lng: 132 },
+      { lat: 34, lng: 136 },
+      { lat: 34, lng: 138 },
     ],
   },
 ];
@@ -180,17 +426,86 @@ function projectPoint(point: AtlasPoint, rotation: number, tilt: number, zoom: n
   };
 }
 
+function greatCircleInterpolate(a: GeoPoint, b: GeoPoint, steps: number): GeoPoint[] {
+  const aLat = (a.lat * Math.PI) / 180;
+  const aLng = (a.lng * Math.PI) / 180;
+  const bLat = (b.lat * Math.PI) / 180;
+  const bLng = (b.lng * Math.PI) / 180;
+
+  const cosDelta =
+    Math.sin(aLat) * Math.sin(bLat) + Math.cos(aLat) * Math.cos(bLat) * Math.cos(bLng - aLng);
+  const delta = Math.acos(clamp(cosDelta, -1, 1));
+
+  if (delta < 1e-6) return [a];
+
+  const sinDelta = Math.sin(delta);
+  const result: GeoPoint[] = [];
+
+  for (let i = 0; i < steps; i++) {
+    const t = i / steps;
+    const f1 = Math.sin((1 - t) * delta) / sinDelta;
+    const f2 = Math.sin(t * delta) / sinDelta;
+
+    const x = f1 * Math.cos(aLat) * Math.cos(aLng) + f2 * Math.cos(bLat) * Math.cos(bLng);
+    const y = f1 * Math.cos(aLat) * Math.sin(aLng) + f2 * Math.cos(bLat) * Math.sin(bLng);
+    const z = f1 * Math.sin(aLat) + f2 * Math.sin(bLat);
+
+    const lat = (Math.atan2(z, Math.sqrt(x * x + y * y)) * 180) / Math.PI;
+    const lng = (Math.atan2(y, x) * 180) / Math.PI;
+
+    result.push({ lat, lng });
+  }
+
+  return result;
+}
+
+function densifyLandmass(landmass: Landmass, segmentsPerEdge: number): GeoPoint[] {
+  const dense: GeoPoint[] = [];
+  const points = landmass.points;
+  for (let i = 0; i < points.length; i++) {
+    const a = points[i];
+    const b = points[(i + 1) % points.length];
+    dense.push(...greatCircleInterpolate(a, b, segmentsPerEdge));
+  }
+  return dense;
+}
+
 function makeLandPath(landmass: Landmass, rotation: number, tilt: number, zoom: number) {
-  const projected = landmass.points
-    .map((point) => projectGeoPoint(point, rotation, tilt, zoom))
-    .filter((point) => point.visible);
+  const dense = densifyLandmass(landmass, 8);
+  const projected = dense.map((point) => projectGeoPoint(point, rotation, tilt, zoom));
 
-  if (projected.length < 3) return null;
+  const segments: ProjectedGeoPoint[][] = [];
+  let current: ProjectedGeoPoint[] = [];
+  for (const point of projected) {
+    if (point.visible) {
+      current.push(point);
+    } else if (current.length > 0) {
+      segments.push(current);
+      current = [];
+    }
+  }
+  if (current.length > 0) {
+    if (segments.length > 0 && projected[0].visible) {
+      segments[0] = [...current, ...segments[0]];
+    } else {
+      segments.push(current);
+    }
+  }
 
-  const averageDepth = projected.reduce((total, point) => total + point.depth, 0) / projected.length;
-  const opacity = clamp(0.22 + averageDepth * 0.16, 0.12, 0.36);
-  const path = projected
-    .map((point, index) => `${index === 0 ? "M" : "L"} ${point.x.toFixed(1)} ${point.y.toFixed(1)}`)
+  const visibleSegments = segments.filter((segment) => segment.length >= 2);
+  if (visibleSegments.length === 0) return null;
+
+  const allVisible = visibleSegments.flat();
+  const averageDepth =
+    allVisible.reduce((total, point) => total + point.depth, 0) / allVisible.length;
+  const opacity = clamp(0.26 + averageDepth * 0.2, 0.14, 0.42);
+
+  const path = visibleSegments
+    .map((segment) =>
+      segment
+        .map((point, index) => `${index === 0 ? "M" : "L"} ${point.x.toFixed(1)} ${point.y.toFixed(1)}`)
+        .join(" "),
+    )
     .join(" ");
 
   return {
@@ -496,9 +811,11 @@ export default function AtlasGlobe() {
           }}
         >
           <p className="text-sm text-white">{hoveredPoint.name}</p>
-          <p className="mt-1 text-xs uppercase tracking-[0.14em] text-text-muted">
-            {hoveredPoint.sector}
-          </p>
+          {hoveredPoint.sector ? (
+            <p className="mt-1 text-xs uppercase tracking-[0.14em] text-text-muted">
+              {hoveredPoint.sector}
+            </p>
+          ) : null}
         </div>
       ) : null}
 
@@ -516,38 +833,16 @@ export default function AtlasGlobe() {
             <h3 className="pr-20 text-4xl font-light leading-none text-white md:text-5xl">
               {selectedCase.name}
             </h3>
-            <p className="mt-4 text-xs uppercase tracking-[0.18em] text-accent">
-              {selectedCase.sectorRegion}
-            </p>
+            {selectedCase.sectorRegion ? (
+              <p className="mt-4 text-xs uppercase tracking-[0.18em] text-accent">
+                {selectedCase.sectorRegion}
+              </p>
+            ) : null}
             <p
               className={`${cormorant.className} mt-8 border-l border-accent pl-6 text-xl italic leading-snug text-white md:text-2xl`}
             >
               {selectedCase.essence}
             </p>
-            {selectedCase.challenge || selectedCase.truth || selectedCase.impact ? (
-              <div className="mt-10 space-y-7 text-base leading-relaxed text-text-secondary">
-                {selectedCase.challenge ? (
-                  <section>
-                    <h4 className="text-xs uppercase tracking-[0.18em] text-white">The Challenge</h4>
-                    <p className="mt-3">{selectedCase.challenge}</p>
-                  </section>
-                ) : null}
-                {selectedCase.truth ? (
-                  <section>
-                    <h4 className="text-xs uppercase tracking-[0.18em] text-white">
-                      How It Surfaced
-                    </h4>
-                    <p className="mt-3">{selectedCase.truth}</p>
-                  </section>
-                ) : null}
-                {selectedCase.impact ? (
-                  <section>
-                    <h4 className="text-xs uppercase tracking-[0.18em] text-white">The Impact</h4>
-                    <p className="mt-3">{selectedCase.impact}</p>
-                  </section>
-                ) : null}
-              </div>
-            ) : null}
           </article>
         </div>
       ) : null}
