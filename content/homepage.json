@@ -120,7 +120,7 @@
         ],
         "ctaHeading": "Stop building on sand.",
         "ctaSubtext": "Let's inspect the ground your customers are standing on.",
-        "ctaButtonText": "Start the Inspection",
+        "ctaButtonText": "Start the conversation",
         "ctaEmail": "hello@bakamousa.com"
     },
     "footer": {
@@ -140,7 +140,7 @@
                 "href": "/blog"
             }
         ],
-        "ctaText": "Start the Inspection",
+        "ctaText": "Start the conversation",
         "ctaHref": "#contact"
     }
 }

@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 
 const CONSENT_KEY = "bakamo_consent";
+const CONSENT_CHANGE_EVENT = "bakamo_consent_change";
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
 function loadGTM() {
@@ -19,27 +20,50 @@ function loadGTM() {
   document.head.appendChild(script);
 }
 
+function subscribeToConsent(callback: () => void) {
+  window.addEventListener("storage", callback);
+  window.addEventListener(CONSENT_CHANGE_EVENT, callback);
+  return () => {
+    window.removeEventListener("storage", callback);
+    window.removeEventListener(CONSENT_CHANGE_EVENT, callback);
+  };
+}
+
+function getConsentSnapshot() {
+  return localStorage.getItem(CONSENT_KEY) ?? "unset";
+}
+
+function getServerConsentSnapshot() {
+  return "loading";
+}
+
+function notifyConsentChanged() {
+  window.dispatchEvent(new Event(CONSENT_CHANGE_EVENT));
+}
+
 export default function CookieBanner() {
-  const [visible, setVisible] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return localStorage.getItem(CONSENT_KEY) === null;
-  });
+  const consent = useSyncExternalStore(
+    subscribeToConsent,
+    getConsentSnapshot,
+    getServerConsentSnapshot,
+  );
+  const visible = consent === "unset";
 
   useEffect(() => {
-    if (localStorage.getItem(CONSENT_KEY) === "accepted") {
+    if (consent === "accepted") {
       loadGTM();
     }
-  }, []);
+  }, [consent]);
 
   function accept() {
     localStorage.setItem(CONSENT_KEY, "accepted");
-    setVisible(false);
+    notifyConsentChanged();
     loadGTM();
   }
 
   function decline() {
     localStorage.setItem(CONSENT_KEY, "declined");
-    setVisible(false);
+    notifyConsentChanged();
   }
 
   if (!visible) return null;

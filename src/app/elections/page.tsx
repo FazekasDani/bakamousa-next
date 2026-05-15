@@ -729,14 +729,14 @@ export default function ElectionsPage() {
                 Discuss This Research
               </Link>
               <Link
-                href="/solutions"
+                href="/our-method"
                 className="inline-flex items-center justify-center w-full rounded-full border border-white/15 px-6 py-3 text-sm uppercase tracking-[0.16em] text-white transition-colors hover:border-accent hover:text-accent"
                 data-analytics-event="cta_click"
-                data-analytics-label="See Our Solutions"
+                data-analytics-label="See Our Method"
                 data-analytics-location="elections_cta"
-                data-analytics-destination="/solutions"
+                data-analytics-destination="/our-method"
               >
-                See Our Solutions
+                See Our Method
               </Link>
               <div className="pt-4 border-t border-white/10">
                 <p className="text-xs text-text-muted">Contact</p>

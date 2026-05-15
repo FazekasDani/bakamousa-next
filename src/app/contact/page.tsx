@@ -4,14 +4,14 @@ import ContactPage from "@/components/ContactPage";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Book a Strategy Stress-Test with Bakamo. Offices in New Jersey, London, Dortmund, Budapest, and Kuala Lumpur.",
+    "Start the conversation with Bakamo. Offices in New Jersey, London, Dortmund, Budapest, and Kuala Lumpur.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
     title: "Contact | Bakamo",
     description:
-      "Book a Strategy Stress-Test with Bakamo. Offices in New Jersey, London, Dortmund, Budapest, and Kuala Lumpur.",
+      "Start the conversation with Bakamo. Offices in New Jersey, London, Dortmund, Budapest, and Kuala Lumpur.",
   },
 };
 
