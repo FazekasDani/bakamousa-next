@@ -1,5 +1,5 @@
-import WeFixedQuant from "../components/WeFixedQuant";
 import { getSiteUrl } from "@/lib/site-url";
+import SocialTruthHome from "@/components/SocialTruthHome";
 
 function buildServiceSchema(siteUrl: string) {
   return {
@@ -8,7 +8,7 @@ function buildServiceSchema(siteUrl: string) {
     name: "Bakamo",
     url: siteUrl,
     description:
-      "We deliver the real human narrative behind the decimal point. Unfiltered consumer intelligence.",
+      "Bakamo surfaces Social Truth, then builds the quantitative instruments that measure it.",
     serviceType: "Consumer Intelligence & Cultural Research",
     areaServed: { "@type": "Country", name: "United States" },
   };
@@ -24,7 +24,7 @@ export default async function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }}
       />
-      <WeFixedQuant />
+      <SocialTruthHome />
     </main>
   );
 }

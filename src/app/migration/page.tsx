@@ -434,14 +434,14 @@ export default function MigrationPage() {
                 Discuss a Migration Brief
               </Link>
               <Link
-                href="/solutions"
+                href="/our-method"
                 className="inline-flex items-center justify-center w-full rounded-full border border-white/15 px-6 py-3 text-sm uppercase tracking-[0.16em] text-white transition-colors hover:border-accent hover:text-accent"
                 data-analytics-event="cta_click"
-                data-analytics-label="See Our Solutions"
+                data-analytics-label="See Our Method"
                 data-analytics-location="migration_cta"
-                data-analytics-destination="/solutions"
+                data-analytics-destination="/our-method"
               >
-                See Our Solutions
+                See Our Method
               </Link>
             </div>
           </div>

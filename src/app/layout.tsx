@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import AnalyticsInstrumentation from "@/components/AnalyticsInstrumentation";
 import CookieBanner from "@/components/CookieBanner";
 import SiteNavigation from "@/components/SiteNavigation";
+import SiteFooter from "@/components/SiteFooter";
 import { getSiteUrlSync } from "@/lib/site-url";
 import "./globals.css";
 
@@ -17,11 +18,11 @@ const SITE_URL = getSiteUrlSync();
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Bakamo — We Fixed Quant",
+    default: "Bakamo - Social Truth",
     template: "%s | Bakamo",
   },
   description:
-    "We deliver the real human narrative behind the decimal point. Unfiltered consumer intelligence for leaders who need reality, not assumptions.",
+    "Bakamo surfaces Social Truth, then builds the quantitative instruments that measure it.",
   alternates: {
     canonical: "/",
   },
@@ -30,15 +31,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: "Bakamo",
-    title: "Bakamo — We Fixed Quant",
+    title: "Bakamo - Social Truth",
     description:
-      "We deliver the real human narrative behind the decimal point.",
+      "Bakamo surfaces Social Truth, then builds the quantitative instruments that measure it.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bakamo — We Fixed Quant",
+    title: "Bakamo - Social Truth",
     description:
-      "We deliver the real human narrative behind the decimal point.",
+      "Bakamo surfaces Social Truth, then builds the quantitative instruments that measure it.",
   },
 };
 
@@ -70,7 +71,7 @@ async function OrganizationJsonLd() {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={inter.variable} data-scroll-behavior="smooth">
       <body className={`${inter.className} antialiased bg-near-black text-text-primary`}>
         <AnalyticsInstrumentation />
         <SiteNavigation />
@@ -78,6 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {children}
 
+        <SiteFooter />
         <CookieBanner />
       </body>
     </html>

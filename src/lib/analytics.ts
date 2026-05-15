@@ -8,9 +8,10 @@ const PAGE_TYPE_PATTERNS = [
   { pattern: /^\/about(?:\/|$)/, type: "about" },
   { pattern: /^\/blog(?:\/|$)/, type: "blog" },
   { pattern: /^\/contact(?:\/|$)/, type: "contact" },
-  { pattern: /^\/in-house-teams(?:\/|$)/, type: "in_house_teams" },
-  { pattern: /^\/science(?:\/|$)/, type: "science" },
-  { pattern: /^\/solutions(?:\/|$)/, type: "solutions" },
+  { pattern: /^\/elections(?:\/|$)/, type: "elections" },
+  { pattern: /^\/migration(?:\/|$)/, type: "migration" },
+  { pattern: /^\/our-method(?:\/|$)/, type: "our_method" },
+  { pattern: /^\/privacy(?:\/|$)/, type: "privacy" },
   { pattern: /^\/technology(?:\/|$)/, type: "technology" },
 ];
 

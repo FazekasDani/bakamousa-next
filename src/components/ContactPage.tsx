@@ -47,7 +47,7 @@ const WHAT_HAPPENS = [
   },
   {
     number: "03",
-    title: "Start the stress-test",
+    title: "Begin the work",
     body: "The first engagement is designed to sharpen the brief, reveal fault lines, and show what the business should investigate next.",
   },
 ];
@@ -100,40 +100,27 @@ export default function ContactPage() {
   }, []);
 
   const emailHref = `mailto:${email}`;
-  const stressTestHref = `mailto:${email}?subject=Book%20a%20Strategy%20Stress-Test`;
+  const conversationHref = `mailto:${email}?subject=Start%20the%20conversation`;
 
   return (
     <div ref={containerRef} className="relative pb-24 text-text-primary">
       <div className="grain-overlay" />
 
       <section
-        className="relative isolate overflow-hidden px-6 pb-20 pt-32 md:pb-24 md:pt-44"
+        className="relative border-b border-border-grey px-6 pb-20 pt-32 md:pb-24 md:pt-44"
         data-analytics-section="contact_hero"
         data-analytics-label="Contact Hero"
       >
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 h-full w-full object-cover opacity-30 select-none pointer-events-none"
-        >
-          <source src="/media/hero-bg.mp4" type="video/mp4" />
-        </video>
-
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/45 to-near-black" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(201,169,110,0.18),transparent_32%),radial-gradient(circle_at_78%_24%,rgba(255,255,255,0.08),transparent_28%),radial-gradient(circle_at_50%_78%,rgba(201,169,110,0.08),transparent_36%)]" />
-
         <div className="relative z-10 mx-auto max-w-6xl">
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1.02fr)_minmax(320px,0.98fr)] lg:items-end">
             <div>
               <p className="contact-kicker text-sm uppercase tracking-[0.22em] text-accent">
-                The Consult
+                Contact
               </p>
               <h1
                 className={`${cormorant.className} contact-title mt-6 max-w-4xl text-[clamp(3.2rem,7vw,6.4rem)] leading-[0.88] tracking-tight text-white`}
               >
-                Let&apos;s inspect the ground before you commit the strategy.
+                Start the conversation.
               </h1>
               <div className="mt-10 h-px w-16 bg-accent" />
               <p className="contact-body mt-8 max-w-2xl text-lg font-light leading-relaxed text-text-secondary">
@@ -144,15 +131,15 @@ export default function ContactPage() {
               </p>
               <div className="contact-body mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
                 <a
-                  href={stressTestHref}
+                  href={conversationHref}
                   className="cta-button text-sm"
                   data-analytics-event="generate_lead"
-                  data-analytics-label="Book a Stress-Test"
+                  data-analytics-label="Start the conversation"
                   data-analytics-location="contact_hero"
                   data-analytics-contact-method="email"
                   data-analytics-lead-source="contact_page"
                 >
-                  Book a Stress-Test
+                  Start the conversation
                 </a>
                 <a
                   href={emailHref}
@@ -337,15 +324,15 @@ export default function ContactPage() {
             help work out the most useful way to start.
           </p>
           <a
-            href={stressTestHref}
+            href={conversationHref}
             className="cta-button mt-10 text-sm"
             data-analytics-event="generate_lead"
-            data-analytics-label="Book a Stress-Test"
+            data-analytics-label="Start the conversation"
             data-analytics-location="contact_final_cta"
             data-analytics-contact-method="email"
             data-analytics-lead-source="contact_page"
           >
-            Book a Stress-Test
+            Start the conversation
           </a>
         </div>
       </section>
