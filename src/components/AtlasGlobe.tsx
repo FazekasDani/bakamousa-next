@@ -554,7 +554,6 @@ export default function AtlasGlobe() {
   const [tilt, setTilt] = useState(8);
   const [zoom, setZoom] = useState(1);
   const [hovered, setHovered] = useState<string | null>(null);
-  const [isPointerInside, setIsPointerInside] = useState(false);
   const [selectedCase, setSelectedCase] = useState<AtlasCase | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -579,7 +578,7 @@ export default function AtlasGlobe() {
       const elapsed = time - lastTimeRef.current;
       lastTimeRef.current = time;
 
-      if (!reducedMotion && !isPointerInside && !selectedCase && !isDragging) {
+      if (!reducedMotion && !isDragging) {
         setRotation((current) => (current + (elapsed / 1000) * (360 / 55)) % 360);
       }
 
@@ -590,7 +589,7 @@ export default function AtlasGlobe() {
     return () => {
       if (frameRef.current) cancelAnimationFrame(frameRef.current);
     };
-  }, [isDragging, isPointerInside, reducedMotion, selectedCase]);
+  }, [isDragging, reducedMotion]);
 
   const points = useMemo(
     () =>
@@ -617,11 +616,7 @@ export default function AtlasGlobe() {
   return (
     <div
       className="relative mx-auto mt-14 w-full max-w-6xl touch-none select-none"
-      onPointerEnter={() => setIsPointerInside(true)}
-      onPointerLeave={() => {
-        setIsPointerInside(false);
-        setHovered(null);
-      }}
+      onPointerLeave={() => setHovered(null)}
     >
       <svg
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
