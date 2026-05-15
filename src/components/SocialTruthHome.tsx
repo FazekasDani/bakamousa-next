@@ -9,14 +9,6 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
-function Trademark() {
-  return (
-    <>
-      Social Truth<sup className="ml-1 align-super text-[0.45em] leading-none">&trade;</sup>
-    </>
-  );
-}
-
 const HOW_IT_WORKS = [
   {
     title: "Listen",
@@ -56,12 +48,12 @@ export default function SocialTruthHome() {
       >
         <div className="mx-auto w-full max-w-6xl">
           <p className="text-xs uppercase tracking-[0.28em] text-accent">
-            <Trademark />
+            Social Truth
           </p>
           <h1
             className={`${cormorant.className} mt-8 max-w-6xl text-[clamp(4.4rem,10vw,9.5rem)] leading-[0.82] tracking-tight text-white`}
           >
-            <Trademark /> transforms decisions.
+            Social Truth transforms decisions.
           </h1>
           <p className="mt-10 max-w-3xl text-lg font-light leading-relaxed text-text-secondary md:text-xl">
             The conversation between people &mdash; what they say to each other when no brand is in
@@ -102,7 +94,7 @@ export default function SocialTruthHome() {
       <section className="border-t border-border-grey px-6 py-24 md:py-32">
         <div className="mx-auto max-w-5xl">
           <h2 className="text-3xl font-light leading-tight text-white md:text-5xl">
-            <Trademark /> is what the conversation has already decided.
+            Social Truth is what the conversation has already decided.
           </h2>
           <div className="mt-16 divide-y divide-border-grey">
             <p className="py-10 text-2xl font-light leading-snug text-text-secondary">

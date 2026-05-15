@@ -42,11 +42,7 @@ export default function OurMethodPage() {
           <h1
             className={`${cormorant.className} max-w-5xl text-[clamp(4rem,8vw,7.5rem)] leading-[0.86] tracking-tight text-white`}
           >
-            {"How "}
-            <span className="whitespace-nowrap">
-              Social Truth<sup className="align-super text-[0.28em] leading-none">&trade;</sup>
-            </span>
-            {" Is Made."}
+            How Social Truth Is Made.
           </h1>
           <p className="mt-10 max-w-3xl text-xl font-light leading-relaxed text-text-secondary">
             Every Bakamo engagement runs in two phases. The first phase reads reality. The second

@@ -59,11 +59,7 @@ export default function TechnologyPage() {
           <h1
             className={`${cormorant.className} max-w-5xl text-[clamp(3.6rem,7.5vw,7rem)] leading-[0.88] tracking-tight text-white`}
           >
-            {"Technology is how we scale "}
-            <span className="whitespace-nowrap">
-              Social Truth<sup className="align-super text-[0.28em] leading-none">&trade;</sup>.
-            </span>
-            {" It is not what produces it."}
+            Technology is how we scale Social Truth. It is not what produces it.
           </h1>
           <div className="mt-10 h-px w-16 bg-accent" />
           <p className="mt-10 max-w-3xl text-xl font-light leading-relaxed text-text-secondary">

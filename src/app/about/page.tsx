@@ -57,9 +57,8 @@ export default function AboutPage() {
               from different angles: the gap between what consumers say in a survey and what they
               live in their actual lives. Closing that gap is not a feature. It is the whole
               product. We built the firm to do one thing - produce research grounded in Social Truth
-              <sup className="ml-1 align-super text-[0.55em] leading-none">&trade;</sup> - and to
-              do it without the overhead, the layers, or the methodological compromises of larger
-              shops.
+              - and to do it without the overhead, the layers, or the methodological compromises of
+              larger shops.
             </p>
           </div>
         </div>
