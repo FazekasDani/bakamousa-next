@@ -18,9 +18,126 @@ type ProjectedPoint = AtlasPoint & {
   depth: number;
 };
 
+type GeoPoint = {
+  lat: number;
+  lng: number;
+};
+
+type ProjectedGeoPoint = GeoPoint & {
+  x: number;
+  y: number;
+  visible: boolean;
+  depth: number;
+};
+
+type Landmass = {
+  id: string;
+  points: GeoPoint[];
+};
+
 const WIDTH = 900;
 const HEIGHT = 560;
 const BASE_RADIUS = 230;
+
+const LANDMASSES: Landmass[] = [
+  {
+    id: "north-america",
+    points: [
+      { lat: 72, lng: -164 },
+      { lat: 70, lng: -136 },
+      { lat: 58, lng: -122 },
+      { lat: 50, lng: -100 },
+      { lat: 31, lng: -106 },
+      { lat: 18, lng: -94 },
+      { lat: 9, lng: -83 },
+      { lat: 18, lng: -73 },
+      { lat: 31, lng: -81 },
+      { lat: 40, lng: -73 },
+      { lat: 51, lng: -60 },
+      { lat: 60, lng: -72 },
+      { lat: 64, lng: -96 },
+      { lat: 70, lng: -118 },
+    ],
+  },
+  {
+    id: "south-america",
+    points: [
+      { lat: 12, lng: -81 },
+      { lat: 7, lng: -61 },
+      { lat: -3, lng: -44 },
+      { lat: -17, lng: -39 },
+      { lat: -34, lng: -53 },
+      { lat: -55, lng: -68 },
+      { lat: -42, lng: -74 },
+      { lat: -20, lng: -72 },
+      { lat: 2, lng: -78 },
+    ],
+  },
+  {
+    id: "europe",
+    points: [
+      { lat: 71, lng: -10 },
+      { lat: 66, lng: 26 },
+      { lat: 55, lng: 40 },
+      { lat: 44, lng: 31 },
+      { lat: 37, lng: 22 },
+      { lat: 41, lng: 4 },
+      { lat: 36, lng: -9 },
+      { lat: 50, lng: -10 },
+      { lat: 60, lng: -6 },
+    ],
+  },
+  {
+    id: "africa",
+    points: [
+      { lat: 37, lng: -17 },
+      { lat: 33, lng: 31 },
+      { lat: 14, lng: 51 },
+      { lat: -12, lng: 43 },
+      { lat: -35, lng: 20 },
+      { lat: -30, lng: 5 },
+      { lat: -1, lng: -17 },
+      { lat: 18, lng: -16 },
+    ],
+  },
+  {
+    id: "asia",
+    points: [
+      { lat: 69, lng: 36 },
+      { lat: 70, lng: 92 },
+      { lat: 59, lng: 142 },
+      { lat: 43, lng: 151 },
+      { lat: 22, lng: 122 },
+      { lat: 7, lng: 100 },
+      { lat: 22, lng: 78 },
+      { lat: 10, lng: 45 },
+      { lat: 32, lng: 34 },
+      { lat: 51, lng: 48 },
+    ],
+  },
+  {
+    id: "australia",
+    points: [
+      { lat: -11, lng: 113 },
+      { lat: -16, lng: 146 },
+      { lat: -30, lng: 153 },
+      { lat: -43, lng: 145 },
+      { lat: -35, lng: 116 },
+      { lat: -22, lng: 113 },
+    ],
+  },
+  {
+    id: "greenland",
+    points: [
+      { lat: 82, lng: -54 },
+      { lat: 76, lng: -20 },
+      { lat: 65, lng: -31 },
+      { lat: 60, lng: -45 },
+      { lat: 66, lng: -58 },
+      { lat: 76, lng: -72 },
+    ],
+  },
+];
 
 function clamp(value: number, min: number, max: number) {
   return Math.max(min, Math.min(max, value));
@@ -30,7 +147,7 @@ function round(value: number) {
   return Number(value.toFixed(3));
 }
 
-function projectPoint(point: AtlasPoint, rotation: number, tilt: number, zoom: number): ProjectedPoint {
+function projectGeoPoint(point: GeoPoint, rotation: number, tilt: number, zoom: number): ProjectedGeoPoint {
   const radius = BASE_RADIUS * zoom;
   const lat = (point.lat * Math.PI) / 180;
   const lon = ((point.lng + rotation) * Math.PI) / 180;
@@ -53,6 +170,33 @@ function projectPoint(point: AtlasPoint, rotation: number, tilt: number, zoom: n
     y: round(HEIGHT / 2 - y),
     depth: round(z),
     visible: z > -0.08,
+  };
+}
+
+function projectPoint(point: AtlasPoint, rotation: number, tilt: number, zoom: number): ProjectedPoint {
+  return {
+    ...point,
+    ...projectGeoPoint(point, rotation, tilt, zoom),
+  };
+}
+
+function makeLandPath(landmass: Landmass, rotation: number, tilt: number, zoom: number) {
+  const projected = landmass.points
+    .map((point) => projectGeoPoint(point, rotation, tilt, zoom))
+    .filter((point) => point.visible);
+
+  if (projected.length < 3) return null;
+
+  const averageDepth = projected.reduce((total, point) => total + point.depth, 0) / projected.length;
+  const opacity = clamp(0.22 + averageDepth * 0.16, 0.12, 0.36);
+  const path = projected
+    .map((point, index) => `${index === 0 ? "M" : "L"} ${point.x.toFixed(1)} ${point.y.toFixed(1)}`)
+    .join(" ");
+
+  return {
+    id: landmass.id,
+    opacity: round(opacity),
+    path: `${path} Z`,
   };
 }
 
@@ -151,6 +295,9 @@ export default function AtlasGlobe() {
   const parallels = [-60, -30, 0, 30, 60].map((value) =>
     makeParallel(rotation, tilt, zoom, value),
   );
+  const landPaths = LANDMASSES.map((landmass) => makeLandPath(landmass, rotation, tilt, zoom)).filter(
+    (landPath): landPath is NonNullable<typeof landPath> => landPath !== null,
+  );
 
   return (
     <div
@@ -192,10 +339,22 @@ export default function AtlasGlobe() {
       >
         <defs>
           <radialGradient id="atlasSurface" cx="38%" cy="30%" r="68%">
-            <stop offset="0%" stopColor="var(--mid-grey)" />
-            <stop offset="70%" stopColor="var(--near-black)" />
-            <stop offset="100%" stopColor="var(--black)" />
+            <stop offset="0%" stopColor="#163342" />
+            <stop offset="56%" stopColor="#08151f" />
+            <stop offset="100%" stopColor="#020508" />
           </radialGradient>
+          <radialGradient id="atlasAtmosphere" cx="42%" cy="34%" r="68%">
+            <stop offset="0%" stopColor="#4fa4b8" stopOpacity="0.18" />
+            <stop offset="62%" stopColor="#123646" stopOpacity="0.08" />
+            <stop offset="100%" stopColor="#07131b" stopOpacity="0" />
+          </radialGradient>
+          <linearGradient id="atlasLand" x1="25%" y1="15%" x2="82%" y2="92%">
+            <stop offset="0%" stopColor="#345464" stopOpacity="0.82" />
+            <stop offset="100%" stopColor="#13242f" stopOpacity="0.62" />
+          </linearGradient>
+          <filter id="atlasLandSoftness" x="-8%" y="-8%" width="116%" height="116%">
+            <feGaussianBlur stdDeviation="0.35" />
+          </filter>
           <clipPath id="atlasClip">
             <circle cx={WIDTH / 2} cy={HEIGHT / 2} r={round(BASE_RADIUS * zoom)} />
           </clipPath>
@@ -206,16 +365,35 @@ export default function AtlasGlobe() {
           cy={HEIGHT / 2}
           r={round(BASE_RADIUS * zoom)}
           fill="url(#atlasSurface)"
-          stroke="var(--border-grey)"
+          stroke="#2b4f5f"
           strokeWidth="1"
         />
+        <circle
+          cx={WIDTH / 2}
+          cy={HEIGHT / 2}
+          r={round(BASE_RADIUS * zoom)}
+          fill="url(#atlasAtmosphere)"
+        />
+        <g clipPath="url(#atlasClip)" filter="url(#atlasLandSoftness)">
+          {landPaths.map((landPath) => (
+            <path
+              key={landPath.id}
+              d={landPath.path}
+              fill="url(#atlasLand)"
+              opacity={landPath.opacity}
+              stroke="#7bb5c4"
+              strokeOpacity="0.11"
+              strokeWidth="0.85"
+            />
+          ))}
+        </g>
         <g clipPath="url(#atlasClip)" opacity="0.46">
           {parallels.map((parallel, index) => (
             <polyline
               key={`parallel-${index}`}
               points={parallel}
               fill="none"
-              stroke="var(--border-grey)"
+              stroke="#315261"
               strokeWidth="0.8"
             />
           ))}
@@ -224,7 +402,7 @@ export default function AtlasGlobe() {
               key={`meridian-${index}`}
               points={meridian}
               fill="none"
-              stroke="var(--border-grey)"
+              stroke="#315261"
               strokeWidth="0.8"
             />
           ))}
