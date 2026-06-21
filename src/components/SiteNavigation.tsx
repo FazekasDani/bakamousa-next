@@ -80,6 +80,16 @@ export default function SiteNavigation() {
                 {item.label}
               </Link>
             ))}
+            <a
+              href="https://tensionscope-frontend-47czdwwjxa-uc.a.run.app/login"
+              className="rounded-sm border border-accent/40 px-2.5 py-1 text-[8px] uppercase tracking-[0.08em] text-accent transition-colors hover:border-accent hover:bg-accent/10 min-[390px]:text-[9px] sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-[0.15em]"
+              data-analytics-event="nav_click"
+              data-analytics-label="Log in"
+              data-analytics-location="top_nav"
+              data-analytics-destination="reading-machine-login"
+            >
+              Log in
+            </a>
           </div>
         </div>
       </div>
