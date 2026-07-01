@@ -833,11 +833,13 @@ export default function AtlasGlobe() {
                 {selectedCase.sectorRegion}
               </p>
             ) : null}
-            <p
-              className={`${cormorant.className} mt-8 border-l border-accent pl-6 text-xl italic leading-snug text-white md:text-2xl`}
+            <div
+              className={`${cormorant.className} mt-8 space-y-4 border-l border-accent pl-6 text-xl italic leading-snug text-white md:text-2xl`}
             >
-              {selectedCase.essence}
-            </p>
+              {selectedCase.essence.split("\n\n").map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
           </article>
         </div>
       ) : null}
