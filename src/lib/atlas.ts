@@ -6,9 +6,6 @@ export type AtlasCase = {
   lat: number;
   lng: number;
   essence: string;
-  challenge?: string;
-  truth?: string;
-  impact?: string;
 };
 
 export type AtlasPoint =
@@ -22,58 +19,40 @@ export type AtlasPoint =
 
 export const ACTIVE_ATLAS_CASES: AtlasCase[] = [
   {
-    id: "hungary-election-2026",
-    name: "The Hungarian Election, 2026",
-    sectorRegion: "Public sphere / Europe",
-    sector: "Public sphere",
-    lat: 47.4979,
-    lng: 19.0402,
-    essence:
-      "A polarised electorate is not divided by what people want. It is divided by two opposing psychological architectures — the Employee, who locates safety inside the system, and the Entrepreneur, who locates it in personal agency. Identity comes first. Politics follows.",
-    challenge:
-      "Hungary held the most contested election in its post-1989 history. The polling industry had been systematically eroded for over a decade. Independent polls showed the challenger leading by anywhere from 9 to 23 points. Government-aligned institutes forecast the opposite. The country had no shared instrument it could trust.",
-    truth:
-      "Three weeks before the vote, we analyzed 10,000+ unprompted conversations and surfaced two completely different motivational architectures: outer-directed and inner-directed. The gap in inner-directed expression favoring challenger supporters was 12.4 points. We published the findings before the vote.",
-    impact:
-      "The election produced a two-thirds opposition supermajority, the highest voter turnout since 1989, and the largest mandate of any Hungarian government in the post-communist era. Independent polls had captured the direction. Most underestimated the scale. The findings were referenced by Bloomberg, Politico, and Der Standard.",
-  },
-  {
-    id: "stella-chewys",
-    name: "Stella & Chewy's",
-    sectorRegion: "Premium pet food / North America",
-    sector: "Pet food",
+    id: "premium-pet-food",
+    name: "Premium pet food, North America",
+    sectorRegion: "",
+    sector: "",
     lat: 43.0389,
     lng: -87.9065,
     essence:
       "What people call premium pet food is not a category in their minds. It is a stage on which owners perform their love — as trainers, as nurturers, as healers. The product is the script.",
-    challenge:
-      "Stella & Chewy's was preparing to enter the gently cooked dog food space, a premium category that looked well-defined on paper. The internal brief reflected standard category logic: quantify the segment, identify the target consumer, position against the competitive set.",
-    truth:
-      "The category did not exist as a category in consumer discourse. Gently cooked disappeared into a broader umbrella consumers called real dog food, benchmarked against home cooking, not against other brands. Inside it lived three different motivational architectures: Perfect Conditioning, Human Grade Gratitude, Prolonged Love. Across all three, the owner was the protagonist.",
-    impact:
-      "The discovery work was delivered as a category architecture rather than a conventional category report. It reframed the competitive set, the segmentation logic, and the unit of analysis. The internal framing of the launch shifted from a category-entry brief to an owner-role brief, with downstream effects on positioning and language.",
   },
   {
-    id: "racial-health-equity",
-    name: "Racial Health Equity",
-    sectorRegion: "Public health / North America",
-    sector: "Public health",
+    id: "hungary-election-2026",
+    name: "The Hungarian Election, 2026 — Public sphere, Europe",
+    sectorRegion: "",
+    sector: "",
+    lat: 47.4979,
+    lng: 19.0402,
+    essence:
+      "A polarised electorate is not divided by what people want. It is divided by two opposing psychological architectures — the Employee, who locates safety inside the system, and the Entrepreneur, who locates it in personal agency. Identity comes first. Politics follows.",
+  },
+  {
+    id: "public-health",
+    name: "Public health, North America",
+    sectorRegion: "",
+    sector: "",
     lat: 38.9072,
     lng: -77.0369,
     essence:
       "The middle of a contested public conversation is not undecided. It accepts the problem exists and rejects the language used to name it. The door is opened by class, not race.",
-    challenge:
-      "A national health equity advocacy organization wanted to understand the discourse surrounding one of the most contested public health questions in America. Conventional research struggles when the topic is politically loaded and respondent self-presentation distorts the data.",
-    truth:
-      "We analyzed 3.5 million unprompted mentions across nine platforms and surfaced three distinct narrative architectures, not a spectrum. The swayable middle was not undecided. It was differently decided: a worldview that accepts disparities exist but rejects the racial framing used to explain them.",
-    impact:
-      "A national survey of 1,850 voters, conducted independently in early 2025, segmented the electorate into three groups whose structure, proportions, and attitudinal architecture closely tracked what the social intelligence had described. Two independent methodologies converged on the same three-part architecture.",
   },
   {
     id: "non-alcoholic-spirits",
-    name: "Non-Alcoholic Spirits",
-    sectorRegion: "Non-alcoholic spirits / North America",
-    sector: "Beverage",
+    name: "Non-alcoholic spirits, North America",
+    sectorRegion: "",
+    sector: "",
     lat: 40.7128,
     lng: -74.006,
     essence:
@@ -81,13 +60,23 @@ export const ACTIVE_ATLAS_CASES: AtlasCase[] = [
   },
   {
     id: "body-care-ssa",
-    name: "Body Care, Sub-Saharan Africa",
-    sectorRegion: "Body care / Sub-Saharan Africa",
-    sector: "Body care",
+    name: "Body care across Sub-Saharan Africa",
+    sectorRegion: "",
+    sector: "",
     lat: -26.2041,
     lng: 28.0473,
     essence:
-      "Skin is a social currency before it is a body. In markets where lightness still carries advantage, “celebrate who you are” rings hollow against a culture organised around changing who you are.",
+      'Skin is a social currency before it is a body. In markets where lightness still carries advantage, "celebrate who you are" rings hollow against a culture organised around changing who you are.',
+  },
+  {
+    id: "amsterdam-ad-ban",
+    name: "Amsterdam's Ad Ban: a meat debate in disguise",
+    sectorRegion: "Public sphere, Europe",
+    sector: "",
+    lat: 52.3676,
+    lng: 4.9041,
+    essence:
+      "On May 1, Amsterdam introduced an ad ban on meat and fossil-fuel products. We explored the reactions of social media users across various channels. The language was English.\n\nWhat we found is that the discourse predominantly focuses on the meat part of the ban, and to a significantly lesser extent on the fossil-fuel part. The fossil-fuel half is largely waved through as common sense. The meat half is where the conversation concentrates.\n\nBy and large, opinions fall into two opposing sides — and which side people land on tends to track whether they're an omnivore or follow a meat-free lifestyle. In this discourse, diet predicts stance more reliably than politics.\n\nSupporters celebrate the policy. They expect that reducing the visibility of meat will normalise vegetarian and vegan options over time, underpinned by a belief that less advertising means meat stops being the default. Other supportive arguments include retribution for the environmental damage attributed to the meat industry, and a smaller group who back the ban because they think fewer ads would have a calming, aesthetic effect on the quality of city life. The stance is anchored in a self-identity as environmentally conscious and forward-looking.\n\nOpponents read the ban as an attack on a normal, everyday way of life — elitist, performative, and a step toward broader censorship. A recurring move is whataboutism: gambling ads are permitted, but meat is where the line is drawn? The register here is largely ridicule and sarcasm rather than evidence, while the supportive side tends toward research, precedent, and moral framing. As a result, the two camps rarely engage directly.\n\nBeneath the meat divide sit two deeper questions that also separate the camps: whether advertising actually changes behaviour, and whether a collective authority should decide what may be promoted. The fossil-fuel half of the ban functions as a useful point of comparison — the same policy, the same city, and the same censorship objection available, yet only meat generates sustained debate. In this discourse, the stronger driver of reaction is dietary identity rather than free-speech principle.",
   },
 ];
 
